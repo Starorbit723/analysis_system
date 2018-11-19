@@ -11,18 +11,18 @@
                 <el-col :span="12">
                   <el-form-item label="Name of Contact">
                       <el-input
-                        clearable
+                        :disabled="true"
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.contactInformation.userName"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
                 <el-col :span="12">
                   <el-form-item label="Email">
                       <el-input
-                        clearable
+                        :disabled="true"
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.contactInformation.emailAddress"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -31,18 +31,18 @@
                 <el-col :span="12">
                   <el-form-item label="Phone Number">
                       <el-input
-                        clearable
+                        :disabled="true"
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.contactInformation.phoneNumber"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
                 <el-col :span="12">
-                  <el-form-item label="Title">
+                  <el-form-item label="Data Title">
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.contactInformation.dataTitle"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -53,7 +53,7 @@
               <el-row :gutter="20" :offset="1" class="f-mart30">
                 <el-col :span="8">
                   <el-form-item label="Country">
-                    <el-select v-model="addDataForm.value" class="el-width-st100" placeholder="Please Choice Country">
+                    <el-select v-model="addDataForm.generalInformation.country" class="el-width-st100" placeholder="Please Choice Country">
                       <el-option
                         v-for="item in country"
                         :key="item.value"
@@ -68,7 +68,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.generalInformation.stateProvince"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -77,7 +77,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.generalInformation.countyCity"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -88,7 +88,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.generalInformation.field"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -97,13 +97,13 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.generalInformation.reservoirBlock"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
                 <el-col :span="8">
                   <el-form-item label="EOR Type">
-                    <el-select v-model="addDataForm.value" class="el-width-st100" placeholder="Please Choice Type">
+                    <el-select v-model="addDataForm.generalInformation.EORType" class="el-width-st100" placeholder="Please Choice Type">
                       <el-option
                         v-for="item in EORType"
                         :key="item.value"
@@ -120,14 +120,14 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.generalInformation.operator"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
                 <el-col :span="8">
                   <el-form-item label="Start Date">
                     <el-date-picker
-                      v-model="addDataForm.starTime"
+                      v-model="addDataForm.generalInformation.starDate"
                       type="date"
                       placeholder="Please Choice StarTime"
                       class="el-width-st100">
@@ -137,7 +137,7 @@
                 <el-col :span="8">
                   <el-form-item label="End Date">
                     <el-date-picker
-                      v-model="addDataForm.endTime"
+                      v-model="addDataForm.generalInformation.endDate"
                       type="date"
                       placeholder="Please Choice EndTime"
                       class="el-width-st100">
@@ -154,7 +154,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.reservoirInformation.interestArea"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -163,7 +163,7 @@
                     <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.reservoirInformation.gravity"
                         auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -174,7 +174,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.reservoirInformation.productionWells"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -183,7 +183,7 @@
                     <el-input
                       clearable
                       type="text"
-                      v-model="addDataForm.contantName"
+                      v-model="addDataForm.reservoirInformation.oilViscosityAtReservoir"
                       auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -194,7 +194,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.reservoirInformation.injectionWells"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -203,7 +203,7 @@
                     <el-input
                       clearable
                       type="text"
-                      v-model="addDataForm.contantName"
+                      v-model="addDataForm.reservoirInformation.formationWaterViscosity"
                       auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -214,7 +214,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.reservoirInformation.payZoneOrFormationName"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -223,7 +223,7 @@
                     <el-input
                       clearable
                       type="text"
-                      v-model="addDataForm.contantName"
+                      v-model="addDataForm.reservoirInformation.reservoirTemperature"
                       auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -231,7 +231,7 @@
               <el-row :gutter="20" :offset="1">
                 <el-col :span="12">
                   <el-form-item label="Formation Type" label-width="55%">
-                    <el-select v-model="addDataForm.value" class="el-width-st100" placeholder="Please Choice Type">
+                    <el-select v-model="addDataForm.reservoirInformation.formationType" class="el-width-st100" placeholder="Please Choice Type">
                       <el-option
                         v-for="item in formationType"
                         :key="item.value"
@@ -246,7 +246,7 @@
                     <el-input
                       clearable
                       type="text"
-                      v-model="addDataForm.contantName"
+                      v-model="addDataForm.reservoirInformation.initialOilSaturation"
                       auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -254,7 +254,7 @@
               <el-row :gutter="20" :offset="1">
                 <el-col :span="12">
                   <el-form-item label="Hydraulic Fractured" label-width="55%">
-                    <el-select v-model="addDataForm.value" class="el-width-st100" placeholder="Please Choice Yes or No">
+                    <el-select v-model="addDataForm.reservoirInformation.hydraulicFractured" class="el-width-st100" placeholder="Please Choice Yes or No">
                       <el-option
                         v-for="item in hydraulicFractured"
                         :key="item.value"
@@ -269,7 +269,7 @@
                     <el-input
                       clearable
                       type="text"
-                      v-model="addDataForm.contantName"
+                      v-model="addDataForm.reservoirInformation.initialWaterSaturation"
                       auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -277,7 +277,7 @@
               <el-row :gutter="20" :offset="1">
                 <el-col :span="12">
                   <el-form-item label="Natually Fractured" label-width="55%">
-                    <el-select v-model="addDataForm.value" class="el-width-st100" placeholder="Please Choice Yes or No">
+                    <el-select v-model="addDataForm.reservoirInformation.natuallyFractured" class="el-width-st100" placeholder="Please Choice Yes or No">
                       <el-option
                         v-for="item in natuallyFractured"
                         :key="item.value"
@@ -292,7 +292,7 @@
                     <el-input
                       clearable
                       type="text"
-                      v-model="addDataForm.contantName"
+                      v-model="addDataForm.reservoirInformation.formationWaterSalinity"
                       auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -303,7 +303,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.reservoirInformation.fracturePermeability"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -312,7 +312,7 @@
                     <el-input
                       clearable
                       type="text"
-                      v-model="addDataForm.contantName"
+                      v-model="addDataForm.reservoirInformation.divalentCations"
                       auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -323,7 +323,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.reservoirInformation.matrixPermeability"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -332,7 +332,7 @@
                     <el-input
                       clearable
                       type="text"
-                      v-model="addDataForm.contantName"
+                      v-model="addDataForm.reservoirInformation.initialOilInPlace"
                       auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -343,13 +343,13 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.reservoirInformation.grossThickness"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
                 <el-col :span="12">
                   <el-form-item label="Drive Mechanism" label-width="55%">
-                    <el-select v-model="addDataForm.value" class="el-width-st100" placeholder="Please Choice Drive Mechanism">
+                    <el-select v-model="addDataForm.reservoirInformation.driveMechanism" class="el-width-st100" placeholder="Please Choice Drive Mechanism">
                       <el-option
                         v-for="item in driveMechanism"
                         :key="item.value"
@@ -366,7 +366,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.reservoirInformation.netThickness"
                         auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -375,7 +375,7 @@
                     <el-input
                       clearable
                       type="text"
-                      v-model="addDataForm.contantName"
+                      v-model="addDataForm.reservoirInformation.initialReserviorPressure"
                       auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -386,7 +386,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.reservoirInformation.porosity"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -395,7 +395,7 @@
                     <el-input
                       clearable
                       type="text"
-                      v-model="addDataForm.contantName"
+                      v-model="addDataForm.reservoirInformation.presentPressure"
                       auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -406,7 +406,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.reservoirInformation.permeability"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -415,7 +415,7 @@
                     <el-input
                       clearable
                       type="text"
-                      v-model="addDataForm.contantName"
+                      v-model="addDataForm.reservoirInformation.bubblePointPressure"
                       auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -426,13 +426,13 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.reservoirInformation.dykstraParsonsCoefficient"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
                 <el-col :span="12">
                   <el-form-item label="Sedimentary Sequence Distribution" label-width="55%">
-                    <el-select v-model="addDataForm.value" class="el-width-st100" placeholder="Please Choice Distribution">
+                    <el-select v-model="addDataForm.reservoirInformation.sedimentarySequenceDistribution" class="el-width-st100" placeholder="Please Choice Distribution">
                       <el-option
                         v-for="item in sedimentarySequenceDistribution"
                         :key="item.value"
@@ -449,13 +449,13 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.reservoirInformation.depth"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
                 <el-col :span="12">
                   <el-form-item label="Depositional Environment" label-width="55%">
-                    <el-select v-model="addDataForm.value" class="el-width-st100" placeholder="Please Choice Depositional Environment">
+                    <el-select v-model="addDataForm.reservoirInformation.depositionalEnvironment" class="el-width-st100" placeholder="Please Choice Depositional Environment">
                       <el-option
                         v-for="item in depositionalEnvironment"
                         :key="item.value"
@@ -469,13 +469,13 @@
             </el-collapse-item>
             <!--注射参数-->
             <el-collapse-item title="Injection Parameter" name="4">
-              <el-table :data="addDataForm.injectionTable" style="width: 100%" stripe>
+              <el-table :data="addDataForm.injectionParameter" style="width: 100%" stripe>
                 <el-table-column fixed type="index" label="Stages" width="80"></el-table-column>
                 <el-table-column label="Start Injection Date" width="160">
                   <template slot-scope="scope">
                     <el-date-picker
                       class="el-width-st100"
-                      v-model="scope.row.StartInjectionDate"
+                      v-model="scope.row.startInjectionDate"
                       type="date"
                       placeholder="Start Date">
                     </el-date-picker>
@@ -485,7 +485,7 @@
                   <template slot-scope="scope">
                     <el-date-picker
                       class="el-width-st100"
-                      v-model="scope.row.EndDate"
+                      v-model="scope.row.endInjectionDate"
                       type="date"
                       placeholder="End Date">
                     </el-date-picker>
@@ -503,37 +503,37 @@
                 </el-table-column>
                 <el-table-column label="Temperature Resistance(⁰C)" width="130">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.TemperatureResistance"></el-input>
+                    <el-input v-model="scope.row.temperatureResistance"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="Swelling Rate(hour)" width="130">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.SwellingRate"></el-input>
+                    <el-input v-model="scope.row.swellingRate"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="Thermal Stability(day)" width="130">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.ThermalStability"></el-input>
+                    <el-input v-model="scope.row.thermalStability"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column prop="Strength" label="Strength(Pa)" width="130">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.Strength"></el-input>
+                    <el-input v-model="scope.row.strength"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="Salinity Resistance(ppm)" width="130">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.SalinityResistance"></el-input>
+                    <el-input v-model="scope.row.salinityResistance"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="Swelling Ratio" width="130">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.SwellingRatio"></el-input>
+                    <el-input v-model="scope.row.swellingRatio"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="Dried PPG Weight(ton)" width="130">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.DriedPPGWeight"></el-input>
+                    <el-input v-model="scope.row.driedPPGWeight"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="PPG Suspension Concentration(ppm)" width="130">
@@ -553,22 +553,22 @@
                 </el-table-column>
                 <el-table-column label="Initial PPG Injection Pressure(MPa)" width="130">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.InitialPPGInjectionPressure"></el-input>
+                    <el-input v-model="scope.row.initialPPGInjectionPressure"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="Maximum Injection Pressure(MPa)" width="130">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.MaximumInjectionPressure"></el-input>
+                    <el-input v-model="scope.row.maximumInjectionPressure"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="Total Injection Weight(ton)" width="130">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.TotalInjectionWeight"></el-input>
+                    <el-input v-model="scope.row.totalInjectionWeight"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="Total Injection Volume(m3)" width="130">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.TotalInjectionVolume"></el-input>
+                    <el-input v-model="scope.row.totalInjectionVolume"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="operation" width="90" fixed="right">
@@ -583,16 +583,16 @@
             </el-collapse-item>
             <!--PPG监控-->
             <el-collapse-item title="PPG Monitering" name="5">
-              <el-table :data="addDataForm.PPGMoniteringTable" style="width: 100%" stripe>
+              <el-table :data="addDataForm.PPGMonitering" style="width: 100%" stripe>
                 <el-table-column fixed type="index" label="Stages" width="80"></el-table-column>
                 <el-table-column label="Injection Duration (day)">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.InjectionDuration"></el-input>
+                    <el-input v-model="scope.row.injectionDuration"></el-input>
                   </template>
                 </el-table-column>
-                <el-table-column label="PPG Injection PRessure (MPa)">
+                <el-table-column label="PPG Injection Pressure (MPa)">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.PPGInjectionPRessure"></el-input>
+                    <el-input v-model="scope.row.PPGInjectionPressure"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="operation" width="90" fixed="right">
@@ -605,12 +605,12 @@
                 <button class="add_newLine" @click="addNewLine2()">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</button>
               </el-row>
             </el-collapse-item>
-            <!--PPG监控-->
+            <!--评估-->
             <el-collapse-item title="Evaluation" name="6">
               <el-row :gutter="20" :offset="1" class="f-width90 f-mart30">
                 <el-col :span="12">
                   <el-form-item label="Previous Production">
-                    <el-select v-model="addDataForm.value" class="el-width-st100" placeholder="Please Choice Previous Production">
+                    <el-select v-model="addDataForm.evaluation.previousProduction" class="el-width-st100" placeholder="Please Choice Previous Production">
                       <el-option
                         v-for="item in previousProduction"
                         :key="item.value"
@@ -622,7 +622,7 @@
                 </el-col>
                 <el-col :span="12">
                   <el-form-item label="Project Scope">
-                    <el-select v-model="addDataForm.value" class="el-width-st100" placeholder="Please Choice Project Scope">
+                    <el-select v-model="addDataForm.evaluation.projectScope" class="el-width-st100" placeholder="Please Choice Project Scope">
                       <el-option
                         v-for="item in projectScope"
                         :key="item.value"
@@ -636,7 +636,7 @@
               <el-row :gutter="20" :offset="1" class="f-width90">
                 <el-col :span="12">
                   <el-form-item label="Project Maturity">
-                    <el-select v-model="addDataForm.value" class="el-width-st100" placeholder="Please Choice Project Maturity">
+                    <el-select v-model="addDataForm.evaluation.projectMaturity" class="el-width-st100" placeholder="Please Choice Project Maturity">
                       <el-option
                         v-for="item in projectMaturity"
                         :key="item.value"
@@ -651,7 +651,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.evaluation.wellPattern"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -659,7 +659,7 @@
               <el-row :gutter="20" :offset="1" class="f-width90">
                 <el-col :span="12">
                   <el-form-item label="Project Evaluation">
-                    <el-select v-model="addDataForm.value" class="el-width-st100" placeholder="Please Choice Project Evaluation">
+                    <el-select v-model="addDataForm.evaluation.projectEvaluation" class="el-width-st100" placeholder="Please Choice Project Evaluation">
                       <el-option
                         v-for="item in projectEvaluation"
                         :key="item.value"
@@ -674,7 +674,7 @@
                       <el-input
                         clearable
                         type="text"
-                        v-model="addDataForm.contantName"
+                        v-model="addDataForm.evaluation.wellSpacing"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -682,7 +682,7 @@
               <el-row :gutter="20" :offset="1" class="f-width90">
                 <el-col :span="12">
                   <el-form-item label="Profit">
-                    <el-select v-model="addDataForm.value" class="el-width-st100" placeholder="Please Choice Profit">
+                    <el-select v-model="addDataForm.evaluation.profit" class="el-width-st100" placeholder="Please Choice Profit">
                       <el-option
                         v-for="item in profit"
                         :key="item.value"
@@ -696,45 +696,45 @@
             </el-collapse-item>
             <!--PPG处理后的压力测试结果-->
             <el-collapse-item title="Pressure Test Result After PPG Treatment" name="7">
-              <el-table :data="addDataForm.afterPPGTreatmentTable" style="width: 100%" stripe>
+              <el-table :data="addDataForm.afterPPGTreatment" style="width: 100%" stripe>
                 <el-table-column label="Well Name">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.WellName"></el-input>
+                    <el-input v-model="scope.row.wellName"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="Before PPG Injection">
                   <el-table-column label="PI(90) (MPa)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.BeforePI90"></el-input>
+                      <el-input v-model="scope.row.beforePI90"></el-input>
                     </template>
                   </el-table-column>
                   <el-table-column label="Injection Pressure (MPa)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.BeforeInjectionPressure"></el-input>
+                      <el-input v-model="scope.row.beforeInjectionPressure"></el-input>
                     </template>
                   </el-table-column>
                 </el-table-column>
                 <el-table-column label="After PPG Treatment">
                   <el-table-column label="PI(90) (MPa)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.AfterPI90"></el-input>
+                      <el-input v-model="scope.row.afterPI90"></el-input>
                     </template>
                   </el-table-column>
                   <el-table-column label="Injection Pressure (MPa)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.AfterInjectionPressure"></el-input>
+                      <el-input v-model="scope.row.afterInjectionPressure"></el-input>
                     </template>
                   </el-table-column>
                 </el-table-column>
                 <el-table-column label="Difference">
                   <el-table-column label="PI(90) (MPa)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.DifferencePI90"></el-input>
+                      <el-input v-model="scope.row.differencePI90"></el-input>
                     </template>
                   </el-table-column>
                   <el-table-column label="Injection Pressure (MPa)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.DifferenceInjectionPressure"></el-input>
+                      <el-input v-model="scope.row.differenceInjectionPressure"></el-input>
                     </template>
                   </el-table-column>
                 </el-table-column>
@@ -760,50 +760,50 @@
             </el-collapse-item>
             <!--PPG处理前后的注水剖面比较-->
             <el-collapse-item title="Water Injection Profile Comparision Before and After PPG Treatment" name="8">
-              <el-table :data="addDataForm.WaterInjectionTable" style="width: 100%" stripe>
+              <el-table :data="addDataForm.waterInjectionProfile" style="width: 100%" stripe>
                 <el-table-column label="Well Name">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.WellName"></el-input>
+                    <el-input v-model="scope.row.wellName"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="Target Zone">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.TargetZone"></el-input>
+                    <el-input v-model="scope.row.targetZone"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="Before PPG Injection">
                   <el-table-column label="Percentage of Intake Water(%)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.BeforePercentageIntakeWater"></el-input>
+                      <el-input v-model="scope.row.beforePercentageIntakeWater"></el-input>
                     </template>
                   </el-table-column>
                   <el-table-column label="Water Intake(m3/d)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.BeforeWaterIntake"></el-input>
+                      <el-input v-model="scope.row.beforeWaterIntake"></el-input>
                     </template>
                   </el-table-column>
                 </el-table-column>
                 <el-table-column label="After PPG Treatment">
                   <el-table-column label="Percentage of Intake Water(%)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.AfterPercentageIntakeWater"></el-input>
+                      <el-input v-model="scope.row.afterPercentageIntakeWater"></el-input>
                     </template>
                   </el-table-column>
                   <el-table-column label="Water Intake(m3/d)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.AfterWaterIntake"></el-input>
+                      <el-input v-model="scope.row.afterWaterIntake"></el-input>
                     </template>
                   </el-table-column>
                 </el-table-column>
                 <el-table-column label="Difference">
                   <el-table-column label="Percentage of Intake Water(%)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.DifferencePercentageIntakeWater"></el-input>
+                      <el-input v-model="scope.row.differencePercentageIntakeWater"></el-input>
                     </template>
                   </el-table-column>
                   <el-table-column label="Water Intake(m3/d)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.DifferenceWaterIntake"></el-input>
+                      <el-input v-model="scope.row.differenceWaterIntake"></el-input>
                     </template>
                   </el-table-column>
                 </el-table-column>
@@ -819,65 +819,65 @@
             </el-collapse-item>
             <!--生产绩效-->
             <el-collapse-item title="Production Performance" name="9">
-              <el-table :data="addDataForm.ProductionTable" style="width: 100%" stripe>
+              <el-table :data="addDataForm.productionPerformance" style="width: 100%" stripe>
                 <el-table-column label="Well Name">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.WellName"></el-input>
+                    <el-input v-model="scope.row.wellName"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="Number of Producers">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.NumberOfProducers"></el-input>
+                    <el-input v-model="scope.row.numberOfProducers"></el-input>
                   </template>
                 </el-table-column>
                 <el-table-column label="Before PPG Injection">
                   <el-table-column label="Liquid(ton)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.BeforeLiquid"></el-input>
+                      <el-input v-model="scope.row.beforeLiquid"></el-input>
                     </template>
                   </el-table-column>
                   <el-table-column label="Oil(ton)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.BeforeOil"></el-input>
+                      <el-input v-model="scope.row.beforeOil"></el-input>
                     </template>
                   </el-table-column>
                   <el-table-column label="Water Cut(%)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.BeforeWaterCut"></el-input>
+                      <el-input v-model="scope.row.beforeWaterCut"></el-input>
                     </template>
                   </el-table-column>
                 </el-table-column>
                 <el-table-column label="After PPG Treatment">
                   <el-table-column label="Liquid(ton)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.AfterLiquid"></el-input>
+                      <el-input v-model="scope.row.afterLiquid"></el-input>
                     </template>
                   </el-table-column>
                   <el-table-column label="Oil(ton)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.AfterOil"></el-input>
+                      <el-input v-model="scope.row.afterOil"></el-input>
                     </template>
                   </el-table-column>
                   <el-table-column label="Water Cut(%)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.AfterWaterCut"></el-input>
+                      <el-input v-model="scope.row.afterWaterCut"></el-input>
                     </template>
                   </el-table-column>
                 </el-table-column>
                 <el-table-column label="Difference">
                   <el-table-column label="Liquid(ton)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.DifferenceLiquid"></el-input>
+                      <el-input v-model="scope.row.differenceLiquid"></el-input>
                     </template>
                   </el-table-column>
                   <el-table-column label="Oil(ton)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.DifferenceOil"></el-input>
+                      <el-input v-model="scope.row.differenceOil"></el-input>
                     </template>
                   </el-table-column>
                   <el-table-column label="Water Cut(%)">
                     <template slot-scope="scope">
-                      <el-input v-model="scope.row.DifferenceWaterCut"></el-input>
+                      <el-input v-model="scope.row.differenceWaterCut"></el-input>
                     </template>
                   </el-table-column>
                 </el-table-column>
@@ -936,69 +936,129 @@ export default {
       projectEvaluation: PROJECTEVALUATION, // 项目评估
       profit: PROFIT, // 利润
       addDataForm:{
-        startTime:'',
-        endTime:'',
-        value: '',
+        unit: 'SI',
+        //联系信息
+        contactInformation: {
+          userName: 'Jonna',
+          emailAddress: 'Jonna@163.com',
+          phoneNumber:'13801383838',
+          dataTitle:'this is title of data'
+        },
+        //一般信息
+        generalInformation: {
+          country:'',
+          stateProvince:'',
+          countyCity:'',
+          field:'',
+          reservoirBlock: '',
+          EORType:'',
+          operator:'',
+          starDate:'',
+          endDate:''
+        },
+        //水库信息
+        reservoirInformation:{
+          interestArea:'',
+          gravity:'',
+          productionWells:'',
+          oilViscosityAtReservoir:'',
+          injectionWells:'',
+          formationWaterViscosity:'',
+          payZoneOrFormationName:'',
+          reservoirTemperature:'',
+          formationType:'',
+          initialOilSaturation:'',
+          hydraulicFractured:'',
+          initialWaterSaturation:'',
+          natuallyFractured:'',
+          formationWaterSalinity:'',
+          fracturePermeability:'',
+          divalentCations:'',
+          matrixPermeability:'',
+          initialOilInPlace:'',
+          grossThickness:'',
+          driveMechanism:'',
+          netThickness:'',
+          initialReserviorPressure:'',
+          porosity:'',
+          presentPressure:'',
+          permeability:'',
+          bubblePointPressure:'',
+          dykstraParsonsCoefficient:'',
+          sedimentarySequenceDistribution:'',
+          depth:'',
+          depositionalEnvironment:''
+        },
         //注射参数表格
-        injectionTable:[{
-          startInjectionDate: '',
-          EndDate: '',
-          PPGName: '',
-          PPGSize: '',
-          TemperatureResistance: '',
-          SwellingRate: '',
-          ThermalStability: '',
-          Strength: '',
-          SalinityResistance: '',
-          SwellingRatio: '',
-          DriedPPGWeight: '',
-          PPGSuspensionConcentration: '',
-          PPGInjectionVolume: '',
-          PPGInjectionRate: '',
-          InitialPPGInjectionPressure: '',
-          MaximumInjectionPressure: '',
-          TotalInjectionWeight: '',
-          TotalInjectionVolume: ''
+        injectionParameter:[{
+          startInjectionDate:'',
+          endInjectionDate:'',
+          PPGName:'',
+          PPGSize:'',
+          temperatureResistance:'',
+          swellingRate:'',
+          thermalStability:'',
+          strength:'',
+          salinityResistance:'',
+          swellingRatio:'',
+          driedPPGWeight:'',
+          PPGSuspensionConcentration:'',
+          PPGInjectionVolume:'',
+          PPGInjectionRate:'',
+          initialPPGInjectionPressure:'',
+          maximumInjectionPressure:'',
+          totalInjectionWeight:'',
+          totalInjectionVolume:''
         }],
         //PPG监控参数表格
-        PPGMoniteringTable:[{
-          InjectionDuration:'',
-          PPGInjectionPRessure:''
+        PPGMonitering:[{
+          injectionDuration:'',
+          PPGInjectionPressure:''
         }],
+        //评估
+        evaluation:{
+          previousProduction:'',
+          projectScope:'',
+          projectMaturity:'',
+          wellPattern:'',
+          projectEvaluation:'',
+          wellSpacing:'',
+          profit:''
+        },
         //PPG处理后的压力测试结果表格
-        afterPPGTreatmentTable:[{
-          WellName:'',
-          BeforePI90:'',
-          BeforeInjectionPressure:'',
-          AfterPI90:'',
-          AfterInjectionPressure:'',
-          DifferencePI90:'',
-          DifferenceInjectionPressure:''
+        afterPPGTreatment:[{
+          wellName:'',
+          beforePI90:'',
+          beforeInjectionPressure:'',
+          afterPI90:'',
+          afterInjectionPressure:'',
+          differencePI90:'',
+          differenceInjectionPressure:''
         }],
         //PPG处理前后的注水剖面表格
-        WaterInjectionTable:[{
-          WellName:'',
-          TargetZone:'',
-          BeforePercentageIntakeWater:'',
-          BeforeWaterIntake:'',
-          AfterPercentageIntakeWater:'',
-          AfterWaterIntake:'',
-          DifferencePercentageIntakeWater:'',
-          DifferenceWaterIntake:''
+        waterInjectionProfile:[{
+          wellName:'',
+          targetZone:'',
+          beforePercentageIntakeWater:'',
+          beforeWaterIntake:'',
+          afterPercentageIntakeWater:'',
+          afterWaterIntake:'',
+          differencePercentageIntakeWater:'',
+          differenceWaterIntake:''
         }],
         //生产绩效表格
-        ProductionTable:[{
-          WellName:'',
-          NumberOfProducers:'',
-          BeforeLiquid:'',
-          BeforeOil:'',
-          BeforeWaterCut:'',
-          AfterLiquid:'',
-          AfterOil:'',
-          AfterWaterCut:'',
-          DiffererceLiquid:'',
-          DiffererceOil:'',
-          DiffererceWaterCut:''
+        productionPerformance:[{
+          wellName:'',
+          numberOfProducers:'',
+          beforeLiquid:'',
+          beforeOil:'',
+          beforeWaterCut:'',
+          afterLiquid:'',
+          afterOil:'',
+          afterWaterCut:'',
+          differerceLiquid:'',
+          differerceOil:'',
+          differerceWaterCut:''
         }]
       },
       //添加数据Form规则
@@ -1022,84 +1082,84 @@ export default {
       this.fileList3 = fileList.slice(-3)
     },
     deleteThisRow (index) {
-      this.addDataForm.injectionTable.splice(index, 1)
+      this.addDataForm.injectionParameter.splice(index, 1)
     },
     deleteThisRow2 (index) {
-      this.addDataForm.PPGMoniteringTable.splice(index, 1)
+      this.addDataForm.PPGMonitering.splice(index, 1)
     },
     deleteThisRow3 (index) {
-      this.addDataForm.afterPPGTreatmentTable.splice(index, 1)
+      this.addDataForm.afterPPGTreatment.splice(index, 1)
     },
     deleteThisRow4 (index) {
-      this.addDataForm.WaterInjectionTable.splice(index, 1)
+      this.addDataForm.waterInjectionProfile.splice(index, 1)
     },
     deleteThisRow5 (index) {
-      this.addDataForm.ProductionTable.splice(index, 1)
+      this.addDataForm.productionPerformance.splice(index, 1)
     },
     addNewLine () {
-      this.addDataForm.injectionTable.push({
-        StartInjectionDate: '',
-        EndDate: '',
-        PPGName: '',
-        PPGSize: '',
-        TemperatureResistance: '',
-        SwellingRate: '',
-        ThermalStability: '',
-        Strength: '',
-        SalinityResistance: '',
-        SwellingRatio: '',
-        DriedPPGWeight: '',
-        PPGSuspensionConcentration: '',
-        PPGInjectionVolume: '',
-        PPGInjectionRate: '',
-        InitialPPGInjectionPressure: '',
-        MaximumInjectionPressure: '',
-        TotalInjectionWeight: '',
-        TotalInjectionVolume: ''
+      this.addDataForm.injectionParameter.push({
+        startInjectionDate:'',
+        endInjectionDate:'',
+        PPGName:'',
+        PPGSize:'',
+        temperatureResistance:'',
+        swellingRate:'',
+        thermalStability:'',
+        strength:'',
+        salinityResistance:'',
+        swellingRatio:'',
+        driedPPGWeight:'',
+        PPGSuspensionConcentration:'',
+        PPGInjectionVolume:'',
+        PPGInjectionRate:'',
+        initialPPGInjectionPressure:'',
+        maximumInjectionPressure:'',
+        totalInjectionWeight:'',
+        totalInjectionVolume:''
       })
     },
     addNewLine2 () {
-      this.addDataForm.PPGMoniteringTable.push({
-        InjectionDuration:'',
-        PPGInjectionPRessure:''
+      this.addDataForm.PPGMonitering.push({
+        injectionDuration:'',
+        PPGInjectionPressure:''
       })
     },
     addNewLine3 () {
-      this.addDataForm.afterPPGTreatmentTable.push({
-        WellName:'',
-        BeforePI90:'',
-        BeforeInjectionPressure:'',
-        AfterPI90:'',
-        AfterInjectionPressure:'',
-        DifferencePI90:'',
-        DifferenceInjectionPressure:''
+      this.addDataForm.afterPPGTreatment.push({
+        wellName:'',
+        beforePI90:'',
+        beforeInjectionPressure:'',
+        afterPI90:'',
+        afterInjectionPressure:'',
+        differencePI90:'',
+        differenceInjectionPressure:''
       })
     },
     addNewLine4 () {
-      this.addDataForm.WaterInjectionTable.push({
-        WellName:'',
-        TargetZone:'',
-        BeforePercentageIntakeWater:'',
-        BeforeWaterIntake:'',
-        AfterPercentageIntakeWater:'',
-        AfterWaterIntake:'',
-        DifferencePercentageIntakeWater:'',
-        DifferenceWaterIntake:''
+      this.addDataForm.waterInjectionProfile.push({
+        wellName:'',
+        targetZone:'',
+        beforePercentageIntakeWater:'',
+        beforeWaterIntake:'',
+        afterPercentageIntakeWater:'',
+        afterWaterIntake:'',
+        differencePercentageIntakeWater:'',
+        differenceWaterIntake:''
       })
     },
     addNewLine5 () {
-      this.addDataForm.ProductionTable.push({
-        WellName:'',
-        NumberOfProducers:'',
-        BeforeLiquid:'',
-        BeforeOil:'',
-        BeforeWaterCut:'',
-        AfterLiquid:'',
-        AfterOil:'',
-        AfterWaterCut:'',
-        DiffererceLiquid:'',
-        DiffererceOil:'',
-        DiffererceWaterCut:''
+      this.addDataForm.productionPerformance.push({
+        wellName:'',
+        numberOfProducers:'',
+        beforeLiquid:'',
+        beforeOil:'',
+        beforeWaterCut:'',
+        afterLiquid:'',
+        afterOil:'',
+        afterWaterCut:'',
+        differerceLiquid:'',
+        differerceOil:'',
+        differerceWaterCut:''
       })
     }
   }
