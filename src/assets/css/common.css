@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+body{
+  width: 100%;
+  min-width: 1200px;
+}
+.page_content{
+  width: 100%;
+  height: 100%;
+  min-width: 1200px;
+  font-size: 14px;
+}
+.content_warpper{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main_body{
+  margin: 60px auto 140px;
+  width: 100%;
+  height: 100%;
+}
+.common_square{
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  background: #FFf;
+  box-sizing: border-box;
+  border: 1px solid #e5e5e5;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/*element-ui 样式重置*/
+.el-button--primary{
+  background: #205081!important;
+  border: 1px solid #205081!important;
+}
+.el-button--primary:hover{
+  background: #266099!important;
+  border: 1px solid #266099!important;
+}
+.el-collapse-item__header{
+  font-size: 16px!important;
+  background: #eeeeee!important;
+  text-indent: 20px!important;
+  color: #266099!important;
+  font-weight: 700!important;
+}
+.el-radio__input.is-checked .el-radio__inner{
+  border-color: #266099!important;
+  background: #266099!important;
+}
+.el-radio__label{
+  font-size: 16px!important;
+}
+.el-radio__input.is-checked+.el-radio__label{
+  color: #266099!important;
+  font-size: 16px!important;
+}
+.el-checkbox__label{
+  font-size: 16px!important;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  border-color: #266099!important;
+  background: #266099!important;
+}
+.el-checkbox__input.is-checked+.el-checkbox__label{
+  color: #266099!important;
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active{
+  background: #266099!important;
+}
+
+/*基础辅助样式*/
+.f-width90{width:90%!important;margin: 0 auto!important;}
+.f-width80{width:80%!important;margin: 0 auto!important;}
+.f-width70{width:70%!important;margin: 0 auto!important;}
+.f-width60{width:60%!important;margin: 0 auto!important;}
+.f-width50{width:50%!important;margin: 0 auto!important;}
+
+.f-mart10{margin-top: 10px!important;}
+.f-mart20{margin-top: 20px!important;}
+.f-mart30{margin-top: 30px!important;}
+.f-mart40{margin-top: 40px!important;}
+.f-mart50{margin-top: 50px!important;}
+
+.el-fl{float: left;}
+.el-fr{float: right;}
+.el-align-left{ text-align: left;}
+.el-align-right{ text-align: right;}
+
+
+/* 针对栅格布局的每一行常用高度设置 */
+.el-row-h20{min-height: 20px;line-height: 20px;}
+.el-row-h30{min-height: 30px;line-height: 30px;}
+.el-row-h40{min-height: 40px;line-height: 40px;}
+.el-row-h50{min-height: 50px;line-height: 50px;}
+.el-row-h60{min-height: 60px;line-height: 60px;}
+.el-row-h70{min-height: 70px;line-height: 70px;}
+.el-row-h80{min-height: 80px;line-height: 80px;}
+.el-row-h90{min-height: 90px;line-height: 90px;}
+.el-row-h100{min-height: 100px;line-height: 100px;}
+.el-row-h110{min-height: 110px;line-height: 110px;}
+.el-row-h120{min-height: 110px;line-height: 120px;}
+.el-row-h130{min-height: 110px;line-height: 130px;}
+
+/* 表单标签名称过长折行显示 */
+.twolinespan40{height:30px; line-height:15px; padding: 5px 0;}
+.twolinespan50{height:40px; line-height:20px; padding: 5px 0;}
+.twolinespan60{height:50px; line-height:20px; padding: 5px 0;}
+.twolinespan70{height:60px; line-height:20px; padding: 5px 0;}
+.twolinespan80{height:70px; line-height:20px; padding: 5px 0;}
+
+/* 针对Form组件或淡出设置宽度的百分比宽度设置,不带浮动,行内型 */
+.el-width-st10{width: 10%!important;}
+.el-width-st11{width: 11%!important;}
+.el-width-st12{width: 12%!important;}
+.el-width-st15{width: 15%!important;}
+.el-width-st16{width: 16%!important;}
+.el-width-st20{width: 20%!important;}
+.el-width-st25{width: 25%!important;}
+.el-width-st30{width: 30%!important;}
+.el-width-st33{width: 33.33%!important;}
+.el-width-st35{width: 35%!important;}
+.el-width-st40{width: 40%!important;}
+.el-width-st45{width: 45%!important;}
+.el-width-st50{width: 50%!important;}
+.el-width-st55{width: 55%!important;}
+.el-width-st58{width: 58%!important;}
+.el-width-st60{width: 60%!important;}
+.el-width-st62{width: 62%!important;}
+.el-width-st66{width: 66.66%!important;}
+.el-width-st65{width: 65%!important;}
+.el-width-st70{width: 70%!important;}
+.el-width-st75{width: 75%!important;}
+.el-width-st80{width: 80%!important;}
+.el-width-st85{width: 85%!important;}
+.el-width-st87{width: 87%!important;}
+.el-width-st90{width: 90%!important;}
+.el-width-st95{width: 95%!important;}
+.el-width-st100{width: 100%!important;}
+
+
