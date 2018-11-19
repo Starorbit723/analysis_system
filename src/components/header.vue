@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="logo_zone">
-      <img src="../assets/images/logo_bg.png">
+      <img src="../assets/images/logo_bg2.png">
     </div>
     <nav>
       <ul class="menu_list">
@@ -80,14 +80,15 @@ export default {
   }
   .logo_zone{
     float: left;
-    width:280px;
+    padding: 0 10px;
     height: 60px;
     background:#1a3f66;
   }
   .logo_zone img{
-    width: 280px;
-    height: 60px;
     display: block;
+    float: left;
+    width: 250px;
+    height: 60px;
   }
   nav{
     display: block;
