@@ -516,7 +516,7 @@
                     <el-input v-model="scope.row.thermalStability"></el-input>
                   </template>
                 </el-table-column>
-                <el-table-column prop="Strength" label="Strength(Pa)" width="130">
+                <el-table-column label="Strength(Pa)" width="130">
                   <template slot-scope="scope">
                     <el-input v-model="scope.row.strength"></el-input>
                   </template>
@@ -578,7 +578,7 @@
                 </el-table-column>
               </el-table>
               <el-row :span="24" style="margin:40px 0 30px;">
-                <button class="add_newLine" @click="addNewLine()">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</button>
+                <el-button class="add_newLine" @click="addNewLine">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
               </el-row>
             </el-collapse-item>
             <!--PPG监控-->
@@ -602,7 +602,7 @@
                 </el-table-column>
               </el-table>
               <el-row :span="24" style="margin:40px 0 30px;">
-                <button class="add_newLine" @click="addNewLine2()">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</button>
+                <el-button class="add_newLine" @click="addNewLine2">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
               </el-row>
             </el-collapse-item>
             <!--评估-->
@@ -745,7 +745,7 @@
                 </el-table-column>
               </el-table>
               <el-row :span="24" style="margin:40px 0 30px;">
-                <button class="add_newLine" @click="addNewLine3()">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</button>
+                <el-button class="add_newLine" @click="addNewLine3">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
               </el-row>
               <el-row :offset="6">
                 <el-upload
@@ -814,7 +814,7 @@
                 </el-table-column>
               </el-table>
               <el-row :span="24" style="margin:40px 0 30px;">
-                <button class="add_newLine" @click="addNewLine4()">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</button>
+                <el-button class="add_newLine" @click="addNewLine4">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
               </el-row>
             </el-collapse-item>
             <!--生产绩效-->
@@ -888,7 +888,7 @@
                 </el-table-column>
               </el-table>
               <el-row :span="24" style="margin:40px 0 30px;">
-                <button class="add_newLine" @click="addNewLine5()">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</button>
+                <el-button class="add_newLine" @click="addNewLine5">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
               </el-row>
             </el-collapse-item>
           </el-collapse>
@@ -942,7 +942,7 @@ export default {
           userName: 'Jonna',
           emailAddress: 'Jonna@163.com',
           phoneNumber:'13801383838',
-          dataTitle:'this is title of data'
+          dataTitle:''
         },
         //一般信息
         generalInformation: {
@@ -1172,7 +1172,6 @@ export default {
     margin: 0 auto;
     width: 60%;
     height: 40px;
-    line-height: 40px;
     background: rgb(243, 243, 243);
     color: #333;
     border:1px solid rgb(228, 228, 228);

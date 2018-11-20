@@ -144,9 +144,9 @@ export default {
     editThisData (row) {
       console.log(row)
       if (row.unitType === 'SI Unit') {
-        this.$router.push({path:'/addData_SI', query: { dataId: row.dataId }})
+        this.$router.push({path:'/addDataSI', query: { 'dataId': row.dataId }})
       } else if (row.unitType === 'Field Unit') {
-        this.$router.push({path:'/addData_Field', query: { dataId: row.dataId }})
+        this.$router.push({path:'/addDataField', query: { 'dataId': row.dataId }})
       }
     },
     // 删除数据

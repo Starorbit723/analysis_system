@@ -13,6 +13,7 @@
       </div>
       <button class="login_button" @click="userLogin">Login</button>
       <button class="register_button" @click="goToRegister">Register</button>
+      <div class="toRegister" @click="toContactUs()">I want to use this system, Register ?</div>
     </div>
   </div>
 </template>
@@ -42,6 +43,10 @@ export default {
     },
     closeLoginPop () {
       this.updateLoginPopVisible(false)
+    },
+    toContactUs () {
+      this.updateLoginPopVisible(false)
+      this.$router.push({path: '/contactUs'})
     }
   }
 }
@@ -66,7 +71,7 @@ export default {
   .login_box{
     position: absolute;
     width: 320px;
-    height: 280px;
+    height: 320px;
     background: #FFF;
     border-radius: 5px;
     top:50%;
@@ -125,7 +130,7 @@ export default {
   }
   .login_button{
     display: block;
-    margin: 20px 10% 0 15%;
+    margin: 15px 10% 0 15%;
     float: left;
     width: 30%;
     height: 40px;
@@ -139,7 +144,7 @@ export default {
   }
   .register_button{
     display: block;
-    margin: 20px 0 0 0;
+    margin: 15px 0 0 0;
     float: left;
     width: 30%;
     height: 40px;
@@ -150,5 +155,19 @@ export default {
   }
   .register_button:hover{
     background:#2a69a8;
+  }
+  .toRegister{
+    clear: both;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 12px;
+    color: #2a69a8;
+    padding-top:20px;
+    cursor: pointer;
+  }
+  .toRegister:hover{
+    color:#378bdf;
   }
 </style>

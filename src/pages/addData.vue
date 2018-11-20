@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     toAddDataPage (type) {
-      type === 0 ? this.$router.push({path:'/addData_SI'}) : this.$router.push({path:'/addData_Field'})
+      type === 0 ? this.$router.push({path:'/addDataSI'}) : this.$router.push({path:'/addDataField'})
     }
   }
 }
@@ -51,7 +51,7 @@ export default {
     bottom: 110px;
   }
   .btn_shadow{
-    box-shadow: 0 2px 2px #333;
+    box-shadow: 0 2px 2px #666;
   }
   .tips_zone{
     padding: 130px 0 0 0;
