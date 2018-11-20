@@ -60,7 +60,7 @@ export default {
           this.menuList[i].isActive = true
         } else if (this.$route.path === '/') {
           this.menuList[0].isActive = true
-        } else if (this.$route.path === '/addData_SI' || this.$route.path === '/addData_Field') {
+        } else if (this.$route.path === '/addDataSI' || this.$route.path === '/addDataField') {
           this.menuList[1].isActive = true
         } else {
           this.menuList[i].isActive = false

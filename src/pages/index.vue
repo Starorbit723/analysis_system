@@ -85,7 +85,7 @@
               <li>•	Technical Reports</li>
               <li>•	Major languages covered: English, Chinese</li>
             </ul>
-          </section>        
+          </section>    
         </div>
       </div>
     </section>

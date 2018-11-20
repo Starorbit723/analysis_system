@@ -936,7 +936,7 @@ export default {
       projectEvaluation: PROJECTEVALUATION, // 项目评估
       profit: PROFIT, // 利润
       addDataForm:{
-        unit: 'SI',
+        unit: 'field',
         //联系信息
         contactInformation: {
           userName: 'Jonna',
@@ -1075,6 +1075,12 @@ export default {
   },
   mounted () {
     console.log(this.$route.query.dataId)
+    if(this.$route.query.dataId) {
+      //有dataId代表修改数据
+      //开始请求
+    } else {
+      //没有dataId代表新建数据，自动填写表头基本数据
+    }
   },
   methods: {
     //文件上传

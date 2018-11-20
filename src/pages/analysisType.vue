@@ -114,7 +114,7 @@
         <!--提交按钮-->
         <el-row class="f-mart50 clearfix">
           <el-col :span="3" :offset="8">
-            <el-button type="primary" class="el-width-st100">Analysis</el-button>
+            <el-button type="primary" class="el-width-st100" @click="toDataEcharts">Analysis</el-button>
           </el-col>
           <el-col :span="3" :offset="2">
             <el-button type="primary" class="el-width-st100" @click="backToDataList">Back</el-button>
@@ -158,11 +158,14 @@ export default {
     }
   },
   mounted () {
-    this.analysisForm.dataId = this.$route.query.dataId
-    this.analysisForm.dataTitle = this.$route.query.dataTitle
-    console.log(this.$route.query.dataId, this.$route.query.dataTitle)
+    this.analysisForm.dataId = this.$route.params.dataId
+    this.analysisForm.dataTitle = this.$route.params.dataTitle
+    console.log(this.$route.params.dataId, this.$route.params.dataTitle)
   },
   methods: {
+    toDataEcharts () {
+      this.$router.push({name:'analysisEcharts',params:{analysisForm:this.analysisForm}})
+    },
     backToDataList () {
       this.$router.push({path:'/myData'})
     }

@@ -138,15 +138,15 @@ export default {
     },
     //分析数据
     analysisThisData (row) {
-      this.$router.push({path:'/analysisType', query: {dataId: row.dataId, dataTitle: row.dataTitle}})
+      this.$router.push({name:'analysisType', params: {dataId: row.dataId, dataTitle: row.dataTitle}})
     },
     // 编辑数据
     editThisData (row) {
       console.log(row)
       if (row.unitType === 'SI Unit') {
-        this.$router.push({path:'/addDataSI', query: { 'dataId': row.dataId }})
+        this.$router.push({path:'/addDataSI', query: { dataId: row.dataId }})
       } else if (row.unitType === 'Field Unit') {
-        this.$router.push({path:'/addDataField', query: { 'dataId': row.dataId }})
+        this.$router.push({path:'/addDataField', query: { dataId: row.dataId }})
       }
     },
     // 删除数据

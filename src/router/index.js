@@ -9,6 +9,7 @@ const addData = r => require.ensure([], () => r(require('@pages/addData')), 'add
 const addDataSI = r => require.ensure([], () => r(require('@pages/addDataSI')), 'addDataSI')
 const addDataField = r => require.ensure([], () => r(require('@pages/addDataField')), 'addDataField')
 const analysisType = r => require.ensure([], () => r(require('@pages/analysisType')), 'analysisType')
+const analysisEcharts = r => require.ensure([], () => r(require('@pages/analysisEcharts')), 'analysisEcharts')
 const contactUs = r => require.ensure([], () => r(require('@pages/contactUs')), 'contactUs')
 const aboutUs = r => require.ensure([], () => r(require('@pages/aboutUs')), 'aboutUs')
 
@@ -42,6 +43,10 @@ export default new Router({
       path: '/analysisType',
       name: 'analysisType',
       component: analysisType
+    }, {
+      path: '/analysisEcharts',
+      name: 'analysisEcharts',
+      component: analysisEcharts
     }, {
       path: '/contactUs',
       name: 'contactUs',
