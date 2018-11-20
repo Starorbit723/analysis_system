@@ -54,7 +54,7 @@ export default {
     box-shadow: 0 2px 2px #333;
   }
   .tips_zone{
-    padding: 160px 0 0 0;
+    padding: 130px 0 0 0;
     margin: 0 0 50px 0;
     line-height: 46px;
     color:#FFF;

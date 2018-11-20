@@ -10,6 +10,7 @@ const addData_SI = r => require.ensure([], () => r(require('@pages/addData_SI'))
 const addData_Field = r => require.ensure([], () => r(require('@pages/addData_Field')), 'addData_Field')
 const analysisType = r => require.ensure([], () => r(require('@pages/analysisType')), 'analysisType')
 const contactUs = r => require.ensure([], () => r(require('@pages/contactUs')), 'contactUs')
+const aboutUs = r => require.ensure([], () => r(require('@pages/aboutUs')), 'aboutUs')
 
 export default new Router({
   routes: [
@@ -45,6 +46,10 @@ export default new Router({
       path: '/contactUs',
       name: 'contactUs',
       component: contactUs
+    }, {
+      path: '/aboutUs',
+      name: 'aboutUs',
+      component: aboutUs
     }
   ]
 })

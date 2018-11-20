@@ -33,6 +33,10 @@ export default {
         path: '/myData',
         isActive: false
       }, {
+        name: 'About Us',
+        path: '/aboutUs',
+        isActive: false
+      }, {
         name: 'Contact Us',
         path: '/contactUs',
         isActive: false

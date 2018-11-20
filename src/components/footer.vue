@@ -1,16 +1,21 @@
 <template>
   <footer :class="{'fixed_footer': footerFixed}">
     <div class="content_warpper">
-      <p>Copyright © 2018 XXX.COM Inc. All Rights Reserved. </p>
-      <p>Please Read The<a href="#"> Anti-piracy Statement </a>And<a href="#"> The Copyright Statement</a>. Report E-mail：anjanette119@163.com</p>
-      <p>Welcome To Contact Us For More Information And Suggest : 0529-4646462</p>
+      <p>Copyright © Missouri University of Science and Technology, EOR Data Research Group, Rolla, MO 65409 - All Rights Reserved.</p>
+      <p>Please Read <a href="javascript:void(0)" @click="toPageAboutUs"> The Copyright Statement</a>. Report E-mail：weim@mst.edu</p>
+      <p>Welcome To Contact Us For More Information And Suggest : 573-341-4657</p>
     </div>
   </footer>
 </template>
 
 <script>
 export default {
-  props:['footerFixed']
+  props:['footerFixed'],
+  methods: {
+    toPageAboutUs () {
+      this.$router.push({path: '/aboutUs'})
+    }
+  }
 }
 </script>
 
@@ -49,6 +54,7 @@ footer p{
 }
 footer a{
   color:#FFF;
+  cursor: pointer;
 }
 footer a:hover{
   color:#23d8ff;
