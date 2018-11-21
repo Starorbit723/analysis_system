@@ -164,7 +164,7 @@ export default {
   },
   methods: {
     toDataEcharts () {
-      this.$router.push({name:'analysisEcharts',params:{analysisForm:this.analysisForm}})
+      this.$router.push({name:'analysisEcharts', params:{analysisForm:this.analysisForm}})
     },
     backToDataList () {
       this.$router.push({path:'/myData'})

@@ -1075,7 +1075,7 @@ export default {
   },
   mounted () {
     console.log(this.$route.query.dataId)
-    if(this.$route.query.dataId) {
+    if (this.$route.query.dataId) {
       //有dataId代表修改数据
       //开始请求
     } else {
