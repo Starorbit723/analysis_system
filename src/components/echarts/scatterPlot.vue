@@ -37,7 +37,21 @@ export default {
         series: [{
           type: 'scatter',
           data: [120, 200, 150, 80, 70, 110, 130]
-        }]
+        }],
+        toolbox: {
+          show: true,
+          itemSize:20,
+          feature: {
+            saveAsImage: {
+              show:true,
+              icon:'image:///static/img/download.png',
+              excludeComponents :['toolbox'],
+              pixelRatio: 2,
+              backgroundColor:'#09f',
+              title:'aaaaa'
+            }
+          }
+        }
       })
     }
   }
