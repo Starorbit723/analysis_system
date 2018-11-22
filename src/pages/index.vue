@@ -90,7 +90,6 @@
       </div>
     </section>
     <Footer :footerFixed="footerFixed"></Footer>
-    <LoginPop></LoginPop>
   </div>
 </template>
 

@@ -9,7 +9,8 @@
       </ul>
     </nav>
     <div class="login_nav">
-      <div class="login_btn" @click="openLoginPop">Login</div>
+      <div v-if="!isLogin" class="login_btn" @click="openLoginPop">Login</div>
+      <div v-if="isLogin" class="logout_zone" @click="logout">Hello&nbsp;,&nbsp;{{userName}}</div>
     </div>
     <LoginPop></LoginPop>
   </header>
@@ -46,11 +47,23 @@ export default {
       }]
     }
   },
+  computed:{
+    ...mapGetters([
+      'getLoginFlag',
+      'getUserInfo'
+    ]),
+    isLogin () {
+      return this.getLoginFlag
+    },
+    userName () {
+      return this.getUserInfo.userName
+    }
+  },
   created () {
     this.activeNow()
   },
   methods: {
-    ...mapActions(['updateLoginPopVisible']),
+    ...mapActions(['updateLoginPopVisible', 'updateLoginFlag', 'updateUserInfo']),
     openLoginPop () {
       this.updateLoginPopVisible(true)
     },
@@ -69,6 +82,20 @@ export default {
           this.menuList[i].isActive = false
         }
       }
+    },
+    logout () {
+      var self = this
+      self.$confirm('Are you sure to Logout ?', 'Tips', {
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No',
+        type: 'warning'
+      }).then(() => {
+        self.updateLoginFlag(false)
+        self.updateUserInfo({})
+        self.$router.push({path: '/index'})
+        self.$message.success('Logout success')
+        console.log('Store:', self.$store.state.userLogin.isLogin, self.$store.state.userLogin.userInfo.userName, self.$store.state.userLogin.userInfo.passWord, 'Cookie:', document.cookie)
+      })
     }
   }
 }
@@ -138,6 +165,22 @@ export default {
     cursor: pointer;
   }
   .login_btn:hover{
+    color: #23d8ff;
+    background: #1a3f66;
+  }
+  .logout_zone{
+    float: right;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 220px;
+    padding:0 15px;
+    height: 60px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .logout_zone:hover{
     color: #23d8ff;
     background: #1a3f66;
   }

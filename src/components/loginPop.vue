@@ -5,25 +5,28 @@
       <h1>Login</h1>
       <div class="input_group">
         <span>UserName</span>
-        <input type="text" placeholder="Write In UserName">
+        <input type="text" v-model="userName" placeholder="Write In UserName">
       </div>
       <div class="input_group">
         <span>Password</span>
-        <input type="password" placeholder="6~12 Letters And Number" maxlength="12">
+        <input type="password" v-model="passWord" placeholder="6~12 Letters And Number" maxlength="12">
       </div>
       <button class="login_button" @click="userLogin">Login</button>
       <button class="register_button" @click="goToRegister">Register</button>
-      <div class="toRegister" @click="toContactUs()">I want to use this system, Register ?</div>
     </div>
   </div>
 </template>
 
 <script>
 import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
+import { setCookie, getCookie, deletCookie } from '../utils/cookie'
 
 export default {
   data () {
-    return {}
+    return {
+      userName:'',
+      passWord:''
+    }
   },
   computed:{
     ...mapGetters([
@@ -34,17 +37,25 @@ export default {
     }
   },
   methods:{
-    ...mapActions(['updateLoginPopVisible']),
+    ...mapActions(['updateLoginPopVisible', 'updateLoginFlag', 'updateUserInfo']),
     userLogin () {
-      this.updateLoginPopVisible(false)
-    },
-    goToRegister () {
-      this.updateLoginPopVisible(false)
+      //模拟登陆请求成功
+      var self = this
+      if (self.userName === '111' && self.passWord === '111') {
+        self.updateUserInfo({
+          userName: 'yadong723@bitmain.com',
+          passWord: '111'
+        })
+        self.updateLoginFlag(true)
+        self.$message.success('Login Success!')
+        console.log('Store:', self.$store.state.userLogin.isLogin, self.$store.state.userLogin.userInfo.userName, self.$store.state.userLogin.userInfo.passWord, 'Cookie:', document.cookie)
+      }
+      self.updateLoginPopVisible(false)
     },
     closeLoginPop () {
       this.updateLoginPopVisible(false)
     },
-    toContactUs () {
+    goToRegister () {
       this.updateLoginPopVisible(false)
       this.$router.push({path: '/contactUs'})
     }
@@ -71,7 +82,7 @@ export default {
   .login_box{
     position: absolute;
     width: 320px;
-    height: 320px;
+    height: 280px;
     background: #FFF;
     border-radius: 5px;
     top:50%;
@@ -155,19 +166,5 @@ export default {
   }
   .register_button:hover{
     background:#2a69a8;
-  }
-  .toRegister{
-    clear: both;
-    width: 100%;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    font-size: 12px;
-    color: #2a69a8;
-    padding-top:20px;
-    cursor: pointer;
-  }
-  .toRegister:hover{
-    color:#378bdf;
   }
 </style>

@@ -12,13 +12,8 @@ const setCookie = function (name, value, days) {
 
 //读取cookie
 const getCookie = function (name) { 
-    let arr
-        reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)')
-    if (arr === document.cookie.match(reg)) {
-        return unescape(arr[2])
-    } else { 
-        return null
-    }
+    var v = window.document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)')
+    return v ? v[2] : null
 } 
 
 //删除cookie
