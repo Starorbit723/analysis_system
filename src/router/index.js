@@ -79,7 +79,8 @@ router.beforeEach((to, from, next) => {
   } else if (nextRoute.indexOf(to.name) >= 0 && (!getCookie('userName'))) {
     Message({
       message: 'Please Login At First !',
-      type: 'warning'
+      type: 'warning',
+      duration: 2000
     })
     Store.state.userLogin.showLoginPop = true
     return
