@@ -123,19 +123,17 @@
       </div>
     </section>
     <Footer :footerFixed="footerFixed"></Footer>
-    <LoginPop></LoginPop>
   </div>
 </template>
 
 <script>
 import Header from '@components/header'
 import Footer from '@components/footer'
-import LoginPop from '@components/loginPop'
 import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
 import { ANALYSISTYPE, CHARTTYPE, CHARTXY, CLUSTERING } from '@baseData/baseData'
 
 export default {
-  components: {Header, Footer, LoginPop},
+  components: {Header, Footer},
   data () {
     return {
       footerFixed: true,

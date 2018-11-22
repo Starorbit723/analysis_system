@@ -67,7 +67,6 @@
       </div>
     </section>
     <Footer :footerFixed="footerFixed"></Footer>
-    <LoginPop></LoginPop>
     <!--删除dialog对话框-->
     <el-dialog :visible.sync="dialogVisible" width="35%" top="20vh" :close-on-click-modal="false" :close-on-press-escape="false" :show-close="false">
       <el-row>
@@ -80,19 +79,17 @@
         <el-button type="danger" @click="ensureDelete()">Delete</el-button>
       </span>
     </el-dialog>
-
   </div>
 </template>
 
 <script>
 import Header from '@components/header'
 import Footer from '@components/footer'
-import LoginPop from '@components/loginPop'
 import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
 import { UNITTYPE } from '@baseData/baseData'
 
 export default {
-  components: {Header, Footer, LoginPop},
+  components: {Header, Footer},
   data () {
     return {
       footerFixed: true,

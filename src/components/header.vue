@@ -11,13 +11,16 @@
     <div class="login_nav">
       <div class="login_btn" @click="openLoginPop">Login</div>
     </div>
+    <LoginPop></LoginPop>
   </header>
 </template>
 
 <script>
+import LoginPop from '@components/loginPop'
 import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
 
 export default {
+  components: { LoginPop },
   data () {
     return {
       menuList: [{

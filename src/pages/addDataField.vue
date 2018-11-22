@@ -904,20 +904,18 @@
       </div>
     </section>
     <Footer :footerFixed="footerFixed"></Footer>
-    <LoginPop></LoginPop>
   </div>
 </template>
 
 <script>
 import Header from '@components/header'
 import Footer from '@components/footer'
-import LoginPop from '@components/loginPop'
 import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
 import { EORTYPE, FORMATIONTYPE, DRIVEMECHANISM, SEDIMENTARYSEQUENCEDISTRIBUTION, DEPOSITIONALENVIRONMENT, PREVIOUSPRODUCTION, PROJECTSCOPE, PROJECTMATURITY, PROJECTEVALUATION, PROFIT } from '@baseData/baseData'
 import { COUNTRY } from '@baseData/country'
 
 export default {
-  components: {Header, Footer, LoginPop},
+  components: {Header, Footer},
   data () {
     return {
       footerFixed: false,

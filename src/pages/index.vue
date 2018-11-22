@@ -97,11 +97,10 @@
 <script>
 import Header from '@components/header'
 import Footer from '@components/footer'
-import LoginPop from '@components/loginPop'
 import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
 
 export default {
-  components: {Header, Footer, LoginPop},
+  components: {Header, Footer},
   data () {
     return {
       footerFixed: false
