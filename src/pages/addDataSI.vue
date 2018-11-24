@@ -276,16 +276,13 @@
               </el-row>
               <el-row :gutter="20" :offset="1">
                 <el-col :span="12">
-                  <el-form-item label="Natually Fractured" label-width="55%">
-                    <el-select v-model="addDataForm.reservoirInformation.natuallyFractured" class="el-width-st100" placeholder="Please Choice Yes or No">
-                      <el-option
-                        v-for="item in natuallyFractured"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value">
-                      </el-option>
-                    </el-select>
-                  </el-form-item>
+                  <el-form-item label="Depth (m)" label-width="55%">
+                      <el-input
+                        clearable
+                        type="text"
+                        v-model="addDataForm.reservoirInformation.depth"
+                        auto-complete="off"></el-input>
+                    </el-form-item>
                 </el-col>
                 <el-col :span="12">
                   <el-form-item label="Formation Water Salinity(TDS) (ppm)" label-width="55%">
@@ -297,16 +294,7 @@
                   </el-form-item>
                 </el-col>
               </el-row>
-              <el-row :gutter="20" :offset="1">
-                <el-col :span="12">
-                  <el-form-item label="Fracture Permeability (mD)" label-width="55%">
-                      <el-input
-                        clearable
-                        type="text"
-                        v-model="addDataForm.reservoirInformation.fracturePermeability"
-                        auto-complete="off"></el-input>
-                    </el-form-item>
-                </el-col>
+              <el-row :gutter="20" :offset="1">   
                 <el-col :span="12">
                   <el-form-item label="Divalent Cations (ppm)" label-width="55%">
                     <el-input
@@ -315,17 +303,6 @@
                       v-model="addDataForm.reservoirInformation.divalentCations"
                       auto-complete="off"></el-input>
                   </el-form-item>
-                </el-col>
-              </el-row>
-              <el-row :gutter="20" :offset="1">
-                <el-col :span="12">
-                  <el-form-item label="Matrix Permeability (mD)" label-width="55%">
-                      <el-input
-                        clearable
-                        type="text"
-                        v-model="addDataForm.reservoirInformation.matrixPermeability"
-                        auto-complete="off"></el-input>
-                    </el-form-item>
                 </el-col>
                 <el-col :span="12">
                   <el-form-item label="Initial Oil In Place (ton)" label-width="55%">
@@ -445,13 +422,16 @@
               </el-row>
               <el-row :gutter="20" :offset="1">
                 <el-col :span="12">
-                  <el-form-item label="Depth (m)" label-width="55%">
-                      <el-input
-                        clearable
-                        type="text"
-                        v-model="addDataForm.reservoirInformation.depth"
-                        auto-complete="off"></el-input>
-                    </el-form-item>
+                  <el-form-item label="Naturally Fractured" label-width="55%">
+                    <el-select v-model="addDataForm.reservoirInformation.naturallyFractured" class="el-width-st100" placeholder="Please Choice Yes or No">
+                      <el-option
+                        v-for="item in naturallyFractured"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                      </el-option>
+                    </el-select>
+                  </el-form-item>
                 </el-col>
                 <el-col :span="12">
                   <el-form-item label="Depositional Environment" label-width="55%">
@@ -464,6 +444,27 @@
                       </el-option>
                     </el-select>
                   </el-form-item>
+                </el-col>
+              </el-row>
+              <!--业务逻辑：Naturally Fractured 为'yes'时才会出现以下两个选择-->
+              <el-row :gutter="20" :offset="1" v-if="addDataForm.reservoirInformation.naturallyFractured == 'yes'">
+                <el-col :span="12">
+                  <el-form-item label="Fracture Permeability (mD)" label-width="55%">
+                      <el-input
+                        clearable
+                        type="text"
+                        v-model="addDataForm.reservoirInformation.fracturePermeability"
+                        auto-complete="off"></el-input>
+                    </el-form-item>
+                </el-col>
+                <el-col :span="12">
+                  <el-form-item label="Matrix Permeability (mD)" label-width="55%">
+                      <el-input
+                        clearable
+                        type="text"
+                        v-model="addDataForm.reservoirInformation.matrixPermeability"
+                        auto-complete="off"></el-input>
+                    </el-form-item>
                 </el-col>
               </el-row>
             </el-collapse-item>
@@ -924,7 +925,7 @@ export default {
       EORType: EORTYPE, //EOR类型
       formationType: FORMATIONTYPE, //形成类型
       hydraulicFractured:[{label: 'yes', value: 'yes'}, {label: 'no', value: 'no'}], //水里压裂
-      natuallyFractured:[{label: 'yes', value:'yes'}, {label: 'no', value: 'no'}], //自然破碎
+      naturallyFractured:[{label: 'yes', value:'yes'}, {label: 'no', value: 'no'}], //自然破碎
       driveMechanism: DRIVEMECHANISM, //驱动机制
       sedimentarySequenceDistribution: SEDIMENTARYSEQUENCEDISTRIBUTION, //沉积层分布
       depositionalEnvironment: DEPOSITIONALENVIRONMENT, //沉积环境
@@ -968,7 +969,7 @@ export default {
           initialOilSaturation:'',
           hydraulicFractured:'',
           initialWaterSaturation:'',
-          natuallyFractured:'',
+          naturallyFractured:'',
           formationWaterSalinity:'',
           fracturePermeability:'',
           divalentCations:'',
