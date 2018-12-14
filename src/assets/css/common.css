@@ -72,6 +72,15 @@ body{
   background: #266099!important;
 }
 
+.el-switch__label.is-active {
+  color: #266099!important;
+  font-weight: 600!important;
+}
+.el-switch.is-checked .el-switch__core {
+  border-color: #266099!important;
+  background-color: #266099!important;
+}
+
 /*基础辅助样式*/
 .f-width90{width:90%!important;margin: 0 auto!important;}
 .f-width80{width:80%!important;margin: 0 auto!important;}
