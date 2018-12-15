@@ -912,6 +912,7 @@
                       inactive-text="No">
                   </el-switch></el-col>
                 </el-row>
+
                 <!--10.前置水组分   只有当ifPreflush为true时才显示-->
                 <el-collapse-item title="Preflush Water Composition" name="10" v-if="addDataForm.Polymer.ifPreflush">
                   <el-table :data="addDataForm.Polymer.preflushWaterComposition" style="width: 100%" stripe>
@@ -1052,7 +1053,7 @@
                 <!--13.聚合物设计 polymerDesign-->
                 <el-collapse-item title="Polymer Design" name="13">
                   <el-table :data="addDataForm.Polymer.polymerDesign" style="width: 100%" stripe>
-                    <el-table-column label="Slug Size" width="130">
+                    <el-table-column label="Slug Size (PV)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.slugSize"></el-input>
                       </template>
@@ -1087,54 +1088,49 @@
                         <el-input v-model="scope.row.polymerType"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Average Molecular Weight" width="130">
+                    <el-table-column label="Average Molecular Weight (10^4 dalton)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.averageMolecularWeight"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Hydrolysis Degree" width="130">
+                    <el-table-column label="Hydrolysis Degree (%)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.hydrolysisDegree"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Average Polymer Concentration" width="130">
+                    <el-table-column label="Average Polymer Concentration (ppm)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.averagePolymerConcentration"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Average Polymer VisCosity" width="130">
+                    <el-table-column label="Average Polymer VisCosity (6RPM,cp)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.averagePolymerVisCosity"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Injected Water Salinity" width="130">
+                    <el-table-column label="Injected Water Salinity (ppm)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.injectedWaterSalinity"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Start Injecting Pressure" width="130">
+                    <el-table-column label="Start Injecting Pressure (Mpa)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.startInjectingPressure"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="End Injecting Pressure" width="130">
+                    <el-table-column label="End Injecting Pressure (Mpa)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.endInjectingPressure"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Injection Rate" width="130">
+                    <el-table-column label="Injection Rate (PV/a)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.injectionRate"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Total Injection Volume" width="130">
+                    <el-table-column label="Total Injection Volume (PV)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.totalInjectionVolume"></el-input>
-                      </template>
-                    </el-table-column>
-                    <el-table-column label="Number Of Injection Wells" width="130">
-                      <template slot-scope="scope">
-                        <el-input v-model="scope.row.numberOfInjectionWells"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Number Of Injection Wells" width="130">
@@ -1154,17 +1150,66 @@
                 </el-collapse-item>
 
                 <!--14.注入压力 injectionPressure-->
-                <el-collapse-item title="Polymer Design" name="14">
+                <el-collapse-item title="Injection Pressure" name="14">
                   <el-table :data="addDataForm.Polymer.injectionPressure" style="width: 100%" stripe>
-
+                    <el-table-column label="Time">
+                      <template slot-scope="scope">
+                        <el-input v-model="scope.row.time"></el-input>
+                      </template>
+                    </el-table-column>
+                    <el-table-column label="Pressure (Mpa)">
+                      <template slot-scope="scope">
+                        <el-input v-model="scope.row.pressure"></el-input>
+                      </template>
+                    </el-table-column>
+                    <el-table-column label="operation" width="90" fixed="right">
+                      <template slot-scope="scope">
+                        <el-button type="primary" size="small" @click="deleteThisRow7(scope.$index)">Delete</el-button>
+                      </template>
+                    </el-table-column>
                   </el-table>
+                  <el-row :span="24" style="margin:40px 0 30px;">
+                    <el-button class="add_newLine" @click="addNewLine7">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
+                  </el-row>
                 </el-collapse-item>
 
                 <!--15.聚合物粘度 polymerViscosity-->
-                <el-collapse-item title="Polymer Design" name="15">
+                <el-collapse-item title="Polymer Viscosity" name="15">
                   <el-table :data="addDataForm.Polymer.polymerViscosity" style="width: 100%" stripe>
-                      
+                    <el-table-column label="Shear Rate (RPM)">
+                      <template slot-scope="scope">
+                        <el-input v-model="scope.row.shearRate"></el-input>
+                      </template>
+                    </el-table-column>
+                    <el-table-column label="Temperature (⁰C)">
+                      <template slot-scope="scope">
+                        <el-input v-model="scope.row.temperature"></el-input>
+                      </template>
+                    </el-table-column>
+                    <el-table-column label="Brine Salinity (ppm)">
+                      <template slot-scope="scope">
+                        <el-input v-model="scope.row.brineSalinity"></el-input>
+                      </template>
+                    </el-table-column>
+                    <el-table-column label="Polymer Concentration (ppm)">
+                      <template slot-scope="scope">
+                        <el-input v-model="scope.row.polymerConcentration"></el-input>
+                      </template>
+                    </el-table-column>
+                    <el-table-column label="Polymer Viscosity (cp)">
+                      <template slot-scope="scope">
+                        <el-input v-model="scope.row.polymerViscosity"></el-input>
+                      </template>
+                    </el-table-column>
+                    <el-table-column label="operation" width="90" fixed="right">
+                      <template slot-scope="scope">
+                        <el-button type="primary" size="small" @click="deleteThisRow8(scope.$index)">Delete</el-button>
+                      </template>
+                    </el-table-column>
                   </el-table>
+                  <el-row :span="24" style="margin:40px 0 30px;">
+                    <el-button class="add_newLine" @click="addNewLine8">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
+                  </el-row>
                 </el-collapse-item>
 
             </div>
@@ -1396,9 +1441,18 @@ export default {
             numberOfInjectionWells:''
           }],
           //注入压力
-          injectionPressure: [],
+          injectionPressure: [{
+            time:'',
+            pressure:''
+          }],
           //聚合物粘度
-          polymerViscosity:[]
+          polymerViscosity:[{
+            shearRate:'',
+            temperature:'',
+            brineSalinity:'',
+            polymerConcentration:'',
+            polymerViscosity:''
+          }]
         }
       },
       //添加数据Form规则
@@ -1444,6 +1498,12 @@ export default {
     },
     deleteThisRow6 (index) {
       this.addDataForm.Polymer.polymerDesign.splice(index, 1)
+    },
+    deleteThisRow7 (index) {
+      this.addDataForm.Polymer.injectionPressure.splice(index, 1)
+    },
+    deleteThisRow8 (index) {
+      this.addDataForm.Polymer.polymerViscosity.splice(index, 1)
     },
     addNewLine () {
       this.addDataForm.PPG.injectionParameter.push({
@@ -1528,6 +1588,21 @@ export default {
         injectionRate:'',
         totalInjectionVolume:'',
         numberOfInjectionWells:''
+      })
+    },
+    addNewLine7 () {
+      this.addDataForm.Polymer.injectionPressure.push({
+        time:'',
+        pressure:''
+      })
+    },
+    addNewLine8 () {
+      this.addDataForm.Polymer.polymerViscosity.push({
+        shearRate:'',
+        temperature:'',
+        brineSalinity:'',
+        polymerConcentration:'',
+        polymerViscosity:''
       })
     }
   }
