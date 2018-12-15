@@ -1244,7 +1244,7 @@ export default {
   data () {
     return {
       footerFixed: false,
-      activeNames: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13','14', '15'],
+      activeNames: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'],
       country: COUNTRY, //国家
       EORType: EORTYPE, //EOR类型
       formationType: FORMATIONTYPE, //形成类型
