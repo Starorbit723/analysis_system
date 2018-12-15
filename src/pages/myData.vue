@@ -42,9 +42,10 @@
         </div>
         <!--查询结果表格-->
         <el-table :data="tableData" :max-height="tabelHeight" style="width: 100%; margin:30px auto;" stripe>
-          <el-table-column prop="dataId" label="Data ID"></el-table-column>
+          <el-table-column prop="dataId" label="Data ID" width="100"></el-table-column>
           <el-table-column prop="dataTitle" label="Data Title"></el-table-column>
-          <el-table-column prop="unitType" label="Unit Type"></el-table-column>
+          <el-table-column prop="dataType" label="Data Type" width="100"></el-table-column>
+          <el-table-column prop="unitType" label="Unit Type" width="100"></el-table-column>
           <el-table-column prop="creatTime" label="Creat Time"></el-table-column>
           <el-table-column label="Operation" width="350">
             <template slot-scope="scope">
@@ -105,11 +106,13 @@ export default {
       tableData:[{
         dataId:'1',
         dataTitle: 'this is a title of data a',
+        dataType:'PPG',
         unitType:'SI Unit',
         creatTime:'2018-11-29'
       }, {
         dataId:'2',
         dataTitle: 'this is a title of data b',
+        dataType:'Polymer',
         unitType:'Field Unit',
         creatTime:'2018-11-30'
       }],
