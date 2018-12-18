@@ -10,7 +10,7 @@
         <!--网站目标-->
         <div class="introduce_box">
           <h1 class="title_level1">Objectives</h1>
-          <ul>
+          <ul class="layout_ul">
             <li>•	Collect and organize the worldwide EOR projects from varied sources</li>
             <li>•	Provide a customized platform to collect new project data for each EOR technology</li>
             <li>•	Apply fundamental statistical methods to display the existing project distributions, ranges, and relationships for different EOR technologies</li>
@@ -20,14 +20,45 @@
         <!--网站功能-->
         <div class="introduce_list">
           <h1 class="title_level1">Functions</h1>
-          <ul>
+          <ul class="layout_ul">
             <li>
               <div class="text_box el-fl">
                 <h2 class="title_level2">Data Acquisition</h2>
                 <p>EOR project data have been collected from variety of data sources, which lay the foundation for further analysis. Table below illustrated the number of projects and main reservoir parameters that our research group have been collected for various EOR techniques, each EOR technique has customized format for data collection.</p>
                 <p>The primary function of this website is the customization of data acquisition system based on our valuable experience for data collection from various sources. Currently, we have the full-design for polymer flooding and preformed particle gels, and the design for other EOR technologies are undergoing. Customers could provide and use their EOR project information for further comparison and analysis.</p>
               </div>
-              <img class="list_img" src="../assets/images/souji.png">
+              <div class="table_show">
+                <dl class="tblist1" style="width:40%;">
+                  <dt class="thead">EOR Techniques</dt>
+                  <dt>Polymer</dt>
+                  <dt>Surfactant-polymer</dt>
+                  <dt>Surfactant Imbibition</dt>
+                  <dt>Preformed Particle Gel</dt>
+                  <dt>Bulk Gel</dt>
+                  <dt>CDG</dt>
+                  <dt>Weak Gel</dt>
+                  <dt>Low Salinity Water</dt>
+                  <dt>CO2 Miscible Flooding</dt>
+                  <dt>Steam</dt>
+                </dl>
+                <dl class="tblist2" style="width:30%;">
+                  <dt class="thead">Number Of Projects</dt>
+                  <dt>920</dt>
+                  <dt>97</dt>
+                  <dt>199</dt>
+                  <dt>666</dt>
+                  <dt>57</dt>
+                  <dt>44</dt>
+                  <dt>10</dt>
+                  <dt>411</dt>
+                  <dt>134</dt>
+                  <dt>626</dt>
+                </dl>
+                <dl class="tblist3" style="width:30%;">
+                  <dt class="thead">Parameters</dt>
+                  <dt><br>Depth,<br>permeability,<br>porosity,<br>temperature,<br>saturation,<br>thickness,<br>gravity,<br>viscosity<br>...</dt>
+                </dl>
+              </div>
             </li>
             <li>
               <img class="list_img2" src="../assets/images/fenxi.png">
@@ -151,12 +182,12 @@ export default {
     margin-bottom: 10px;
     color: #333;
   }
-  .introduce_box ul{
+  .layout_ul{
     display: block;
     width: 100%;
     margin: 0 auto;
   }
-  .introduce_box ul li{
+  .layout_ul li{
     display: inline-block;
     width: 100%;
     line-height: 30px;
@@ -182,7 +213,7 @@ export default {
     display: inline-block;
   }
   .introduce_list ul li{
-    display: inline-block;
+    display:inline-block;
     position: relative;
     width: 100%;
     margin-top: 80px;
@@ -199,8 +230,40 @@ export default {
     width: 50%;
     float: left;
   }
+  .table_show{
+    width:45%;
+    float:right;
+    text-align:center;
+    font-size:12px;
+  }
+  .table_show dl{
+    display:block;
+    float:left;
+  }
+  .table_show dl dt{
+    display:block;
+    height:30px;
+    line-height:30px;
+  }
+  .table_show .thead{
+    font-weight:700;
+    text-align:center;
+    color:#FFF;
+    background:#266099!important;
+  }
+  .tblist1 dt:nth-child(2n+1){
+    background:#f6f6f6;
+  }
+  .tblist2 dt:nth-child(2n+1){
+    background:#f6f6f6;
+  }
+  .tblist3 dt:nth-child(2){
+    height:300px!important;
+    background:#f6f6f6;
+    line-height:28px;
+  }
   .text_box{
-    width: 55%;
+    width: 45%;
   }
   .text_box2{
     width: 90%;
@@ -216,18 +279,8 @@ export default {
     line-height: 26px;
     margin-bottom: 5px;
   }
-  .list_img{
-    width: 35%;
-    padding:0 0 0 5%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-  }
   .list_img2{
-    width: 35%;
+    width: 45%;
     padding:0 5% 0 0;
     height: 100%;
     display: block;

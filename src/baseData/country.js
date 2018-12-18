@@ -169,7 +169,7 @@ export const COUNTRY = [
   {label:'Uganda', value:'Uganda'},
   {label:'Ukraine', value:'Ukraine'},
   {label:'United Arab Emirates', value:'United Arab Emirates'},
-  {label:'United Kiongdom', value:'United Kiongdom'},
+  {label:'United Kingdom', value:'United Kingdom'},
   {label:'United States of America', value:'United States of America'},
   {label:'Uruguay', value:'Uruguay'},
   {label:'Uzbekistan', value:'Uzbekistan'},

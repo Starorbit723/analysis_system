@@ -3,7 +3,7 @@
     <Header></Header>
     <section class="fullscreen">
       <div class="content_warpper">
-        <div class="tips_zone">Please Choice The Unit Of Your Data<br>Different Unit Maybe Lead To Different Analysis Result</div>
+        <div class="tips_zone">Please Select The Appropriate Unit System For Your<br>Data / Project / Target Reservoir</div>
         <el-row>
           <el-col :span="4" :offset="7">
             <el-button type="primary" class="el-width-st100 btn_shadow" @click="toAddDataPage(0)" round>SI Unit</el-button>

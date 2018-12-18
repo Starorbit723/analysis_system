@@ -49,11 +49,11 @@
               </el-row>
             </el-collapse-item>
             <!--2.一般信息-->
-            <el-collapse-item title="General information" name="2">
+            <el-collapse-item title="General Information" name="2">
               <el-row :gutter="20" :offset="1" class="f-mart30">
                 <el-col :span="8">
                   <el-form-item label="Country">
-                    <el-select v-model="addDataForm.generalInformation.country" class="el-width-st100" placeholder="Please Choice Country">
+                    <el-select v-model="addDataForm.generalInformation.country" class="el-width-st100" placeholder="Please Choose Country">
                       <el-option
                         v-for="item in country"
                         :key="item.value"
@@ -103,7 +103,7 @@
                 </el-col>
                 <el-col :span="8">
                   <el-form-item label="EOR Type">
-                    <el-select v-model="addDataForm.generalInformation.EORType" class="el-width-st100" placeholder="Please Choice Type">
+                    <el-select v-model="addDataForm.generalInformation.EORType" class="el-width-st100" placeholder="Please Choose Type">
                       <el-option
                         v-for="item in EORType"
                         :key="item.value"
@@ -129,7 +129,7 @@
                     <el-date-picker
                       v-model="addDataForm.generalInformation.starDate"
                       type="date"
-                      placeholder="Please Choice StarTime"
+                      placeholder="Please Select StarTime"
                       class="el-width-st100">
                     </el-date-picker>
                   </el-form-item>
@@ -139,7 +139,7 @@
                     <el-date-picker
                       v-model="addDataForm.generalInformation.endDate"
                       type="date"
-                      placeholder="Please Choice EndTime"
+                      placeholder="Please Select EndTime"
                       class="el-width-st100">
                     </el-date-picker>
                   </el-form-item>
@@ -170,7 +170,7 @@
               </el-row>
               <el-row :gutter="20" :offset="1">
                 <el-col :span="12">
-                  <el-form-item label="Number of Production Wells:" label-width="55%">
+                  <el-form-item label="Number of Production Wells" label-width="55%">
                       <el-input
                         clearable
                         type="text"
@@ -231,7 +231,7 @@
               <el-row :gutter="20" :offset="1">
                 <el-col :span="12">
                   <el-form-item label="Formation Type" label-width="55%">
-                    <el-select v-model="addDataForm.reservoirInformation.formationType" class="el-width-st100" placeholder="Please Choice Type">
+                    <el-select v-model="addDataForm.reservoirInformation.formationType" class="el-width-st100" placeholder="Please Choose Type">
                       <el-option
                         v-for="item in formationType"
                         :key="item.value"
@@ -254,7 +254,7 @@
               <el-row :gutter="20" :offset="1">
                 <el-col :span="12">
                   <el-form-item label="Hydraulic Fractured" label-width="55%">
-                    <el-select v-model="addDataForm.reservoirInformation.hydraulicFractured" class="el-width-st100" placeholder="Please Choice Yes or No">
+                    <el-select v-model="addDataForm.reservoirInformation.hydraulicFractured" class="el-width-st100" placeholder="Please Choose Yes or No">
                       <el-option
                         v-for="item in hydraulicFractured"
                         :key="item.value"
@@ -276,7 +276,7 @@
               </el-row>
               <el-row :gutter="20" :offset="1">
                 <el-col :span="12">
-                  <el-form-item label="Depth (m)" label-width="55%">
+                  <el-form-item label="Depth (ft)" label-width="55%">
                       <el-input
                         clearable
                         type="text"
@@ -305,7 +305,7 @@
                   </el-form-item>
                 </el-col>
                 <el-col :span="12">
-                  <el-form-item label="Initial Oil In Place (ton)" label-width="55%">
+                  <el-form-item label="Initial Oil In Place (bbl)" label-width="55%">
                     <el-input
                       clearable
                       type="text"
@@ -316,7 +316,7 @@
               </el-row>
               <el-row :gutter="20" :offset="1">
                 <el-col :span="12">
-                  <el-form-item label="Gross Thickness (m)" label-width="55%">
+                  <el-form-item label="Gross Thickness (ft)" label-width="55%">
                       <el-input
                         clearable
                         type="text"
@@ -326,7 +326,7 @@
                 </el-col>
                 <el-col :span="12">
                   <el-form-item label="Drive Mechanism" label-width="55%">
-                    <el-select v-model="addDataForm.reservoirInformation.driveMechanism" class="el-width-st100" placeholder="Please Choice Drive Mechanism">
+                    <el-select v-model="addDataForm.reservoirInformation.driveMechanism" class="el-width-st100" placeholder="Please Choose Drive Mechanism">
                       <el-option
                         v-for="item in driveMechanism"
                         :key="item.value"
@@ -339,7 +339,7 @@
               </el-row>
               <el-row :gutter="20" :offset="1">
                 <el-col :span="12">
-                  <el-form-item label="Net Thickness (m)" label-width="55%">
+                  <el-form-item label="Net Thickness (ft)" label-width="55%">
                       <el-input
                         clearable
                         type="text"
@@ -409,7 +409,7 @@
                 </el-col>
                 <el-col :span="12">
                   <el-form-item label="Sedimentary Sequence Distribution" label-width="55%">
-                    <el-select v-model="addDataForm.reservoirInformation.sedimentarySequenceDistribution" class="el-width-st100" placeholder="Please Choice Distribution">
+                    <el-select v-model="addDataForm.reservoirInformation.sedimentarySequenceDistribution" class="el-width-st100" placeholder="Please Choose Distribution">
                       <el-option
                         v-for="item in sedimentarySequenceDistribution"
                         :key="item.value"
@@ -423,7 +423,7 @@
               <el-row :gutter="20" :offset="1">
                 <el-col :span="12">
                   <el-form-item label="Naturally Fractured" label-width="55%">
-                    <el-select v-model="addDataForm.reservoirInformation.naturallyFractured" class="el-width-st100" placeholder="Please Choice Yes or No">
+                    <el-select v-model="addDataForm.reservoirInformation.naturallyFractured" class="el-width-st100" placeholder="Please Choose Yes or No">
                       <el-option
                         v-for="item in naturallyFractured"
                         :key="item.value"
@@ -435,7 +435,7 @@
                 </el-col>
                 <el-col :span="12">
                   <el-form-item label="Depositional Environment" label-width="55%">
-                    <el-select v-model="addDataForm.reservoirInformation.depositionalEnvironment" class="el-width-st100" placeholder="Please Choice Depositional Environment">
+                    <el-select v-model="addDataForm.reservoirInformation.depositionalEnvironment" class="el-width-st100" placeholder="Please Choose Depositional Environment">
                       <el-option
                         v-for="item in depositionalEnvironment"
                         :key="item.value"
@@ -506,7 +506,7 @@
                         <el-input v-model="scope.row.PPGSize"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Temperature Resistance(⁰C)" width="130">
+                    <el-table-column label="Temperature Resistance(⁰F)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.temperatureResistance"></el-input>
                       </template>
@@ -521,7 +521,7 @@
                         <el-input v-model="scope.row.thermalStability"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Strength(Pa)" width="130">
+                    <el-table-column label="Strength(psi)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.strength"></el-input>
                       </template>
@@ -536,7 +536,7 @@
                         <el-input v-model="scope.row.swellingRatio"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Dried PPG Weight(ton)" width="130">
+                    <el-table-column label="Dried PPG Weight(lb)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.driedPPGWeight"></el-input>
                       </template>
@@ -546,12 +546,12 @@
                         <el-input v-model="scope.row.PPGSuspensionConcentration"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="PPG Injection Volume(m3)" width="130">
+                    <el-table-column label="PPG Injection Volume(ft3)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.PPGInjectionVolume"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="PPG Injection Rate(m3/day)" width="130">
+                    <el-table-column label="PPG Injection Rate(ft3/day)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.PPGInjectionRate"></el-input>
                       </template>
@@ -566,24 +566,24 @@
                         <el-input v-model="scope.row.maximumInjectionPressure"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Total Injection Weight(ton)" width="130">
+                    <el-table-column label="Total Injection Weight(lb)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.totalInjectionWeight"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Total Injection Volume(m3)" width="130">
+                    <el-table-column label="Total Injection Volume(ft3)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.totalInjectionVolume"></el-input>
                       </template>
                     </el-table-column>
-                      <el-table-column label="operation" width="90" fixed="right">
+                      <el-table-column label="Operation" width="100" fixed="right">
                         <template slot-scope="scope">
                           <el-button type="primary" size="small" @click="deleteThisRow(scope.$index)">Delete</el-button>
                         </template>
                       </el-table-column>
                   </el-table>
                   <el-row :span="24" style="margin:40px 0 30px;">
-                    <el-button class="add_newLine" @click="addNewLine">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
+                    <el-button class="add_newLine" @click="addNewLine">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line</el-button>
                   </el-row>
                 </el-collapse-item>
                 <!--5.PPG监控-->
@@ -600,14 +600,14 @@
                         <el-input v-model="scope.row.PPGInjectionPressure"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="operation" width="90" fixed="right">
+                    <el-table-column label="Operation" width="100" fixed="right">
                       <template slot-scope="scope">
                         <el-button type="primary" size="small" @click="deleteThisRow2(scope.$index)">Delete</el-button>
                       </template>
                     </el-table-column>
                   </el-table>
                   <el-row :span="24" style="margin:40px 0 30px;">
-                    <el-button class="add_newLine" @click="addNewLine2">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
+                    <el-button class="add_newLine" @click="addNewLine2">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line</el-button>
                   </el-row>
                 </el-collapse-item>
                 <!--6.评估-->
@@ -615,7 +615,7 @@
                   <el-row :gutter="20" :offset="1" class="f-width90 f-mart30">
                     <el-col :span="12">
                       <el-form-item label="Previous Production">
-                        <el-select v-model="addDataForm.PPG.evaluation.previousProduction" class="el-width-st100" placeholder="Please Choice Previous Production">
+                        <el-select v-model="addDataForm.PPG.evaluation.previousProduction" class="el-width-st100" placeholder="Please Choose Previous Production">
                           <el-option
                             v-for="item in previousProduction"
                             :key="item.value"
@@ -627,7 +627,7 @@
                     </el-col>
                     <el-col :span="12">
                       <el-form-item label="Project Scope">
-                        <el-select v-model="addDataForm.PPG.evaluation.projectScope" class="el-width-st100" placeholder="Please Choice Project Scope">
+                        <el-select v-model="addDataForm.PPG.evaluation.projectScope" class="el-width-st100" placeholder="Please Choose Project Scope">
                           <el-option
                             v-for="item in projectScope"
                             :key="item.value"
@@ -641,7 +641,7 @@
                   <el-row :gutter="20" :offset="1" class="f-width90">
                     <el-col :span="12">
                       <el-form-item label="Project Maturity">
-                        <el-select v-model="addDataForm.PPG.evaluation.projectMaturity" class="el-width-st100" placeholder="Please Choice Project Maturity">
+                        <el-select v-model="addDataForm.PPG.evaluation.projectMaturity" class="el-width-st100" placeholder="Please Choose Project Maturity">
                           <el-option
                             v-for="item in projectMaturity"
                             :key="item.value"
@@ -664,7 +664,7 @@
                   <el-row :gutter="20" :offset="1" class="f-width90">
                     <el-col :span="12">
                       <el-form-item label="Project Evaluation">
-                        <el-select v-model="addDataForm.PPG.evaluation.projectEvaluation" class="el-width-st100" placeholder="Please Choice Project Evaluation">
+                        <el-select v-model="addDataForm.PPG.evaluation.projectEvaluation" class="el-width-st100" placeholder="Please Choose Project Evaluation">
                           <el-option
                             v-for="item in projectEvaluation"
                             :key="item.value"
@@ -687,7 +687,7 @@
                   <el-row :gutter="20" :offset="1" class="f-width90">
                     <el-col :span="12">
                       <el-form-item label="Profit">
-                        <el-select v-model="addDataForm.PPG.evaluation.profit" class="el-width-st100" placeholder="Please Choice Profit">
+                        <el-select v-model="addDataForm.PPG.evaluation.profit" class="el-width-st100" placeholder="Please Choose Profit">
                           <el-option
                             v-for="item in profit"
                             :key="item.value"
@@ -743,14 +743,14 @@
                         </template>
                       </el-table-column>
                     </el-table-column>
-                    <el-table-column label="operation" width="90" fixed="right">
+                    <el-table-column label="Operation" width="100" fixed="right">
                       <template slot-scope="scope">
                         <el-button type="primary" size="small" @click="deleteThisRow3(scope.$index)">Delete</el-button>
                       </template>
                     </el-table-column>
                   </el-table>
                   <el-row :span="24" style="margin:40px 0 30px;">
-                    <el-button class="add_newLine" @click="addNewLine3">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
+                    <el-button class="add_newLine" @click="addNewLine3">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line</el-button>
                   </el-row>
                   <el-row :offset="6">
                     <el-upload
@@ -758,8 +758,8 @@
                       action="https://jsonplaceholder.typicode.com/posts/"
                       :on-change="handleChange"
                       :file-list="fileList3">
-                      <el-button size="small" type="primary">点击上传</el-button>
-                      <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                      <el-button size="small" type="primary">Upload Files</el-button>
+                      <div slot="tip" class="el-upload__tip">not exceeding 1M</div>
                     </el-upload>
                   </el-row>
                 </el-collapse-item>
@@ -782,7 +782,7 @@
                           <el-input v-model="scope.row.beforePercentageIntakeWater"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Water Intake(m3/d)">
+                      <el-table-column label="Water Intake(ft3/day)">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.beforeWaterIntake"></el-input>
                         </template>
@@ -794,7 +794,7 @@
                           <el-input v-model="scope.row.afterPercentageIntakeWater"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Water Intake(m3/d)">
+                      <el-table-column label="Water Intake(ft3/day)">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.afterWaterIntake"></el-input>
                         </template>
@@ -806,20 +806,20 @@
                           <el-input v-model="scope.row.differencePercentageIntakeWater"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Water Intake(m3/d)">
+                      <el-table-column label="Water Intake(ft3/day)">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.differenceWaterIntake"></el-input>
                         </template>
                       </el-table-column>
                     </el-table-column>
-                    <el-table-column label="operation" width="90" fixed="right">
+                    <el-table-column label="Operation" width="100" fixed="right">
                       <template slot-scope="scope">
                         <el-button type="primary" size="small" @click="deleteThisRow4(scope.$index)">Delete</el-button>
                       </template>
                     </el-table-column>
                   </el-table>
                   <el-row :span="24" style="margin:40px 0 30px;">
-                    <el-button class="add_newLine" @click="addNewLine4">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
+                    <el-button class="add_newLine" @click="addNewLine4">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line</el-button>
                   </el-row>
                 </el-collapse-item>
                 <!--9.生产绩效-->
@@ -836,12 +836,12 @@
                       </template>
                     </el-table-column>
                     <el-table-column label="Before PPG Injection">
-                      <el-table-column label="Liquid(ton)">
+                      <el-table-column label="Liquid(lb)">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.beforeLiquid"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Oil(ton)">
+                      <el-table-column label="Oil(lb)">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.beforeOil"></el-input>
                         </template>
@@ -853,12 +853,12 @@
                       </el-table-column>
                     </el-table-column>
                     <el-table-column label="After PPG Treatment">
-                      <el-table-column label="Liquid(ton)">
+                      <el-table-column label="Liquid(lb)">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.afterLiquid"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Oil(ton)">
+                      <el-table-column label="Oil(lb)">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.afterOil"></el-input>
                         </template>
@@ -870,12 +870,12 @@
                       </el-table-column>
                     </el-table-column>
                     <el-table-column label="Difference">
-                      <el-table-column label="Liquid(ton)">
+                      <el-table-column label="Liquid(lb)">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.differenceLiquid"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Oil(ton)">
+                      <el-table-column label="Oil(lb)">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.differenceOil"></el-input>
                         </template>
@@ -886,14 +886,14 @@
                         </template>
                       </el-table-column>
                     </el-table-column>
-                    <el-table-column label="operation" width="90" fixed="right">
+                    <el-table-column label="Operation" width="100" fixed="right">
                       <template slot-scope="scope">
                         <el-button type="primary" size="small" @click="deleteThisRow5(scope.$index)">Delete</el-button>
                       </template>
                     </el-table-column>
                   </el-table>
                   <el-row :span="24" style="margin:40px 0 30px;">
-                    <el-button class="add_newLine" @click="addNewLine5">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
+                    <el-button class="add_newLine" @click="addNewLine5">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line</el-button>
                   </el-row>
                 </el-collapse-item>
             </div>
@@ -904,7 +904,7 @@
                 <h1>Polymer Data</h1>
                 <!--判断是否是Preflush-->
                 <el-row style="margin-bottom:30px;">
-                  <el-col :span="6" class="choice_preflush">Please Choice Preflush Or Not ?</el-col>
+                  <el-col :span="6" class="Choose_preflush">Please Choose Preflush Or Not ?</el-col>
                   <el-col :span="6">
                     <el-switch
                       v-model="addDataForm.Polymer.ifPreflush"
@@ -1138,14 +1138,14 @@
                         <el-input v-model="scope.row.numberOfInjectionWells"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="operation" width="90" fixed="right">
+                    <el-table-column label="Operation" width="100" fixed="right">
                       <template slot-scope="scope">
                         <el-button type="primary" size="small" @click="deleteThisRow6(scope.$index)">Delete</el-button>
                       </template>
                     </el-table-column>
                   </el-table>
                   <el-row :span="24" style="margin:40px 0 30px;">
-                    <el-button class="add_newLine" @click="addNewLine6">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
+                    <el-button class="add_newLine" @click="addNewLine6">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line</el-button>
                   </el-row>
                 </el-collapse-item>
 
@@ -1162,14 +1162,14 @@
                         <el-input v-model="scope.row.pressure"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="operation" width="90" fixed="right">
+                    <el-table-column label="Operation" width="100" fixed="right">
                       <template slot-scope="scope">
                         <el-button type="primary" size="small" @click="deleteThisRow7(scope.$index)">Delete</el-button>
                       </template>
                     </el-table-column>
                   </el-table>
                   <el-row :span="24" style="margin:40px 0 30px;">
-                    <el-button class="add_newLine" @click="addNewLine7">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
+                    <el-button class="add_newLine" @click="addNewLine7">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line</el-button>
                   </el-row>
                 </el-collapse-item>
 
@@ -1201,14 +1201,14 @@
                         <el-input v-model="scope.row.polymerViscosity"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="operation" width="90" fixed="right">
+                    <el-table-column label="Operation" width="100" fixed="right">
                       <template slot-scope="scope">
                         <el-button type="primary" size="small" @click="deleteThisRow8(scope.$index)">Delete</el-button>
                       </template>
                     </el-table-column>
                   </el-table>
                   <el-row :span="24" style="margin:40px 0 30px;">
-                    <el-button class="add_newLine" @click="addNewLine8">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line&nbsp;&nbsp;At&nbsp;&nbsp;End&nbsp;&nbsp;Of&nbsp;&nbsp;Table</el-button>
+                    <el-button class="add_newLine" @click="addNewLine8">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line</el-button>
                   </el-row>
                 </el-collapse-item>
 
@@ -1638,7 +1638,7 @@ export default {
     border: 1px solid #205081;
     color: #FFF;
   }
-  .choice_preflush{
+  .Choose_preflush{
     font-weight: 600;
     line-height: 20px;
   }

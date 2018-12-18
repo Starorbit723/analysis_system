@@ -1,9 +1,8 @@
 <template>
   <footer :class="{'fixed_footer': footerFixed}">
     <div class="content_warpper">
-      <p>Copyright © Missouri University of Science and Technology, EOR Data Research Group, Rolla, MO 65409 - All Rights Reserved.</p>
-      <p>Please Read <a href="javascript:void(0)" @click="toPageAboutUs"> The Copyright Statement</a>. Report E-mail：weim@mst.edu</p>
-      <p>Welcome To Contact Us For More Information And Suggest : 573-341-4657</p>
+      <p>Copyright © Missouri University of Science and Technology, EOR Data Research Group, Rolla, MO 65409 – All Rights Reserved</p>
+      <p>weim@mst.edu | 573-341-4657</p>
     </div>
   </footer>
 </template>
@@ -26,24 +25,22 @@ export default {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 110px;
   padding: 15px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   width: 100%;
-  height: 110px;
+  height: 90px;
   background: #205081;
 }
 footer{
   width: 100%;
-  height: 110px;
+  height: 90px;
   padding: 15px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   width: 100%;
-  height: 110px;
   background: #205081;
 }
 footer p{
