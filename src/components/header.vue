@@ -10,7 +10,7 @@
     </nav>
     <div class="login_nav">
       <div v-if="!isLogin" class="login_btn" @click="openLoginPop">Login</div>
-      <div v-if="isLogin" class="logout_zone" @click="logout">Hello&nbsp;,&nbsp;{{userName}}</div>
+      <div v-if="isLogin" class="logout_zone" @click="logout">Hello&nbsp;,&nbsp;{{formalName}}</div>
     </div>
     <LoginPop></LoginPop>
   </header>
@@ -19,6 +19,7 @@
 <script>
 import LoginPop from '@components/loginPop'
 import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
+import { setCookie, getCookie, deletCookie } from '../utils/cookie'
 
 export default {
   components: { LoginPop },
@@ -55,8 +56,8 @@ export default {
     isLogin () {
       return this.getLoginFlag
     },
-    userName () {
-      return this.getUserInfo.userName
+    formalName () {
+      return this.getUserInfo.formalName
     }
   },
   created () {
@@ -90,6 +91,11 @@ export default {
         cancelButtonText: 'No',
         type: 'warning'
       }).then(() => {
+        deletCookie('e-access-token')
+        deletCookie('loginName')
+        deletCookie('formalName')
+        deletCookie('email')
+        deletCookie('phoneNumber')
         self.updateLoginFlag(false)
         self.updateUserInfo({})
         self.$router.push({path: '/index'})
@@ -171,10 +177,11 @@ export default {
   .logout_zone{
     float: right;
     display: block;
+    text-align: right;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 220px;
+    max-width: 220px;
     padding:0 15px;
     height: 60px;
     font-size: 14px;

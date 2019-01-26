@@ -155,8 +155,8 @@ export const PROFIT = [
 // 单位类型
 export const UNITTYPE = [
   {label: 'All', value: ''},
-  {label: 'SI Unit', value: 'SI Unit'},
-  {label: 'Field Unit', value: 'Field Unit'}
+  {label: 'SI Unit', value: 'SI'},
+  {label: 'Field Unit', value: 'Field'}
 ]
 
 // 分析类型

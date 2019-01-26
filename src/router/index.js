@@ -70,13 +70,15 @@ router.beforeEach((to, from, next) => {
 
   const nextRoute = ['myData', 'addData', 'addDataSI', 'addDataField', 'analysisType', 'analysisEcharts']
   // 未登录状态,呼起登录框
-  if (getCookie('userName')) {
+  if (getCookie('loginName')) {
     Store.state.userLogin.isLogin = true
     Store.state.userLogin.userInfo = {
-      userName: getCookie('userName'),
-      passWord: getCookie('passWord')
+      loginName: getCookie('loginName'),
+      formalName: getCookie('formalName'),
+      email: getCookie('email'),
+      phoneNumber: getCookie('phoneNumber')
     }
-  } else if (nextRoute.indexOf(to.name) >= 0 && (!getCookie('userName'))) {
+  } else if (nextRoute.indexOf(to.name) >= 0 && (!getCookie('loginName'))) {
     Message({
       message: 'Please Login At First !',
       type: 'warning',

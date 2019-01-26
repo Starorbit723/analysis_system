@@ -37,15 +37,6 @@
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
-                <el-col :span="12">
-                  <el-form-item label="Data Title">
-                      <el-input
-                        clearable
-                        type="text"
-                        v-model="addDataForm.contactInformation.dataTitle"
-                        auto-complete="off"></el-input>
-                    </el-form-item>
-                </el-col>
               </el-row>
             </el-collapse-item>
             <!--2.一般信息-->
@@ -143,6 +134,17 @@
                       class="el-width-st100">
                     </el-date-picker>
                   </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row :gutter="20" :offset="1">
+                <el-col :span="16">
+                  <el-form-item label="Data Title" label-width="16.1%">
+                      <el-input
+                        clearable
+                        type="text"
+                        v-model="addDataForm.generalInformation.dataTitle"
+                        auto-complete="off"></el-input>
+                    </el-form-item>
                 </el-col>
               </el-row>
             </el-collapse-item>
@@ -1220,7 +1222,7 @@
         <!--按钮提交区-->
         <el-row :gutter="40" style="margin-top:40px;">
           <el-col :span="4" :offset="8">
-            <el-button type="primary" style="width:100%">Submit</el-button>
+            <el-button type="primary" style="width:100%" @click="submitAll">Submit</el-button>
           </el-col>
           <el-col :span="4">
             <el-button type="primary" style="width:100%">Reset</el-button>
@@ -1238,6 +1240,7 @@ import Footer from '@components/footer'
 import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
 import { EORTYPE, FORMATIONTYPE, DRIVEMECHANISM, SEDIMENTARYSEQUENCEDISTRIBUTION, DEPOSITIONALENVIRONMENT, PREVIOUSPRODUCTION, PROJECTSCOPE, PROJECTMATURITY, PROJECTEVALUATION, PROFIT } from '@baseData/baseData'
 import { COUNTRY } from '@baseData/country'
+import { getCookie } from '../utils/cookie'
 
 export default {
   components: {Header, Footer},
@@ -1262,10 +1265,9 @@ export default {
         unit: 'SI',
         //联系信息
         contactInformation: {
-          userName: 'Jonna',
-          emailAddress: 'Jonna@163.com',
-          phoneNumber:'13801383838',
-          dataTitle:''
+          userName: '',
+          emailAddress: '',
+          phoneNumber:''
         },
         //一般信息
         generalInformation: {
@@ -1277,7 +1279,8 @@ export default {
           EORType:'',
           operator:'',
           starDate:'',
-          endDate:''
+          endDate:'',
+          dataTitle:''
         },
         //水库信息
         reservoirInformation:{
@@ -1469,6 +1472,9 @@ export default {
   },
   mounted () {
     console.log(this.$route.query.dataId)
+    this.addDataForm.contactInformation.userName = getCookie('formalName')
+    this.addDataForm.contactInformation.emailAddress = getCookie('email')
+    this.addDataForm.contactInformation.phoneNumber = getCookie('phoneNumber')
     if (this.$route.query.dataId) {
       //有dataId代表修改数据
       //开始请求
@@ -1477,6 +1483,15 @@ export default {
     }
   },
   methods: {
+    //提交全部数据
+    submitAll () {
+      var self = this
+      axios.post(self.baseUrl + '/s/ppg', self.addDataForm).then(function (res) {
+        if (res.code === 0) {
+          console.log('提交返回结果', res)
+        }
+      })
+    },
     //文件上传
     handleChange (file, fileList) {
       this.fileList3 = fileList.slice(-3)

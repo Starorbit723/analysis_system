@@ -4,8 +4,10 @@ const state = {
   showLoginPop: false,
   isLogin: false,
   userInfo: {
-    userName: '',
-    passWord: ''
+    loginName:'',
+    formalName:'',
+    email:'',
+    phoneNumber:''
   }
 }
 const mutations = {
@@ -17,12 +19,16 @@ const mutations = {
   },
   submitUserInfo (state, payload) {
     state.userInfo = payload.params
-    if (payload.params.userName) {
-      setCookie('userName', payload.params.userName, 7)
-      setCookie('passWord', payload.params.passWord, 7)
+    if (payload.params.loginName) {
+      setCookie('loginName', payload.params.loginName, 7)
+      setCookie('formalName', payload.params.formalName, 7)
+      setCookie('email', payload.params.email, 7)
+      setCookie('phoneNumber', payload.params.phoneNumber, 7)
     } else {
-      setCookie('userName', '', 0)
-      setCookie('passWord', '', 0)
+      setCookie('loginName', '', 0)
+      setCookie('formalName', '', 0)
+      setCookie('email', '', 0)
+      setCookie('phoneNumber', '', 0)
     }
   }
 }

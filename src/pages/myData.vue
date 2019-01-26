@@ -6,7 +6,7 @@
         <!--列表搜索区-->
         <div class="search_zone">
           <el-form :model="searchForm" status-icon class="demo-ruleForm" label-width="33.33%" label-position="right">
-            <el-col :span="7">
+            <el-col :span="5">
               <el-form-item label="Unit Type" style="margin:0;">
                 <el-select v-model="searchForm.unitType" placeholder="112">
                   <el-option
@@ -18,15 +18,19 @@
                 </el-select>
               </el-form-item>
             </el-col>
-            <el-col :span="7">
+            <el-col :span="10">
               <el-form-item label="Created Date" style="margin:0;">
                 <el-date-picker
-                  v-model="searchForm.creatTime"
-                  type="date">
+                  style="width:310px;"
+                  v-model="searchForm.dateRange"
+                  type="daterange"
+                  range-separator="to"
+                  start-placeholder="Start Date"
+                  end-placeholder="End Date">
                 </el-date-picker>
               </el-form-item>
             </el-col>
-            <el-col :span="7">
+            <el-col :span="6">
               <el-form-item label="Data Title" style="margin:0;">
                 <el-input
                   clearable
@@ -36,17 +40,17 @@
               </el-form-item>
             </el-col>
             <el-col :span="2" :offset="1">
-              <el-button type="primary" style="width:100%">Search</el-button>
+              <el-button type="primary" style="width:100%" @click="searchList">Search</el-button>
             </el-col>
           </el-form>
         </div>
         <!--查询结果表格-->
         <el-table :data="tableData" :max-height="tabelHeight" style="width: 100%; margin:30px auto;" stripe>
-          <el-table-column prop="dataId" label="Data ID" width="100"></el-table-column>
           <el-table-column prop="dataTitle" label="Data Title"></el-table-column>
-          <el-table-column prop="dataType" label="Data Type" width="100"></el-table-column>
+          <el-table-column prop="dataType" label="Data Type" width="110"></el-table-column>
           <el-table-column prop="unitType" label="Unit Type" width="100"></el-table-column>
-          <el-table-column prop="creatTime" label="Creat Time"></el-table-column>
+          <el-table-column prop="gmtCreate" label="Creat Time" width="120"></el-table-column>
+          <el-table-column prop="gmtModified" label="Modify Time" width="120"></el-table-column>
           <el-table-column label="Operation" width="350">
             <template slot-scope="scope">
               <el-button type="primary" size="small" @click="analysisThisData(scope.row)">Analysis Data</el-button>
@@ -88,6 +92,7 @@ import Header from '@components/header'
 import Footer from '@components/footer'
 import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
 import { UNITTYPE } from '@baseData/baseData'
+import { getCookie } from '../utils/cookie'
 
 export default {
   components: {Header, Footer},
@@ -99,28 +104,28 @@ export default {
       //搜索提交
       searchForm:{
         unitType:'',
-        creatTime:'',
+        dateRange:'',
         dataTitle:''
       },
       //返回数据表格
       tableData:[{
-        dataId:'1',
         dataTitle: 'this is a title of data a',
         dataType:'PPG',
         unitType:'SI Unit',
-        creatTime:'2018-11-29'
+        gmtCreate:'2018-11-29',
+        gmtModified:'2018-11-30'
       }, {
-        dataId:'2',
         dataTitle: 'this is a title of data b',
         dataType:'Polymer',
         unitType:'Field Unit',
-        creatTime:'2018-11-30'
+        gmtCreate:'2018-11-29',
+        gmtModified:'2018-11-30'
       }],
       //分页器
       pagination:{
         total: 100,
         pageNow: 1,
-        pageSize: 5
+        pageSize: 10
       },
       //确认删除对话框
       dialogVisible: false,
@@ -132,6 +137,26 @@ export default {
     this.getTableSize()
   },
   methods:{
+    //条件查询
+    searchList () {
+      console.log('searchForm:',this.searchForm)
+      var self = this
+      axios.post(self.baseUrl + '/g/list', {
+        page: 1,
+        limit: 10,
+        username: getCookie('loginName'),
+        unit: self.searchForm.unitType,
+        title: self.searchForm.dataTitle,
+        fromTime: self.searchForm.dateRange[0],
+        toTime: self.searchForm.dateRange[1]
+      }).then(function (res) {
+        if (res.code === 0) {
+          self.pagination.pageNow = '1'
+          self.tableData = res.data
+          console.log('search ResData:', res.data)
+        }
+      })
+    },
     handleSizeChange () {
     },
     handleCurrentChange () {
@@ -151,7 +176,7 @@ export default {
     },
     // 删除数据
     deleteThisData (row) {
-      this.deleteId = row.dataId
+      this.deleteId = row.id
       this.dialogVisible = true
     },
     getTableSize () {
@@ -159,12 +184,22 @@ export default {
 			this.tabelHeight = docHeight - 440
     },
     ensureDelete (row) {
-      if (this.writeInput === 'I want to delete this data') {
-        console.log(this.deleteId)
-        this.writeInput = ''
-        this.deleteId = ''
-        this.dialogVisible = false
-        this.$message.success('Delete Data Success!')
+      var self = this
+      if (self.writeInput === 'I want to delete this data') {
+        axios.post(self.baseUrl + '/s/del', {
+          username: getCookie('loginName'),
+          id: self.deleteId
+        }).then(function (res) {
+          if (res.code === 0) {
+            //删除成功后再请求一下datalist
+            //self.searchList()
+            self.writeInput = ''
+            self.deleteId = ''
+            self.dialogVisible = false
+            self.$message.success('Delete Data Success!')
+          }
+        })
+        
       } else {
         this.$message.warning('The sentence you write in is different to the sentence we asked')
       }

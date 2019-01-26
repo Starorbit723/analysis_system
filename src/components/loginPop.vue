@@ -5,7 +5,7 @@
       <h1>Login</h1>
       <div class="input_group">
         <span>UserName</span>
-        <input type="text" v-model="userName" placeholder="Write In UserName">
+        <input type="text" v-model="userName" placeholder="UserName/Moile Number/E-mail">
       </div>
       <div class="input_group">
         <span>Password</span>
@@ -24,8 +24,8 @@ import { setCookie, getCookie, deletCookie } from '../utils/cookie'
 export default {
   data () {
     return {
-      userName:'',
-      passWord:''
+      userName:'admin',
+      passWord:'1111'
     }
   },
   computed:{
@@ -39,17 +39,25 @@ export default {
   methods:{
     ...mapActions(['updateLoginPopVisible', 'updateLoginFlag', 'updateUserInfo']),
     userLogin () {
-      //模拟登陆请求成功
       var self = this
-      if (self.userName === '111' && self.passWord === '111') {
-        self.updateUserInfo({
-          userName: 'yadong723@bitmain.com',
-          passWord: '111'
-        })
-        self.updateLoginFlag(true)
-        self.$message.success('Login Success!')
-        console.log('Store:', self.$store.state.userLogin.isLogin, self.$store.state.userLogin.userInfo.userName, self.$store.state.userLogin.userInfo.passWord, 'Cookie:', document.cookie)
-      }
+      axios.post(self.baseUrl + '/login', {
+        username: self.userName,
+        password: self.passWord
+      }).then(function (res) {
+        console.log(res)
+        if (res.code === 0) {
+          self.updateUserInfo({
+            loginName:res.data.loginName,
+            formalName:res.data.formalName,
+            email: res.data.email,
+            phoneNumber:res.data.phone
+          })
+          setCookie('e-access-token', res.data.accessToken, 7)
+          self.updateLoginFlag(true)
+          self.$message.success('Login Success!')
+          console.log('Store:', self.$store.state.userLogin.isLogin, self.$store.state.userLogin.userInfo.userName, self.$store.state.userLogin.userInfo.passWord, 'Cookie:', document.cookie)
+          }
+      })
       self.updateLoginPopVisible(false)
     },
     closeLoginPop () {
