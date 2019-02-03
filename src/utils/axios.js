@@ -24,7 +24,7 @@ const _axios = axios.create(config)
 _axios.interceptors.request.use(
   function (config) {
     // 请求发送之前执行
-    config.headers['Content-Type'] = 'application/json;chartset=uft-8';
+    config.headers['Content-Type'] = 'application/json;chartset=uft-8'
     config.headers['e-access-token'] = getCookie('e-access-token') //获取Cookie;
     return config
   },

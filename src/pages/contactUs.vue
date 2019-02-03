@@ -4,7 +4,7 @@
     <section class="main_body">
       <div class="content_warpper">
         <h1 class="title_level_contact">Contact Information</h1>
-        <p class="contact_mess"><span>Dr. Mingzhen Wei&nbsp;&nbsp;&nbsp;&nbsp;Assistant Professor</span><br>Petroleum Engineering, Geosciences and Geological and Petroleum Engineering<br>Missouri University of Science and Technology<br>McNutt Hall 129, 1400 N. Bishop Ave., Rolla MO 65409<br>Phone: 573-341-4657&nbsp;&nbsp;&nbsp;&nbsp;Email: weim@mst.edu</p>
+        <p class="contact_mess"><span>Dr. Mingzhen Wei&nbsp;&nbsp;&nbsp;&nbsp;Associate Professor</span><br>Petroleum Engineering, Geosciences and Geological and Petroleum Engineering<br>Missouri University of Science and Technology<br>McNutt Hall 129, 1400 N. Bishop Ave., Rolla MO 65409<br>Phone: 573-341-4657&nbsp;&nbsp;&nbsp;&nbsp;Email: weim@mst.edu</p>
         <p class="contact_mess"><span>Dr. Baojun Bai&nbsp;&nbsp;&nbsp;&nbsp;Professor</span><br>Petroleum Engineering, Geosciences and Geological and Petroleum Engineering<br>Missouri University of Science and Technology<br>McNutt Hall 161, 1400 N. Bishop Ave., Rolla MO 65409<br>Phone: 573-341-4016&nbsp;&nbsp;&nbsp;&nbsp;Email: baib@mst.edu</p>
         <h1 class="title_level_contact">Location</h1>
         <img class="mapimg" src="../assets/images/map.png">

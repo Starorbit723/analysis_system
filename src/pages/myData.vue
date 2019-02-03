@@ -139,7 +139,7 @@ export default {
   methods:{
     //条件查询
     searchList () {
-      console.log('searchForm:',this.searchForm)
+      console.log('searchForm:', this.searchForm)
       var self = this
       axios.post(self.baseUrl + '/g/list', {
         page: 1,
@@ -199,7 +199,6 @@ export default {
             self.$message.success('Delete Data Success!')
           }
         })
-        
       } else {
         this.$message.warning('The sentence you write in is different to the sentence we asked')
       }
