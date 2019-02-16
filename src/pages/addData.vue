@@ -18,7 +18,7 @@
     <el-dialog title="Please Choose Data Type" width="30%" top="25vh" :visible.sync="dialogVisible">
        <el-row>
           <el-col :span="24">
-              <el-radio-group style="width:100%; text-align:center;" v-model="dataTpye">
+              <el-radio-group style="width:100%; text-align:center;" v-model="dataType">
                 <el-radio style="width:25%;" label="PPG" border>PPG</el-radio>
                 <el-radio style="width:25%; margin-left:10%;" label="Polymer" border>Polymer</el-radio>
               </el-radio-group>
@@ -29,7 +29,7 @@
             <el-button type="primary" class="el-width-st100" @click="toAddDataPage">Ensure</el-button>
           </el-col>
           <el-col :span="5" :offset="2">
-            <el-button type="primary" class="el-width-st100" @click="Cancel">Cancel</el-button>
+            <el-button type="primary" class="el-width-st100" @click="cancelChoose">Cancel</el-button>
           </el-col>
        </el-row>
     </el-dialog>
@@ -48,7 +48,7 @@ export default {
   data () {
     return {
       footerFixed: true,
-      dialogVisible:true,
+      dialogVisible:false,
       unitType:'',
       dataType:'PPG'
     }
@@ -59,11 +59,11 @@ export default {
       type === 0 ? this.unitType = 'SI' : this.unitType = 'Field'
     },
     toAddDataPage () {
-      if (this.unitType == 'SI') {
-        this.$router.push({path:'/addDataSI', query: { dataType: this.dataType }})
+      if (this.unitType === 'SI') {
+        this.$router.push({name:'addDataSI', params: {dataId: 0, dataType: this.dataType}})
       } else {
-        this.$router.push({path:'/addDataField', query: { dataType: this.dataType }})
-        }
+        this.$router.push({name:'addDataField', params: {dataId: 0, dataType: this.dataType}})
+      }
     },
     cancelChoose () {
       this.unitType = ''

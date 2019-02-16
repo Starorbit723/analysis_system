@@ -110,12 +110,14 @@ export default {
       //返回数据表格
       tableData:[{
         dataTitle: 'this is a title of data a',
+        dataId:'1212133',
         dataType:'PPG',
         unitType:'SI Unit',
         gmtCreate:'2018-11-29',
         gmtModified:'2018-11-30'
       }, {
         dataTitle: 'this is a title of data b',
+        dataId:'42342',
         dataType:'Polymer',
         unitType:'Field Unit',
         gmtCreate:'2018-11-29',
@@ -169,9 +171,9 @@ export default {
     editThisData (row) {
       console.log(row)
       if (row.unitType === 'SI Unit') {
-        this.$router.push({path:'/addDataSI', query: { dataId: row.dataId }})
+        this.$router.push({path:'addDataSI', params: {dataId: row.dataId, dataType: row.dataType}})
       } else if (row.unitType === 'Field Unit') {
-        this.$router.push({path:'/addDataField', query: { dataId: row.dataId }})
+        this.$router.push({path:'addDataField', params: {dataId: row.dataId, dataType: row.dataType}})
       }
     },
     // 删除数据

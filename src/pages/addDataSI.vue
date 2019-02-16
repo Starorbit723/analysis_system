@@ -472,7 +472,7 @@
             </el-collapse-item>
 
             <!--__________________________PPG相关参数开始__________________________-->
-            <div class="different_data">
+            <div class="different_data" v-if="showDataType == 'PPG'">
                 <h1>PPG Data</h1>
                 <!--4.注射参数-->
                 <el-collapse-item title="Injection Parameter" name="4">
@@ -902,7 +902,7 @@
             <!--__________________________PPG相关参数结束__________________________-->
 
             <!--__________________________Polymer相关参数开始__________________________-->
-            <div class="different_data" v-if="true">
+            <div class="different_data" v-if="showDataType == 'Polymer'">
                 <h1>Polymer Data</h1>
                 <!--判断是否是Preflush-->
                 <el-row style="margin-bottom:30px;">
@@ -1261,6 +1261,7 @@ export default {
       projectMaturity: PROJECTMATURITY, // 项目成熟度
       projectEvaluation: PROJECTEVALUATION, // 项目评估
       profit: PROFIT, // 利润
+      showDataType: '', //根据地址参数判断显示哪个数据类型
       addDataForm:{
         unit: 'SI',
         //联系信息
@@ -1470,13 +1471,18 @@ export default {
       }]
     }
   },
+  created () {
+    //根据地址中的参数dataType判断显示的数据类型
+    this.showDataType = this.$route.params.dataType
+  },
   mounted () {
-    console.log(this.$route.query.dataId)
+    console.log('dataId:',this.$route.params.dataId)
     this.addDataForm.contactInformation.userName = getCookie('formalName')
     this.addDataForm.contactInformation.emailAddress = getCookie('email')
     this.addDataForm.contactInformation.phoneNumber = getCookie('phoneNumber')
-    if (this.$route.query.dataId) {
+    if (this.$route.params.dataId !== 0) {
       //有dataId代表修改数据
+      console.log('dataId:', this.$route.params.dataId)
       //开始请求
     } else {
       //没有dataId代表新建数据，自动填写表头基本数据
