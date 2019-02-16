@@ -50,7 +50,7 @@ export default {
             loginName:res.data.loginName,
             formalName:res.data.formalName,
             email: res.data.email,
-            phoneNumber:res.data.phone
+            phone:res.data.phone
           })
           setCookie('e-access-token', res.data.accessToken, 7)
           self.updateLoginFlag(true)

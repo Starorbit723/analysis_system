@@ -13,16 +13,16 @@
                       <el-input
                         :disabled="true"
                         type="text"
-                        v-model="addDataForm.contactInformation.userName"
+                        v-model="addDataForm.contactInformation.formalName"
                         auto-complete="off"></el-input>
                     </el-form-item>
-                </el-col>
+                </el-col> 
                 <el-col :span="12">
                   <el-form-item label="Email">
                       <el-input
                         :disabled="true"
                         type="text"
-                        v-model="addDataForm.contactInformation.emailAddress"
+                        v-model="addDataForm.contactInformation.email"
                         auto-complete="off"></el-input>
                     </el-form-item>
                 </el-col>
@@ -33,18 +33,29 @@
                       <el-input
                         :disabled="true"
                         type="text"
-                        v-model="addDataForm.contactInformation.phoneNumber"
+                        v-model="addDataForm.contactInformation.phone"
                         auto-complete="off"></el-input>
                     </el-form-item>
-                </el-col>      
+                </el-col>
               </el-row>
             </el-collapse-item>
             <!--2.一般信息-->
             <el-collapse-item title="General Information" name="2">
               <el-row :gutter="20" :offset="1" class="f-mart30">
+                <el-col :span="24">
+                  <el-form-item label="Data Title" label-width="10.7%">
+                      <el-input
+                        clearable
+                        type="text"
+                        v-model="addDataForm.generalInformation.dataTitle"
+                        auto-complete="off"></el-input>
+                    </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row :gutter="20" :offset="1">
                 <el-col :span="8">
                   <el-form-item label="Country">
-                    <el-select v-model="addDataForm.generalInformation.country" class="el-width-st100" placeholder="Please Choose Country">
+                    <el-select v-model="addDataForm.generalInformation.countryCity" class="el-width-st100" placeholder="Please Choose Country">
                       <el-option
                         v-for="item in country"
                         :key="item.value"
@@ -53,7 +64,7 @@
                       </el-option>
                     </el-select>
                   </el-form-item>
-                </el-col>
+                </el-col> 
                 <el-col :span="8">
                   <el-form-item label="State/Province">
                       <el-input
@@ -118,7 +129,7 @@
                 <el-col :span="8">
                   <el-form-item label="Start Date">
                     <el-date-picker
-                      v-model="addDataForm.generalInformation.starDate"
+                      v-model="addDataForm.generalInformation.startDate"
                       type="date"
                       placeholder="Please Select StarTime"
                       class="el-width-st100">
@@ -134,17 +145,6 @@
                       class="el-width-st100">
                     </el-date-picker>
                   </el-form-item>
-                </el-col>
-              </el-row>
-              <el-row :gutter="20" :offset="1">
-                <el-col :span="16">
-                  <el-form-item label="Data Title" label-width="16.1%">
-                      <el-input
-                        clearable
-                        type="text"
-                        v-model="addDataForm.generalInformation.dataTitle"
-                        auto-complete="off"></el-input>
-                    </el-form-item>
                 </el-col>
               </el-row>
             </el-collapse-item>
@@ -185,7 +185,7 @@
                     <el-input
                       clearable
                       type="text"
-                      v-model="addDataForm.reservoirInformation.oilViscosityAtReservoir"
+                      v-model="addDataForm.reservoirInformation.oilViscosity"
                       auto-complete="off"></el-input>
                   </el-form-item>
                 </el-col>
@@ -500,12 +500,12 @@
                     </el-table-column>
                     <el-table-column label="PPG Name" width="150">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.PPGName"></el-input>
+                        <el-input v-model="scope.row.ppgName"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column prop="PPGSize" label="PPG Size(µm)" width="130">
+                    <el-table-column prop="PPG Size" label="PPG Size(µm)" width="130">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.PPGSize"></el-input>
+                        <el-input v-model="scope.row.ppgSize"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Temperature Resistance(⁰F)" width="130">
@@ -545,17 +545,17 @@
                     </el-table-column>
                     <el-table-column label="PPG Suspension Concentration(ppm)" width="130">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.PPGSuspensionConcentration"></el-input>
+                        <el-input v-model="scope.row.ppgSuspensionConcentration"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="PPG Injection Volume(ft3)" width="130">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.PPGInjectionVolume"></el-input>
+                        <el-input v-model="scope.row.ppgInjectionVolume"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="PPG Injection Rate(ft3/day)" width="130">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.PPGInjectionRate"></el-input>
+                        <el-input v-model="scope.row.ppgInjectionRate"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Initial PPG Injection Pressure(psi)" width="130">
@@ -590,7 +590,7 @@
                 </el-collapse-item>
                 <!--5.PPG监控-->
                 <el-collapse-item title="PPG Monitering" name="5">
-                  <el-table :data="addDataForm.PPG.PPGMonitering" style="width: 100%" stripe>
+                  <el-table :data="addDataForm.PPG.ppgMonitoring" style="width: 100%" stripe>
                     <el-table-column fixed type="index" label="Stages" width="80"></el-table-column>
                     <el-table-column label="Injection Duration (day)">
                       <template slot-scope="scope">
@@ -599,7 +599,7 @@
                     </el-table-column>
                     <el-table-column label="PPG Injection Pressure (psi)">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.PPGInjectionPressure"></el-input>
+                        <el-input v-model="scope.row.ppgInjectionPressure"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Operation" width="100" fixed="right">
@@ -712,7 +712,7 @@
                     <el-table-column label="Before PPG Injection">
                       <el-table-column label="PI(90) (psi)">
                         <template slot-scope="scope">
-                          <el-input v-model="scope.row.beforePI90"></el-input>
+                          <el-input v-model="scope.row.beforePi90"></el-input>
                         </template>
                       </el-table-column>
                       <el-table-column label="Injection Pressure (psi)">
@@ -724,7 +724,7 @@
                     <el-table-column label="After PPG Treatment">
                       <el-table-column label="PI(90) (psi)">
                         <template slot-scope="scope">
-                          <el-input v-model="scope.row.afterPI90"></el-input>
+                          <el-input v-model="scope.row.afterPi90"></el-input>
                         </template>
                       </el-table-column>
                       <el-table-column label="Injection Pressure (psi)">
@@ -736,7 +736,7 @@
                     <el-table-column label="Difference">
                       <el-table-column label="PI(90) (psi)">
                         <template slot-scope="scope">
-                          <el-input v-model="scope.row.differencePI90"></el-input>
+                          <el-input v-model="scope.row.differencePi90"></el-input>
                         </template>
                       </el-table-column>
                       <el-table-column label="Injection Pressure (psi)">
@@ -909,14 +909,14 @@
                   <el-col :span="6" class="Choose_preflush">Please Choose Preflush Or Not ?</el-col>
                   <el-col :span="6">
                     <el-switch
-                      v-model="addDataForm.Polymer.ifPreflush"
+                      v-model="addDataForm.generalInformation.ifPreflush"
                       active-text="Yes"
                       inactive-text="No">
                   </el-switch></el-col>
                 </el-row>
 
                 <!--10.前置水组分   只有当ifPreflush为true时才显示-->
-                <el-collapse-item title="Preflush Water Composition" name="10" v-if="addDataForm.Polymer.ifPreflush">
+                <el-collapse-item title="Preflush Water Composition" name="10" v-if="addDataForm.generalInformation.ifPreflush">
                   <el-table :data="addDataForm.Polymer.preflushWaterComposition" style="width: 100%" stripe>
                     <el-table-column label="Na+">
                       <template slot-scope="scope">
@@ -1266,29 +1266,39 @@ export default {
         unit: 'Field',
         //联系信息
         contactInformation: {
-          userName: '',
-          emailAddress: '',
-          phoneNumber:''
+          email: '',
+          formalName: '',
+          id: 0,
+          loginName: '',
+          pass: '',
+          phone: ''
         },
         //一般信息
         generalInformation: {
-          country:'',
-          stateProvince:'',
-          countyCity:'',
-          field:'',
-          reservoirBlock: '',
-          EORType:'',
-          operator:'',
-          starDate:'',
+          unitType: '', //单位类型
+          dataType:'', //数据类型--不显示PPG/Polymer
+          id: 0, //当前数据的id
+          gmtCreate: '', //不显示
+          gmtModified: '', //不显示
+          username: '',
+          ifPreflush: true, //polymer的参数判断0:否,1:是
+          countryCity:'',
+          dataTitle:'',
+          startDate:'',
           endDate:'',
-          dataTitle:''
+          EORType:'',
+          field:'',
+          operator:'',
+          stateProvince:'',
+          reservoirBlock: ''
         },
-        //水库信息
         reservoirInformation:{
+          id: 0, //不显示
+          generalId: 0, //不显示
           interestArea:'',
           gravity:'',
           productionWells:'',
-          oilViscosityAtReservoir:'',
+          oilViscosity:'',
           injectionWells:'',
           formationWaterViscosity:'',
           payZoneOrFormationName:'',
@@ -1322,8 +1332,8 @@ export default {
           injectionParameter:[{
             startInjectionDate:'',
             endInjectionDate:'',
-            PPGName:'',
-            PPGSize:'',
+            ppgName:'',
+            ppgSize:'',
             temperatureResistance:'',
             swellingRate:'',
             thermalStability:'',
@@ -1331,18 +1341,18 @@ export default {
             salinityResistance:'',
             swellingRatio:'',
             driedPPGWeight:'',
-            PPGSuspensionConcentration:'',
-            PPGInjectionVolume:'',
-            PPGInjectionRate:'',
+            ppgSuspensionConcentration:'',
+            ppgInjectionVolume:'',
+            ppgInjectionRate:'',
             initialPPGInjectionPressure:'',
             maximumInjectionPressure:'',
             totalInjectionWeight:'',
             totalInjectionVolume:''
           }],
           //PPG监控参数表格
-          PPGMonitering:[{
+          ppgMonitoring:[{
             injectionDuration:'',
-            PPGInjectionPressure:''
+            ppgInjectionPressure:''
           }],
           //评估
           evaluation:{
@@ -1357,11 +1367,11 @@ export default {
           //PPG处理后的压力测试结果表格
           afterPPGTreatment:[{
             wellName:'',
-            beforePI90:'',
+            beforePi90:'',
             beforeInjectionPressure:'',
-            afterPI90:'',
+            afterPi90:'',
             afterInjectionPressure:'',
-            differencePI90:'',
+            differencePi90:'',
             differenceInjectionPressure:''
           }],
           //PPG处理前后的注水剖面表格
@@ -1392,8 +1402,6 @@ export default {
         },
         // Polymer相关的参数
         Polymer:{
-          //是否Preflush
-          ifPreflush: true, 
           //前置水组分
           preflushWaterComposition: [{
             Na:'',
@@ -1473,10 +1481,15 @@ export default {
   },
   created () {
       //根据地址中的参数dataType判断显示的数据类型
-      this.showDataType = this.$route.params.dataType
+      if (this.$route.params.dataType) {
+        this.showDataType = this.$route.params.dataType
+        this.addDataForm.generalInformation.dataType = this.$route.params.dataType
+      } else {
+        this.$router.go(-1)
+      }
   },
   mounted () {
-    console.log('dataId:',this.$route.params.dataId)
+    console.log('dataId:', this.$route.params.dataId)
     this.addDataForm.contactInformation.userName = getCookie('formalName')
     this.addDataForm.contactInformation.emailAddress = getCookie('email')
     this.addDataForm.contactInformation.phoneNumber = getCookie('phoneNumber')
@@ -1497,7 +1510,7 @@ export default {
       this.addDataForm.PPG.injectionParameter.splice(index, 1)
     },
     deleteThisRow2 (index) {
-      this.addDataForm.PPG.PPGMonitering.splice(index, 1)
+      this.addDataForm.PPG.ppgMonitoring.splice(index, 1)
     },
     deleteThisRow3 (index) {
       this.addDataForm.PPG.afterPPGTreatment.splice(index, 1)
@@ -1521,8 +1534,8 @@ export default {
       this.addDataForm.PPG.injectionParameter.push({
         startInjectionDate:'',
         endInjectionDate:'',
-        PPGName:'',
-        PPGSize:'',
+        ppgName:'',
+        ppgSize:'',
         temperatureResistance:'',
         swellingRate:'',
         thermalStability:'',
@@ -1530,9 +1543,9 @@ export default {
         salinityResistance:'',
         swellingRatio:'',
         driedPPGWeight:'',
-        PPGSuspensionConcentration:'',
-        PPGInjectionVolume:'',
-        PPGInjectionRate:'',
+        ppgSuspensionConcentration:'',
+        ppgInjectionVolume:'',
+        ppgInjectionRate:'',
         initialPPGInjectionPressure:'',
         maximumInjectionPressure:'',
         totalInjectionWeight:'',
@@ -1540,19 +1553,19 @@ export default {
       })
     },
     addNewLine2 () {
-      this.addDataForm.PPG.PPGMonitering.push({
+      this.addDataForm.PPG.ppgMonitoring.push({
         injectionDuration:'',
-        PPGInjectionPressure:''
+        ppgInjectionPressure:''
       })
     },
     addNewLine3 () {
       this.addDataForm.PPG.afterPPGTreatment.push({
         wellName:'',
-        beforePI90:'',
+        beforePi90:'',
         beforeInjectionPressure:'',
-        afterPI90:'',
+        afterPi90:'',
         afterInjectionPressure:'',
-        differencePI90:'',
+        differencePi90:'',
         differenceInjectionPressure:''
       })
     },

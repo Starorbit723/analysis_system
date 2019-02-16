@@ -7,7 +7,7 @@ const state = {
     loginName:'',
     formalName:'',
     email:'',
-    phoneNumber:''
+    phone:''
   }
 }
 const mutations = {
@@ -23,12 +23,12 @@ const mutations = {
       setCookie('loginName', payload.params.loginName, 7)
       setCookie('formalName', payload.params.formalName, 7)
       setCookie('email', payload.params.email, 7)
-      setCookie('phoneNumber', payload.params.phoneNumber, 7)
+      setCookie('phone', payload.params.phone, 7)
     } else {
       setCookie('loginName', '', 0)
       setCookie('formalName', '', 0)
       setCookie('email', '', 0)
-      setCookie('phoneNumber', '', 0)
+      setCookie('phone', '', 0)
     }
   }
 }

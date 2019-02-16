@@ -171,9 +171,9 @@ export default {
     editThisData (row) {
       console.log(row)
       if (row.unitType === 'SI Unit') {
-        this.$router.push({path:'addDataSI', params: {dataId: row.dataId, dataType: row.dataType}})
+        this.$router.push({name:'addDataSI', params: {dataId: row.dataId, dataType: row.dataType}})
       } else if (row.unitType === 'Field Unit') {
-        this.$router.push({path:'addDataField', params: {dataId: row.dataId, dataType: row.dataType}})
+        this.$router.push({name:'addDataField', params: {dataId: row.dataId, dataType: row.dataType}})
       }
     },
     // 删除数据
