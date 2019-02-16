@@ -6,14 +6,34 @@
         <div class="tips_zone">Please Select The Appropriate Unit System For Your<br>Data / Project / Target Reservoir</div>
         <el-row>
           <el-col :span="4" :offset="7">
-            <el-button type="primary" class="el-width-st100 btn_shadow" @click="toAddDataPage(0)" round>SI Unit</el-button>
+            <el-button type="primary" class="el-width-st100 btn_shadow" @click="openDataTypeDialog(0)" round>SI Unit</el-button>
           </el-col>
           <el-col :span="4" :offset="2">
-            <el-button type="primary" class="el-width-st100 btn_shadow" @click="toAddDataPage(1)" round>Field Unit</el-button>
+            <el-button type="primary" class="el-width-st100 btn_shadow" @click="openDataTypeDialog(1)" round>Field Unit</el-button>
           </el-col>
         </el-row>
       </div>
     </section>
+    <!--数据选择弹框-->
+    <el-dialog title="Please Choose Data Type" width="30%" top="25vh" :visible.sync="dialogVisible">
+       <el-row>
+          <el-col :span="24">
+              <el-radio-group style="width:100%; text-align:center;" v-model="dataTpye">
+                <el-radio style="width:25%;" label="PPG" border>PPG</el-radio>
+                <el-radio style="width:25%; margin-left:10%;" label="Polymer" border>Polymer</el-radio>
+              </el-radio-group>
+          </el-col>
+       </el-row>
+       <el-row style="margin-top:40px;">
+          <el-col :span="5" :offset="6">
+            <el-button type="primary" class="el-width-st100" @click="toAddDataPage">Ensure</el-button>
+          </el-col>
+          <el-col :span="5" :offset="2">
+            <el-button type="primary" class="el-width-st100" @click="Cancel">Cancel</el-button>
+          </el-col>
+       </el-row>
+    </el-dialog>
+
     <Footer :footerFixed="footerFixed"></Footer>
   </div>
 </template>
@@ -27,12 +47,28 @@ export default {
   components: {Header, Footer},
   data () {
     return {
-      footerFixed: true
+      footerFixed: true,
+      dialogVisible:true,
+      unitType:'',
+      dataType:'PPG'
     }
   },
   methods: {
-    toAddDataPage (type) {
-      type === 0 ? this.$router.push({path:'/addDataSI'}) : this.$router.push({path:'/addDataField'})
+    openDataTypeDialog (type) {
+      this.dialogVisible = true
+      type === 0 ? this.unitType = 'SI' : this.unitType = 'Field'
+    },
+    toAddDataPage () {
+      if (this.unitType == 'SI') {
+        this.$router.push({path:'/addDataSI', query: { dataType: this.dataType }})
+      } else {
+        this.$router.push({path:'/addDataField', query: { dataType: this.dataType }})
+        }
+    },
+    cancelChoose () {
+      this.unitType = ''
+      this.dataType = ''
+      this.dialogVisible = false
     }
   }
 }

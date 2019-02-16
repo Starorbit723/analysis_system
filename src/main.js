@@ -13,7 +13,7 @@ Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 
-Vue.prototype.baseUrl = 'http://192.168.10.107:8888'
+Vue.prototype.baseUrl = 'http://118.89.220.76:8888'
 
 /* eslint-disable no-new */
 new Vue({

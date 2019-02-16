@@ -16,7 +16,7 @@
                         v-model="addDataForm.contactInformation.userName"
                         auto-complete="off"></el-input>
                     </el-form-item>
-                </el-col>
+                </el-col> 
                 <el-col :span="12">
                   <el-form-item label="Email">
                       <el-input
@@ -53,7 +53,7 @@
                       </el-option>
                     </el-select>
                   </el-form-item>
-                </el-col>
+                </el-col> 
                 <el-col :span="8">
                   <el-form-item label="State/Province">
                       <el-input
@@ -902,7 +902,7 @@
             <!--__________________________PPG相关参数结束__________________________-->
 
             <!--__________________________Polymer相关参数开始__________________________-->
-            <div class="different_data">
+            <div class="different_data" v-if="true">
                 <h1>Polymer Data</h1>
                 <!--判断是否是Preflush-->
                 <el-row style="margin-bottom:30px;">
