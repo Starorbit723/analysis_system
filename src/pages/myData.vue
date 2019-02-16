@@ -213,7 +213,7 @@ export default {
     getTableSize () {
       let docHeight = document.documentElement.clientHeight || document.body.clientHeight
 			this.tabelHeight = docHeight - 390
-    },
+    }
   }
 }
 </script>
