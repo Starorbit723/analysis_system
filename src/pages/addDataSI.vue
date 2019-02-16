@@ -1261,14 +1261,14 @@ export default {
       projectMaturity: PROJECTMATURITY, // 项目成熟度
       projectEvaluation: PROJECTEVALUATION, // 项目评估
       profit: PROFIT, // 利润
-      showDataType: 'Polymer', //根据地址参数判断显示哪个数据类型
+      showDataType: '', //根据地址参数判断显示哪个数据类型
       addDataForm:{
         unit: 'SI',
         //联系信息
         contactInformation: {
           email: '',
           formalName: '',
-          id: 0,
+          id: '',
           loginName: '',
           pass: '',
           phone: ''
@@ -1277,11 +1277,11 @@ export default {
         generalInformation: {
           unitType: '', //单位类型
           dataType:'', //数据类型--不显示PPG/Polymer
-          id: 0, //当前数据的id
+          id: '', //当前数据的id
           gmtCreate: '', //不显示
           gmtModified: '', //不显示
           username: '',
-          ifPreflush: true, //polymer的参数判断0:否,1:是
+          ifPreflush: '', //polymer的参数判断0:否,1:是
           countryCity:'',
           dataTitle:'',
           startDate:'',
@@ -1294,8 +1294,6 @@ export default {
         },
         //水库信息
         reservoirInformation:{
-          id: 0, //不显示
-          generalId: 0, //不显示
           interestArea:'',
           gravity:'',
           productionWells:'',
@@ -1487,20 +1485,28 @@ export default {
       this.showDataType = this.$route.params.dataType
       this.addDataForm.generalInformation.dataType = this.$route.params.dataType
     } else {
-      //this.$router.go(-1)
+      this.$router.go(-1)
     }
   },
   mounted () {
-    console.log('dataId:', this.$route.params.dataId)
+    console.log('dataId:', this.$route.params.dataId, 'dataType:', this.$route.params.dataType)
+    var self = this
     this.addDataForm.contactInformation.formalName = getCookie('formalName')
     this.addDataForm.contactInformation.email = getCookie('email')
     this.addDataForm.contactInformation.phone = getCookie('phone')
+    this.addDataForm.contactInformation.loginName = getCookie('loginName')
     if (this.$route.params.dataId !== 0) {
       //有dataId代表修改数据
       console.log('dataId:', this.$route.params.dataId)
-      //开始请求
-    } else {
-      //没有dataId代表新建数据，自动填写表头基本数据
+      axios.post(self.baseUrl + '/g/item', {
+        id: self.$route.params.dataId,
+        username: self.addDataForm.contactInformation.loginName
+      }).then(function (res) {
+        if (res.code === 0) {
+          console.log('请求本页数据返回结果', res)
+          self.addDataForm = res.data
+        }
+      })
     }
   },
   methods: {

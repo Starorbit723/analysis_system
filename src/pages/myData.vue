@@ -66,7 +66,7 @@
           @current-change="handleCurrentChange"
           :current-page="pagination.pageNow"
           :page-size="pagination.pageSize"
-          layout="prev, pager, next"
+          layout="prev, pager, next, total"
           :total="pagination.total">
         </el-pagination>
       </div>
@@ -81,7 +81,7 @@
       </el-row>
       <span slot="footer" class="dialog-footer">
         <el-button @click="failDelete()">Cancle</el-button>
-        <el-button type="danger" @click="ensureDelete()">Delete</el-button>
+        <el-button type="danger" @click="ensureDelete">Delete</el-button>
       </span>
     </el-dialog>
   </div>
@@ -108,24 +108,10 @@ export default {
         dataTitle:''
       },
       //返回数据表格
-      tableData:[{
-        dataTitle: 'this is a title of data a',
-        dataId:'1212133',
-        dataType:'PPG',
-        unitType:'SI Unit',
-        gmtCreate:'2018-11-29',
-        gmtModified:'2018-11-30'
-      }, {
-        dataTitle: 'this is a title of data b',
-        dataId:'42342',
-        dataType:'Polymer',
-        unitType:'Field Unit',
-        gmtCreate:'2018-11-29',
-        gmtModified:'2018-11-30'
-      }],
+      tableData:[],
       //分页器
       pagination:{
-        total: 100,
+        total: 0,
         pageNow: 1,
         pageSize: 10
       },
@@ -153,15 +139,33 @@ export default {
         toTime: self.searchForm.dateRange[1]
       }).then(function (res) {
         if (res.code === 0) {
-          self.pagination.pageNow = '1'
-          self.tableData = res.data
+          self.pagination.pageNow = 1
+          self.pagination.total = res.data.total
+          self.tableData = res.data.rows
           console.log('search ResData:', res.data)
         }
       })
     },
-    handleSizeChange () {
+    handleSizeChange (val) {
     },
-    handleCurrentChange () {
+    handleCurrentChange (val) {
+      var self = this
+      axios.post(self.baseUrl + '/g/list', {
+        page: val,
+        limit: 10,
+        username: getCookie('loginName'),
+        unit: self.searchForm.unitType,
+        title: self.searchForm.dataTitle,
+        fromTime: self.searchForm.dateRange[0],
+        toTime: self.searchForm.dateRange[1]
+      }).then(function (res) {
+        if (res.code === 0) {
+          self.pagination.pageNow = val
+          self.pagination.total = res.data.total
+          self.tableData = res.data.rows
+          console.log('search ResData:', res.data)
+        }
+      })
     },
     //分析数据
     analysisThisData (row) {
@@ -170,10 +174,10 @@ export default {
     // 编辑数据
     editThisData (row) {
       console.log(row)
-      if (row.unitType === 'SI Unit') {
-        this.$router.push({name:'addDataSI', params: {dataId: row.dataId, dataType: row.dataType}})
-      } else if (row.unitType === 'Field Unit') {
-        this.$router.push({name:'addDataField', params: {dataId: row.dataId, dataType: row.dataType}})
+      if (row.unitType === 'SI') {
+        this.$router.push({name:'addDataSI', params: {dataId: row.id, dataType: row.dataType}})
+      } else if (row.unitType === 'Field') {
+        this.$router.push({name:'addDataField', params: {dataId: row.id, dataType: row.dataType}})
       }
     },
     // 删除数据
@@ -181,11 +185,7 @@ export default {
       this.deleteId = row.id
       this.dialogVisible = true
     },
-    getTableSize () {
-      let docHeight = document.documentElement.clientHeight || document.body.clientHeight
-			this.tabelHeight = docHeight - 440
-    },
-    ensureDelete (row) {
+    ensureDelete () {
       var self = this
       if (self.writeInput === 'I want to delete this data') {
         axios.post(self.baseUrl + '/s/del', {
@@ -194,7 +194,7 @@ export default {
         }).then(function (res) {
           if (res.code === 0) {
             //删除成功后再请求一下datalist
-            //self.searchList()
+            self.searchList()
             self.writeInput = ''
             self.deleteId = ''
             self.dialogVisible = false
@@ -209,7 +209,11 @@ export default {
       this.writeInput = ''
       this.deleteId = ''
       this.dialogVisible = false
-    }
+    },
+    getTableSize () {
+      let docHeight = document.documentElement.clientHeight || document.body.clientHeight
+			this.tabelHeight = docHeight - 390
+    },
   }
 }
 </script>
