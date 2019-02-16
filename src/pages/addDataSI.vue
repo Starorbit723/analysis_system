@@ -476,7 +476,7 @@
                 <h1>PPG Data</h1>
                 <!--4.注射参数-->
                 <el-collapse-item title="Injection Parameter" name="4">
-                  <el-table :data="addDataForm.PPG.injectionParameter" style="width: 100%" stripe>
+                  <el-table :data="addDataForm.ppg.injectionParameter" style="width: 100%" stripe>
                     <el-table-column fixed type="index" label="Stages" width="80"></el-table-column>
                     <el-table-column label="Start Injection Date" width="160">
                       <template slot-scope="scope">
@@ -590,7 +590,7 @@
                 </el-collapse-item>
                 <!--5.PPG监控-->
                 <el-collapse-item title="PPG Monitering" name="5">
-                  <el-table :data="addDataForm.PPG.ppgMonitoring" style="width: 100%" stripe>
+                  <el-table :data="addDataForm.ppg.ppgMonitoring" style="width: 100%" stripe>
                     <el-table-column fixed type="index" label="Stages" width="80"></el-table-column>
                     <el-table-column label="Injection Duration (day)">
                       <template slot-scope="scope">
@@ -617,7 +617,7 @@
                   <el-row :gutter="20" :offset="1" class="f-width90 f-mart30">
                     <el-col :span="12">
                       <el-form-item label="Previous Production">
-                        <el-select v-model="addDataForm.PPG.evaluation.previousProduction" class="el-width-st100" placeholder="Please Choose Previous Production">
+                        <el-select v-model="addDataForm.ppg.evaluation.previousProduction" class="el-width-st100" placeholder="Please Choose Previous Production">
                           <el-option
                             v-for="item in previousProduction"
                             :key="item.value"
@@ -629,7 +629,7 @@
                     </el-col>
                     <el-col :span="12">
                       <el-form-item label="Project Scope">
-                        <el-select v-model="addDataForm.PPG.evaluation.projectScope" class="el-width-st100" placeholder="Please Choose Project Scope">
+                        <el-select v-model="addDataForm.ppg.evaluation.projectScope" class="el-width-st100" placeholder="Please Choose Project Scope">
                           <el-option
                             v-for="item in projectScope"
                             :key="item.value"
@@ -643,7 +643,7 @@
                   <el-row :gutter="20" :offset="1" class="f-width90">
                     <el-col :span="12">
                       <el-form-item label="Project Maturity">
-                        <el-select v-model="addDataForm.PPG.evaluation.projectMaturity" class="el-width-st100" placeholder="Please Choose Project Maturity">
+                        <el-select v-model="addDataForm.ppg.evaluation.projectMaturity" class="el-width-st100" placeholder="Please Choose Project Maturity">
                           <el-option
                             v-for="item in projectMaturity"
                             :key="item.value"
@@ -658,7 +658,7 @@
                           <el-input
                             clearable
                             type="text"
-                            v-model="addDataForm.PPG.evaluation.wellPattern"
+                            v-model="addDataForm.ppg.evaluation.wellPattern"
                             auto-complete="off"></el-input>
                         </el-form-item>
                     </el-col>
@@ -666,7 +666,7 @@
                   <el-row :gutter="20" :offset="1" class="f-width90">
                     <el-col :span="12">
                       <el-form-item label="Project Evaluation">
-                        <el-select v-model="addDataForm.PPG.evaluation.projectEvaluation" class="el-width-st100" placeholder="Please Choose Project Evaluation">
+                        <el-select v-model="addDataForm.ppg.evaluation.projectEvaluation" class="el-width-st100" placeholder="Please Choose Project Evaluation">
                           <el-option
                             v-for="item in projectEvaluation"
                             :key="item.value"
@@ -681,7 +681,7 @@
                           <el-input
                             clearable
                             type="text"
-                            v-model="addDataForm.PPG.evaluation.wellSpacing"
+                            v-model="addDataForm.ppg.evaluation.wellSpacing"
                             auto-complete="off"></el-input>
                         </el-form-item>
                     </el-col>
@@ -689,7 +689,7 @@
                   <el-row :gutter="20" :offset="1" class="f-width90">
                     <el-col :span="12">
                       <el-form-item label="Profit">
-                        <el-select v-model="addDataForm.PPG.evaluation.profit" class="el-width-st100" placeholder="Please Choose Profit">
+                        <el-select v-model="addDataForm.ppg.evaluation.profit" class="el-width-st100" placeholder="Please Choose Profit">
                           <el-option
                             v-for="item in profit"
                             :key="item.value"
@@ -703,7 +703,7 @@
                 </el-collapse-item>
                 <!--7.PPG处理后的压力测试结果-->
                 <el-collapse-item title="Pressure Test Result After PPG Treatment" name="7">
-                  <el-table :data="addDataForm.PPG.afterPPGTreatment" style="width: 100%" stripe>
+                  <el-table :data="addDataForm.ppg.afterPPGTreatment" style="width: 100%" stripe>
                     <el-table-column label="Well Name">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.wellName"></el-input>
@@ -767,7 +767,7 @@
                 </el-collapse-item>
                 <!--8.PPG处理前后的注水剖面比较-->
                 <el-collapse-item title="Water Injection Profile Comparision Before and After PPG Treatment" name="8">
-                  <el-table :data="addDataForm.PPG.waterInjectionProfile" style="width: 100%" stripe>
+                  <el-table :data="addDataForm.ppg.waterInjectionProfile" style="width: 100%" stripe>
                     <el-table-column label="Well Name">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.wellName"></el-input>
@@ -826,7 +826,7 @@
                 </el-collapse-item>
                 <!--9.生产绩效-->
                 <el-collapse-item title="Production Performance" name="9">
-                  <el-table :data="addDataForm.PPG.productionPerformance" style="width: 100%" stripe>
+                  <el-table :data="addDataForm.ppg.productionPerformance" style="width: 100%" stripe>
                     <el-table-column label="Well Name">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.wellName"></el-input>
@@ -909,98 +909,98 @@
                   <el-col :span="6" class="choice_preflush">Please Choose Preflush Or Not ?</el-col>
                   <el-col :span="6">
                     <el-switch
-                      v-model="addDataForm.generalInformation.ifPreflush"
+                      v-model="addDataForm.polymer.preflush"
                       active-text="Yes"
                       inactive-text="No">
                   </el-switch></el-col>
                 </el-row>
 
                 <!--10.前置水组分   只有当ifPreflush为true时才显示-->
-                <el-collapse-item title="Preflush Water Composition" name="10" v-if="addDataForm.generalInformation.ifPreflush">
-                  <el-table :data="addDataForm.Polymer.preflushWaterComposition" style="width: 100%" stripe>
+                <el-collapse-item title="Preflush Water Composition" name="10" v-if="addDataForm.polymer.preflush">
+                  <el-table :data="addDataForm.polymer.preflushWaterComposition" style="width: 100%" stripe>
                     <el-table-column label="Na+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Na"></el-input>
+                        <el-input v-model="scope.row.na"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Mg2+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Mg2"></el-input>
+                        <el-input v-model="scope.row.mg2"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="K+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.K"></el-input>
+                        <el-input v-model="scope.row.k"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="SO42-">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.SO42"></el-input>
+                        <el-input v-model="scope.row.so4"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Ca2+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Ca2"></el-input>
+                        <el-input v-model="scope.row.ca2"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Fe2+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Fe2"></el-input>
+                        <el-input v-model="scope.row.fe2"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Cl-">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Cl"></el-input>
+                        <el-input v-model="scope.row.cl"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="TDS">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.TDS"></el-input>
+                        <el-input v-model="scope.row.tds"></el-input>
                       </template>
                     </el-table-column>
                   </el-table>
                 </el-collapse-item>
                 <!--11.地层水组分formationWaterComposition-->
                 <el-collapse-item title="Formation Water Composition" name="11">
-                  <el-table :data="addDataForm.Polymer.formationWaterComposition" style="width: 100%" stripe>
+                  <el-table :data="addDataForm.polymer.formationWaterComposition" style="width: 100%" stripe>
                     <el-table-column label="Na+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Na"></el-input>
+                        <el-input v-model="scope.row.na"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Mg2+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Mg2"></el-input>
+                        <el-input v-model="scope.row.mg2"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="K+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.K"></el-input>
+                        <el-input v-model="scope.row.k"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="SO42-">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.SO42"></el-input>
+                        <el-input v-model="scope.row.so4"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Ca2+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Ca2"></el-input>
+                        <el-input v-model="scope.row.ca2"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Fe2+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Fe2"></el-input>
+                        <el-input v-model="scope.row.fe2"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Cl-">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Cl"></el-input>
+                        <el-input v-model="scope.row.cl"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="TDS">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.TDS"></el-input>
+                        <el-input v-model="scope.row.tds"></el-input>
                       </template>
                     </el-table-column>
                   </el-table>
@@ -1008,45 +1008,45 @@
 
                 <!--12.注入水组分injectionWaterComposition-->
                 <el-collapse-item title="Injection Water Composition" name="12">
-                  <el-table :data="addDataForm.Polymer.injectionWaterComposition" style="width: 100%" stripe>
+                  <el-table :data="addDataForm.polymer.injectionWaterComposition" style="width: 100%" stripe>
                     <el-table-column label="Na+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Na"></el-input>
+                        <el-input v-model="scope.row.na"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Mg2+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Mg2"></el-input>
+                        <el-input v-model="scope.row.mg2"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="K+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.K"></el-input>
+                        <el-input v-model="scope.row.k"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="SO42-">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.SO42"></el-input>
+                        <el-input v-model="scope.row.so4"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Ca2+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Ca2"></el-input>
+                        <el-input v-model="scope.row.ca2"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Fe2+">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Fe2"></el-input>
+                        <el-input v-model="scope.row.fe2"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Cl-">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.Cl"></el-input>
+                        <el-input v-model="scope.row.cl"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="TDS">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.TDS"></el-input>
+                        <el-input v-model="scope.row.tds"></el-input>
                       </template>
                     </el-table-column>
                   </el-table>
@@ -1054,7 +1054,7 @@
                 
                 <!--13.聚合物设计 polymerDesign-->
                 <el-collapse-item title="Polymer Design" name="13">
-                  <el-table :data="addDataForm.Polymer.polymerDesign" style="width: 100%" stripe>
+                  <el-table :data="addDataForm.polymer.polymerDesign" style="width: 100%" stripe>
                     <el-table-column label="Slug Size (PV)" width="130">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.slugSize"></el-input>
@@ -1107,7 +1107,7 @@
                     </el-table-column>
                     <el-table-column label="Average Polymer VisCosity (6RPM,cp)" width="130">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.averagePolymerVisCosity"></el-input>
+                        <el-input v-model="scope.row.averagePolymerViscosity"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Injected Water Salinity (ppm)" width="130">
@@ -1153,7 +1153,7 @@
 
                 <!--14.注入压力 injectionPressure-->
                 <el-collapse-item title="Injection Pressure" name="14">
-                  <el-table :data="addDataForm.Polymer.injectionPressure" style="width: 100%" stripe>
+                  <el-table :data="addDataForm.polymer.injectionPressure" style="width: 100%" stripe>
                     <el-table-column label="Time">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.time"></el-input>
@@ -1177,7 +1177,7 @@
 
                 <!--15.聚合物粘度 polymerViscosity-->
                 <el-collapse-item title="Polymer Viscosity" name="15">
-                  <el-table :data="addDataForm.Polymer.polymerViscosity" style="width: 100%" stripe>
+                  <el-table :data="addDataForm.polymer.polymerViscosity" style="width: 100%" stripe>
                     <el-table-column label="Shear Rate (RPM)">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.shearRate"></el-input>
@@ -1261,7 +1261,7 @@ export default {
       projectMaturity: PROJECTMATURITY, // 项目成熟度
       projectEvaluation: PROJECTEVALUATION, // 项目评估
       profit: PROFIT, // 利润
-      showDataType: 'PPG', //根据地址参数判断显示哪个数据类型
+      showDataType: 'Polymer', //根据地址参数判断显示哪个数据类型
       addDataForm:{
         unit: 'SI',
         //联系信息
@@ -1328,7 +1328,7 @@ export default {
           depositionalEnvironment:''
         },
         // PPG相关的参数
-        PPG:{
+        ppg:{
           //注射参数表格
           injectionParameter:[{
             startInjectionDate:'',
@@ -1402,38 +1402,39 @@ export default {
           }]
         },
         // Polymer相关的参数
-        Polymer:{
+        polymer:{
+          preflush:true,
           //前置水组分
           preflushWaterComposition: [{
-            Na:'',
-            Mg2:'',
-            K:'',
-            SO4:'',
-            Ca2:'',
-            Fe2:'',
-            Cl:'',
-            TDS:''
+            na:'',
+            mg2:'',
+            k:'',
+            so4:'',
+            ca2:'',
+            fe2:'',
+            cl:'',
+            tds:''
           }],
           //地层水组分
           formationWaterComposition: [{
-            Na:'',
-            Mg2:'',
-            K:'',
-            SO4:'',
-            Ca2:'',
-            Fe2:'',
-            Cl:'',
-            TDS:''
+            na:'',
+            mg2:'',
+            k:'',
+            so4:'',
+            ca2:'',
+            fe2:'',
+            cl:'',
+            tds:''
           }],
           //注入水组分
           injectionWaterComposition: [{
-            Mg2:'',
-            K:'',
-            SO4:'',
-            Ca2:'',
-            Fe2:'',
-            Cl:'',
-            TDS:''
+            mg2:'',
+            k:'',
+            so4:'',
+            ca2:'',
+            fe2:'',
+            cl:'',
+            tds:''
           }],
           //聚合物设计
           polymerDesign: [{
@@ -1445,7 +1446,7 @@ export default {
             averageMolecularWeight:'',
             hydrolysisDegree:'',
             averagePolymerConcentration:'',
-            averagePolymerVisCosity:'',
+            averagePolymerViscosity:'',
             injectedWaterSalinity:'',
             startInjectingPressure:'',
             endInjectingPressure:'',
@@ -1517,31 +1518,31 @@ export default {
       this.fileList3 = fileList.slice(-3)
     },
     deleteThisRow (index) {
-      this.addDataForm.PPG.injectionParameter.splice(index, 1)
+      this.addDataForm.ppg.injectionParameter.splice(index, 1)
     },
     deleteThisRow2 (index) {
-      this.addDataForm.PPG.ppgMonitoring.splice(index, 1)
+      this.addDataForm.ppg.ppgMonitoring.splice(index, 1)
     },
     deleteThisRow3 (index) {
-      this.addDataForm.PPG.afterPPGTreatment.splice(index, 1)
+      this.addDataForm.ppg.afterPPGTreatment.splice(index, 1)
     },
     deleteThisRow4 (index) {
-      this.addDataForm.PPG.waterInjectionProfile.splice(index, 1)
+      this.addDataForm.ppg.waterInjectionProfile.splice(index, 1)
     },
     deleteThisRow5 (index) {
-      this.addDataForm.PPG.productionPerformance.splice(index, 1)
+      this.addDataForm.ppg.productionPerformance.splice(index, 1)
     },
     deleteThisRow6 (index) {
-      this.addDataForm.Polymer.polymerDesign.splice(index, 1)
+      this.addDataForm.polymer.polymerDesign.splice(index, 1)
     },
     deleteThisRow7 (index) {
-      this.addDataForm.Polymer.injectionPressure.splice(index, 1)
+      this.addDataForm.polymer.injectionPressure.splice(index, 1)
     },
     deleteThisRow8 (index) {
-      this.addDataForm.Polymer.polymerViscosity.splice(index, 1)
+      this.addDataForm.polymer.polymerViscosity.splice(index, 1)
     },
     addNewLine () {
-      this.addDataForm.PPG.injectionParameter.push({
+      this.addDataForm.ppg.injectionParameter.push({
         startInjectionDate:'',
         endInjectionDate:'',
         ppgName:'',
@@ -1563,13 +1564,13 @@ export default {
       })
     },
     addNewLine2 () {
-      this.addDataForm.PPG.ppgMonitoring.push({
+      this.addDataForm.ppg.ppgMonitoring.push({
         injectionDuration:'',
         ppgInjectionPressure:''
       })
     },
     addNewLine3 () {
-      this.addDataForm.PPG.afterPPGTreatment.push({
+      this.addDataForm.ppg.afterPPGTreatment.push({
         wellName:'',
         beforePi90:'',
         beforeInjectionPressure:'',
@@ -1580,7 +1581,7 @@ export default {
       })
     },
     addNewLine4 () {
-      this.addDataForm.PPG.waterInjectionProfile.push({
+      this.addDataForm.ppg.waterInjectionProfile.push({
         wellName:'',
         targetZone:'',
         beforePercentageIntakeWater:'',
@@ -1592,7 +1593,7 @@ export default {
       })
     },
     addNewLine5 () {
-      this.addDataForm.PPG.productionPerformance.push({
+      this.addDataForm.ppg.productionPerformance.push({
         wellName:'',
         numberOfProducers:'',
         beforeLiquid:'',
@@ -1607,7 +1608,7 @@ export default {
       })
     },
     addNewLine6 () {
-      this.addDataForm.Polymer.polymerDesign.push({
+      this.addDataForm.polymer.polymerDesign.push({
         slugSize:'',
         startTime:'',
         endTime:'',
@@ -1616,7 +1617,7 @@ export default {
         averageMolecularWeight:'',
         hydrolysisDegree:'',
         averagePolymerConcentration:'',
-        averagePolymerVisCosity:'',
+        averagePolymerViscosity:'',
         injectedWaterSalinity:'',
         startInjectingPressure:'',
         endInjectingPressure:'',
@@ -1626,13 +1627,13 @@ export default {
       })
     },
     addNewLine7 () {
-      this.addDataForm.Polymer.injectionPressure.push({
+      this.addDataForm.polymer.injectionPressure.push({
         time:'',
         pressure:''
       })
     },
     addNewLine8 () {
-      this.addDataForm.Polymer.polymerViscosity.push({
+      this.addDataForm.polymer.polymerViscosity.push({
         shearRate:'',
         temperature:'',
         brineSalinity:'',
