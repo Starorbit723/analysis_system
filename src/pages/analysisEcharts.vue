@@ -3,9 +3,12 @@
     <Header></Header>
     <section class="main_body">
       <div class="echart_content">
+        <!--Fundamental Analysis-->
         <ScatterPlot v-if="analysisConfig.chartType == 'Scatter Plot'" :scatterPlotData="scatterPlotData"></ScatterPlot>
         <BoxPlot v-if="analysisConfig.chartType == 'BoxPlot'" :boxPlotData="boxPlotData"></BoxPlot>
-        <Histogram v-if="analysisConfig.chartType == 'ScatterPlot'" :histogramData="histogramData"></Histogram>
+        <Histogram v-if="analysisConfig.chartType == 'Histogram'" :histogramData="histogramData"></Histogram>
+        <!--Advanced Analysis-->
+        
       </div>
     </section>
     <Footer :footerFixed="footerFixed"></Footer>

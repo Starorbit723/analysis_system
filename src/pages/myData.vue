@@ -123,6 +123,7 @@ export default {
   },
   created () {
     this.getTableSize()
+    this.searchList()
   },
   methods:{
     //条件查询
