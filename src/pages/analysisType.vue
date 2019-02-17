@@ -8,7 +8,7 @@
           <el-row class="el-row-h70">
             <el-col :span="6" class="el-align-right">Data Id</el-col>
             <el-col :span="16" :offset="2">
-              <el-input v-model="analysisForm.dataId" :disabled="true"></el-input>
+              <el-input v-model="analysisForm.id" :disabled="true"></el-input>
             </el-col>
           </el-row>
           <el-row class="el-row-h70">
@@ -142,7 +142,7 @@ export default {
       chartXY: CHARTXY, // 图表XY轴
       clustering: CLUSTERING, // 集群
       analysisForm: {
-        dataId: '',
+        id: '',
         dataTitle: '',
         analysisType:'Fundamental Analysis',
         chartType:'Scatter Plot',
@@ -155,10 +155,14 @@ export default {
       }
     }
   },
-  mounted () {
-    this.analysisForm.dataId = this.$route.params.dataId
-    this.analysisForm.dataTitle = this.$route.params.dataTitle
-    console.log(this.$route.params.dataId, this.$route.params.dataTitle)
+  created () {
+    console.log(this.$route.params.id, this.$route.params.dataTitle)
+    if (this.$route.params.id) {
+      this.analysisForm.id = this.$route.params.id
+      this.analysisForm.dataTitle = this.$route.params.dataTitle
+    } else {
+      this.$router.push({path:'/myData'})
+    }
   },
   methods: {
     toDataEcharts () {

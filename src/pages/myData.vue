@@ -169,7 +169,7 @@ export default {
     },
     //分析数据
     analysisThisData (row) {
-      this.$router.push({name:'analysisType', params: {dataId: row.dataId, dataTitle: row.dataTitle}})
+      this.$router.push({name:'analysisType', params: {id: row.id, dataTitle: row.dataTitle}})
     },
     // 编辑数据
     editThisData (row) {

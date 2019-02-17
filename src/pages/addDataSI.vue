@@ -1263,7 +1263,7 @@ export default {
       profit: PROFIT, // 利润
       showDataType: '', //根据地址参数判断显示哪个数据类型
       addDataForm:{
-        unit: 'SI',
+        unit: 'SI', 
         //联系信息
         contactInformation: {
           email: '',
@@ -1516,6 +1516,8 @@ export default {
       axios.post(self.baseUrl + '/s/ppg', self.addDataForm).then(function (res) {
         if (res.code === 0) {
           console.log('提交返回结果', res)
+          self.$message.success('Submit Data Success!')
+          self.$router.go(-1)
         }
       })
     },

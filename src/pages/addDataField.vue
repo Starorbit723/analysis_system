@@ -1503,6 +1503,8 @@ export default {
       }).then(function (res) {
         if (res.code === 0) {
           console.log('请求本页数据返回结果', res)
+          self.$message.success('Submit Data Success!')
+          self.$router.go(-1)
         }
       })
     }

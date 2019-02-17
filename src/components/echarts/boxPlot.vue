@@ -1,10 +1,10 @@
 <template>
-  <div class="scatterPlot_content" ref="scatterPlot"></div>
+  <div class="boxPlot_content" ref="boxPlot"></div>
 </template>
 
 <script>
 export default {
-  props:['scatterPlotData'],
+  props:['boxPlotData'],
   data () {
     return {
       echarts:''
@@ -16,16 +16,16 @@ export default {
   methods: {
     echartsInit () {
       let self = this
-      let initEcharts = self.$refs.scatterPlot
+      let initEcharts = self.$refs.boxPlot
       self.echarts = self.$echarts.init(initEcharts)
       self.echarts.setOption({
-				title: {
-          text: self.scatterPlotData.title,
-          left:'center',
-          textStyle:{
-            fontSize: '20',
-            color: '#266099'
-          }
+			title: {
+                text: self.boxPlotData.title,
+                left:'center',
+                textStyle:{
+                    fontSize: '20',
+                    color: '#266099'
+            }
         },
         xAxis: {
           type: 'category',
@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style>
-  .scatterPlot_content{
+  .boxPlot_content{
     width:800px;
     height: 500px;
     margin: 0 auto;

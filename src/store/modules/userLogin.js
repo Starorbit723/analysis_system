@@ -20,10 +20,10 @@ const mutations = {
   submitUserInfo (state, payload) {
     state.userInfo = payload.params
     if (payload.params.loginName) {
-      setCookie('loginName', payload.params.loginName, 7)
-      setCookie('formalName', payload.params.formalName, 7)
-      setCookie('email', payload.params.email, 7)
-      setCookie('phone', payload.params.phone, 7)
+      setCookie('loginName', payload.params.loginName, 1)
+      setCookie('formalName', payload.params.formalName, 1)
+      setCookie('email', payload.params.email, 1)
+      setCookie('phone', payload.params.phone, 1)
     } else {
       setCookie('loginName', '', 0)
       setCookie('formalName', '', 0)

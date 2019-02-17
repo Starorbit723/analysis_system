@@ -1,10 +1,10 @@
 <template>
-  <div class="scatterPlot_content" ref="scatterPlot"></div>
+  <div class="histogram_content" ref="histogram"></div>
 </template>
 
 <script>
 export default {
-  props:['scatterPlotData'],
+  props:['histogramData'],
   data () {
     return {
       echarts:''
@@ -16,16 +16,16 @@ export default {
   methods: {
     echartsInit () {
       let self = this
-      let initEcharts = self.$refs.scatterPlot
+      let initEcharts = self.$refs.histogram
       self.echarts = self.$echarts.init(initEcharts)
       self.echarts.setOption({
-				title: {
-          text: self.scatterPlotData.title,
-          left:'center',
-          textStyle:{
-            fontSize: '20',
-            color: '#266099'
-          }
+			title: {
+                text: self.histogramData.title,
+                left:'center',
+                textStyle:{
+                    fontSize: '20',
+                    color: '#266099'    
+            }
         },
         xAxis: {
           type: 'category',
