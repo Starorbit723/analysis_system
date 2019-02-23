@@ -131,7 +131,7 @@
                     <el-date-picker
                       v-model="addDataForm.generalInformation.startDate"
                       type="date"
-                      placeholder="Please Select StarTime"
+                      placeholder="Please Select StartDate"
                       class="el-width-st100">
                     </el-date-picker>
                   </el-form-item>
@@ -141,7 +141,7 @@
                     <el-date-picker
                       v-model="addDataForm.generalInformation.endDate"
                       type="date"
-                      placeholder="Please Select EndTime"
+                      placeholder="Please Select EndDate"
                       class="el-width-st100">
                     </el-date-picker>
                   </el-form-item>
@@ -1156,7 +1156,7 @@
                   <el-table :data="addDataForm.polymer.injectionPressure" style="width: 100%" stripe>
                     <el-table-column label="Time">
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.time"></el-input>
+                        <el-date-picker style="width:100%" v-model="scope.row.time" type="datetime"> </el-date-picker>
                       </template>
                     </el-table-column>
                     <el-table-column label="Pressure (Mpa)">
@@ -1495,7 +1495,7 @@ export default {
     this.addDataForm.contactInformation.email = getCookie('email')
     this.addDataForm.contactInformation.phone = getCookie('phone')
     this.addDataForm.contactInformation.loginName = getCookie('loginName')
-    if (this.$route.params.dataId !== 0) {
+    if (this.$route.params.dataId !== 0 && this.$route.params.dataId !== undefined) {
       //有dataId代表修改数据
       console.log('dataId:', this.$route.params.dataId)
       axios.post(self.baseUrl + '/g/item', {

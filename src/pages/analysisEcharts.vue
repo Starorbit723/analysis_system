@@ -5,10 +5,10 @@
       <div class="echart_content">
         <!--Fundamental Analysis-->
         <ScatterPlot v-if="analysisConfig.chartType == 'Scatter Plot'" :scatterPlotData="scatterPlotData"></ScatterPlot>
-        <BoxPlot v-if="analysisConfig.chartType == 'BoxPlot'" :boxPlotData="boxPlotData"></BoxPlot>
+        <BoxPlot v-if="analysisConfig.chartType == 'Box Plot'" :boxPlotData="boxPlotData"></BoxPlot>
         <Histogram v-if="analysisConfig.chartType == 'Histogram'" :histogramData="histogramData"></Histogram>
         <!--Advanced Analysis-->
-        
+        <Cluster v-if="analysisConfig.chartType == 'Cluster'" :clusterData="clusterData"></Cluster>
       </div>
     </section>
     <Footer :footerFixed="footerFixed"></Footer>
@@ -21,6 +21,7 @@ import Footer from '@components/footer'
 import ScatterPlot from '@components/echarts/scatterPlot'
 import BoxPlot from '@components/echarts/boxPlot'
 import Histogram from '@components/echarts/histogram'
+import Cluster from '@components/echarts/cluster'
 
 export default {
   components: {Header, Footer, ScatterPlot, BoxPlot, Histogram},
@@ -29,6 +30,7 @@ export default {
       footerFixed: true,
       // 配置项
       analysisConfig: {},
+      reqUrl:'',
       scatterPlotData: {
         title: 'this is a title',
         data:[]
@@ -40,22 +42,59 @@ export default {
       histogramData:{
         title: 'this is a title3',
         data:[]
+      },
+      clusterData:{
+        title: 'this is a title4',
+        data:[]
       }
     }
-  },
-  created () {
-    console.log('Echart配置', this.$route.params.analysisForm)
-    if (this.$route.params.analysisForm) {
-      this.analysisConfig = this.$route.params.analysisForm
-    } else {
-      this.$router.push({path:'/analysisType'})
+    },
+    created () {
+        var self = this
+        console.log('Echart配置', self.$route.params.analysisForm)
+        if (self.$route.params.analysisForm) {
+            self.analysisConfig = self.$route.params.analysisForm
+        } else {
+            self.$router.push({path:'/analysisType'})
+        }
+        if (self.analysisConfig.analysisType === 'Fundamental Analysis') {
+            switch (self.analysisConfig.chartType) {
+                case 'Scatter Plot':
+                    self.reqUrl = '/a/scatterplot'
+                break
+                case 'Box Plot':
+                    self.reqUrl = '/a/boxplot'
+                break
+                case 'Histogram':
+                    self.reqUrl = '/a/histogram'
+                break
+            }
+        } else if (self.analysisConfig.analysisType === 'Advanced Analysis') {
+            self.reqUrl = '/a/cluster'
+        }
+        //开始分类请求
+        axios.post(self.baseUrl + self.reqUrl, {
+            generalId: self.analysisConfig.id
+        }).then(function (res) {
+            if (res.code === 0) {
+                if (self.analysisConfig.analysisType === 'Fundamental Analysis') {
+                    switch (self.analysisConfig.chartType) {
+                        case 'Scatter Plot':
+                            self.scatterPlotData = res.data
+                        break
+                        case 'Box Plot':
+                            self.boxPlotData = res.data
+                        break
+                        case 'Histogram':
+                            self.histogramData = res.data
+                        break
+                    }
+                } else if (self.analysisConfig.analysisType === 'Advanced Analysis') {
+                    self.clusterData = res.data
+                }
+            }
+        })
     }
-  },
-  mounted () {
-    
-  },
-  methods: {
-  }
 }
 </script>
 
