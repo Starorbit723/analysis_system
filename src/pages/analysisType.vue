@@ -146,10 +146,10 @@ export default {
         dataTitle: '',
         analysisType:'Fundamental Analysis',
         chartType:'Scatter Plot',
-        scatterPlotX:'Depth',
-        scatterPlotY:'Depth',
-        boxPlotY:'Depth',
-        histogramX: 'Depth',
+        scatterPlotX:'depth',
+        scatterPlotY:'depth',
+        boxPlotY:'depth',
+        histogramX: 'depth',
         clusteringList: [],
         numberOfClusters: ''
       }

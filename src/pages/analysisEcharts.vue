@@ -4,7 +4,7 @@
         <section class="main_body">
         <div class="echart_content">
             <!--Fundamental Analysis-->
-            <ScatterPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Scatter Plot')" :scatterPlotData="scatterPlotData"></ScatterPlot>
+            <ScatterPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Scatter Plot')" :scatterPlotData="scatterPlotData" :scatterPlotX="analysisConfig.scatterPlotX"  :scatterPlotY="analysisConfig.scatterPlotY"></ScatterPlot>
             <BoxPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Box Plot')" :boxPlotData="boxPlotData"></BoxPlot>
             <Histogram v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Histogram')" :histogramData="histogramData"></Histogram>
             <!--Advanced Analysis-->
@@ -73,9 +73,10 @@ export default {
             self.reqUrl = '/a/cluster'
         }
         //开始分类请求
-        axios.post(self.baseUrl + self.reqUrl, {
+        let data = JSON.stringify({
             generalId: self.analysisConfig.id
-        }).then(function (res) {
+        })
+        axios.post(self.baseUrl + self.reqUrl, data).then(function (res) {
             if (res.code === 0) {
                 if (self.analysisConfig.analysisType === 'Fundamental Analysis') {
                     switch (self.analysisConfig.chartType) {
