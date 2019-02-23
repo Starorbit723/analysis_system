@@ -1,18 +1,18 @@
 <template>
-  <div class="page_content">
-    <Header></Header>
-    <section class="main_body">
-      <div class="echart_content">
-        <!--Fundamental Analysis-->
-        <ScatterPlot v-if="analysisConfig.chartType == 'Scatter Plot'" :scatterPlotData="scatterPlotData"></ScatterPlot>
-        <BoxPlot v-if="analysisConfig.chartType == 'Box Plot'" :boxPlotData="boxPlotData"></BoxPlot>
-        <Histogram v-if="analysisConfig.chartType == 'Histogram'" :histogramData="histogramData"></Histogram>
-        <!--Advanced Analysis-->
-        <Cluster v-if="analysisConfig.chartType == 'Cluster'" :clusterData="clusterData"></Cluster>
-      </div>
-    </section>
-    <Footer :footerFixed="footerFixed"></Footer>
-  </div>
+    <div class="page_content">
+        <Header></Header>
+        <section class="main_body">
+        <div class="echart_content">
+            <!--Fundamental Analysis-->
+            <ScatterPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Scatter Plot')" :scatterPlotData="scatterPlotData"></ScatterPlot>
+            <BoxPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Box Plot')" :boxPlotData="boxPlotData"></BoxPlot>
+            <Histogram v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Histogram')" :histogramData="histogramData"></Histogram>
+            <!--Advanced Analysis-->
+            <Cluster v-if="analysisConfig.analysisType == 'Advanced Analysis'" :clusterData="clusterData"></Cluster>
+        </div>
+        </section>
+        <Footer :footerFixed="footerFixed"></Footer>
+    </div>
 </template>
 
 <script>
@@ -24,30 +24,30 @@ import Histogram from '@components/echarts/histogram'
 import Cluster from '@components/echarts/cluster'
 
 export default {
-  components: {Header, Footer, ScatterPlot, BoxPlot, Histogram},
-  data () {
-    return {
-      footerFixed: true,
-      // 配置项
-      analysisConfig: {},
-      reqUrl:'',
-      scatterPlotData: {
-        title: 'this is a title',
-        data:[]
-      },
-      boxPlotData:{
-        title: 'this is a title2',
-        data:[]
-      },
-      histogramData:{
-        title: 'this is a title3',
-        data:[]
-      },
-      clusterData:{
-        title: 'this is a title4',
-        data:[]
-      }
-    }
+    components: {Header, Footer, ScatterPlot, BoxPlot, Histogram, Cluster},
+    data () {
+        return {
+            footerFixed: true,
+            // 配置项
+            analysisConfig: {},
+            reqUrl:'',
+            scatterPlotData: {
+                title: 'this is a title',
+                data:[]
+            },
+            boxPlotData:{
+                title: 'this is a title2',
+                data:[]
+            },
+            histogramData:{
+                title: 'this is a title3',
+                data:[]
+            },
+            clusterData:{
+                title: 'this is a title4',
+                data:[]
+            }
+        }
     },
     created () {
         var self = this
