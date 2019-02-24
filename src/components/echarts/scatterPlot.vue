@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    props:['scatterPlotData', 'scatterPlotX', 'scatterPlotY'],
+    props:['scatterPlotData', 'scatterPlotX', 'scatterPlotY', 'scatterPlotTitle'],
     data () {
         return {
             echarts:'',
@@ -17,7 +17,7 @@ export default {
         scatterPlotData(val) {
             var self = this
             //监听到数据变化
-            console.log('监听到数据变化', 'scatterPlotData', self.scatterPlotData, 'scatterPlotX', self.scatterPlotX, 'scatterPlotY', self.scatterPlotY)
+            console.log('监听到数据变化', 'scatterPlotData', self.scatterPlotData, 'scatterPlotX', self.scatterPlotX, 'scatterPlotY', self.scatterPlotY, 'scatterPlotTitle', self.scatterPlotTitle)
             self.scatterPlotData.forEach(v => {  
                 let tempArr = []
                 tempArr.push(v[self.scatterPlotX])
@@ -35,7 +35,7 @@ export default {
             self.echarts = self.$echarts.init(initEcharts)
             self.echarts.setOption({
                 title: {
-                    text: self.scatterPlotData.title,
+                    text: self.scatterPlotTitle,
                     left: 'center',
                     textStyle:{
                         fontSize: '20',

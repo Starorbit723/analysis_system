@@ -4,11 +4,11 @@
         <section class="main_body">
         <div class="echart_content">
             <!--Fundamental Analysis-->
-            <ScatterPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Scatter Plot')" :scatterPlotData="scatterPlotData" :scatterPlotX="analysisConfig.scatterPlotX"  :scatterPlotY="analysisConfig.scatterPlotY"></ScatterPlot>
-            <BoxPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Box Plot')" :boxPlotData="boxPlotData"></BoxPlot>
-            <Histogram v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Histogram')" :histogramData="histogramData"></Histogram>
+            <ScatterPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Scatter Plot')" :scatterPlotData="scatterPlotData" :scatterPlotX="analysisConfig.scatterPlotX"  :scatterPlotY="analysisConfig.scatterPlotY" :scatterPlotTitle="scatterPlotTitle"></ScatterPlot>
+            <BoxPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Box Plot')" :boxPlotData="boxPlotData" :boxPlotY="analysisConfig.boxPlotY" :boxPlotTitle="boxPlotTitle"></BoxPlot>
+            <Histogram v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Histogram')" :histogramData="histogramData" :histogramX="analysisConfig.histogramX" :histogramTitle="histogramTitle"></Histogram>
             <!--Advanced Analysis-->
-            <Cluster v-if="analysisConfig.analysisType == 'Advanced Analysis'" :clusterData="clusterData"></Cluster>
+            <Cluster v-if="analysisConfig.analysisType == 'Advanced Analysis'" :clusterData="clusterData" :clusterTitle="clusterTitle"></Cluster>
         </div>
         </section>
         <Footer :footerFixed="footerFixed"></Footer>
@@ -31,22 +31,14 @@ export default {
             // 配置项
             analysisConfig: {},
             reqUrl:'',
-            scatterPlotData: {
-                title: 'this is a title',
-                data:[]
-            },
-            boxPlotData:{
-                title: 'this is a title2',
-                data:[]
-            },
-            histogramData:{
-                title: 'this is a title3',
-                data:[]
-            },
-            clusterData:{
-                title: 'this is a title4',
-                data:[]
-            }
+            scatterPlotTitle:'',
+            scatterPlotData: [],
+            boxPlotTitle: '',
+            boxPlotData: [],
+            histogramTitle: '',
+            histogramData: [],
+            clusterTitle: '',
+            clusterData:[]
         }
     },
     created () {
@@ -61,20 +53,25 @@ export default {
             switch (self.analysisConfig.chartType) {
                 case 'Scatter Plot':
                     self.reqUrl = '/a/scatterplot'
+                    self.scatterPlotTitle = self.analysisConfig.dataTitle
                 break
                 case 'Box Plot':
                     self.reqUrl = '/a/boxplot'
+                    self.boxPlotTitle = self.analysisConfig.dataTitle
                 break
                 case 'Histogram':
                     self.reqUrl = '/a/histogram'
+                    self.histogramTitle = self.analysisConfig.dataTitle
                 break
             }
         } else if (self.analysisConfig.analysisType === 'Advanced Analysis') {
             self.reqUrl = '/a/cluster'
+            self.clusterTitle = self.analysisConfig.dataTitle
         }
         //开始分类请求
         let data = JSON.stringify({
-            generalId: self.analysisConfig.id
+            generalId: self.analysisConfig.id,
+            axis: self.analysisConfig.histogramX
         })
         axios.post(self.baseUrl + self.reqUrl, data).then(function (res) {
             if (res.code === 0) {
