@@ -8,7 +8,7 @@
             <BoxPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Box Plot')" :boxPlotData="boxPlotData" :boxPlotY="analysisConfig.boxPlotY" :boxPlotTitle="boxPlotTitle"></BoxPlot>
             <Histogram v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Histogram')" :histogramData="histogramData" :histogramX="analysisConfig.histogramX" :histogramTitle="histogramTitle"></Histogram>
             <!--Advanced Analysis-->
-            <Cluster v-if="analysisConfig.analysisType == 'Advanced Analysis'" :clusterData="clusterData" :clusterTitle="clusterTitle"></Cluster>
+            <Cluster v-if="analysisConfig.analysisType == 'Advanced Analysis'" :clusterData="clusterData" :clusterTitle="clusterTitle" :analysisConfig="analysisConfig"></Cluster>
         </div>
         </section>
         <Footer :footerFixed="footerFixed"></Footer>
@@ -71,7 +71,8 @@ export default {
         //开始分类请求
         let data = JSON.stringify({
             generalId: self.analysisConfig.id,
-            axis: self.analysisConfig.histogramX
+            axis: self.analysisConfig.histogramX,
+            attributes:self.analysisConfig.clusteringList
         })
         axios.post(self.baseUrl + self.reqUrl, data).then(function (res) {
             if (res.code === 0) {

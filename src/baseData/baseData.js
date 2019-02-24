@@ -183,11 +183,11 @@ export const CHARTXY = [
 ]
 
 export const CLUSTERING = [
-  {label: 'Net_Thickness ', value: 'Net_Thickness '},
-  {label: 'Depth ', value: 'Depth '},
-  {label: 'Permeability ', value: 'Permeability '},
-  {label: 'Porosity', value: 'Porosity'},
-  {label: 'Residual oil Saturation', value: 'Residual oil Saturation'},
-  {label: 'Reservoir Temperature', value: 'Reservoir Temperature'},
-  {label: 'Oil Viscosity at Reservoir', value: 'Oil Viscosity at Reservoir'}
+  {label: 'netThickness', value: 'netThickness'},
+  {label: 'depth', value: 'depth'},
+  {label: 'permeability', value: 'permeability'},
+  {label: 'porosity', value: 'porosity'},
+  {label: 'initialOilSaturation', value: 'initialOilSaturation'},
+  {label: 'reservoirTemperature', value: 'reservoirTemperature'},
+  {label: 'oilViscosity', value: 'oilViscosity'}
 ]
