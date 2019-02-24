@@ -10,7 +10,8 @@ export default {
     data () {
         return {
             echarts:'',
-            option: {}
+            option: {},
+            result: {}
         }
     },
     watch: {
@@ -22,7 +23,6 @@ export default {
             var clusterNumber = parseInt(self.analysisConfig.numberOfClusters)
             var step = ecStat.clustering.hierarchicalKMeans(self.clusterData, clusterNumber, true)
             console.log('step', step)
-            var result
 
             self.option = {
                 timeline: {
@@ -52,8 +52,8 @@ export default {
                 },
                 options: []
             }
-            for (let i = 0; !(result = step.next()).isEnd; i++) {
-                self.option.options.push(self.getOption(result, clusterNumber))
+            for (let i = 0; !(self.result = step.next()).isEnd; i++) {
+                self.option.options.push(self.getOption(self.result, clusterNumber))
                 self.option.timeline.data.push(i + '')
             }
             self.echartsInit()
