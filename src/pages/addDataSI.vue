@@ -1702,8 +1702,8 @@ export default {
     text-align: center;
   }
   .add_newLine{
-    display: block;
-    margin: 0 auto;
+    display: block!important;
+    margin: 0 auto!important;
     width: 60%;
     height: 40px;
     background: rgb(243, 243, 243);
