@@ -21,9 +21,15 @@ export default {
             console.log('监听到数据变化', 'clusterData', self.clusterData, 'analysisConfig', self.analysisConfig, 'clusterNumber', parseInt(self.analysisConfig.numberOfClusters))
 
             var clusterNumber = parseInt(self.analysisConfig.numberOfClusters)
-            var step = ecStat.clustering.hierarchicalKMeans(self.clusterData, clusterNumber, true)
-            console.log('step', step)
-
+            //var step = ecStat.clustering.hierarchicalKMeans(self.clusterData.all, clusterNumber, false)
+            let allData = self.clusterData.all
+            let contrastNum = self.clusterData.contrastCount
+            allData.forEach((arr, index) => {
+                arr.standard = !(index < contrastNum)
+            })
+            var result = ecStat.clustering.hierarchicalKMeans(allData, clusterNumber, false)
+            //console.log('step', step)
+            
             self.option = {
                 timeline: {
                     top: 'center',
@@ -52,10 +58,13 @@ export default {
                 },
                 options: []
             }
-            for (let i = 0; !(self.result = step.next()).isEnd; i++) {
-                self.option.options.push(self.getOption(self.result, clusterNumber))
-                self.option.timeline.data.push(i + '')
-            }
+            // for (let i = 0; !(self.result = step.next()).isEnd; i++) {
+            //     console.log('result', self.result)
+            //     self.option.options.push(self.getOption(self.result, clusterNumber))
+            //     self.option.timeline.data.push(i + '')
+            // }
+            console.log('result', result)
+            self.option.options.push(self.getOption(result, clusterNumber))
             self.echartsInit()
         }
     },    
@@ -70,8 +79,8 @@ export default {
             var clusterAssment = result.clusterAssment
             var centroids = result.centroids
             var ptsInCluster = result.pointsInCluster
-
             var color = ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570', '#c4ccd3']
+            var color2 = ['#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000']
             var series = []
             for (let i = 0; i < k; i++) {
                 series.push({
@@ -83,7 +92,7 @@ export default {
                         }
                     },
                     animation: false,
-                    data: ptsInCluster[i],
+                    data: ptsInCluster[i].filter(ele => ele.standard),
                     markPoint: {
                         symbolSize: 29,
                         label: {
@@ -104,7 +113,48 @@ export default {
                         itemStyle: {
                             normal: {
                                 opacity: 0.7
+                            },
+                            color: color[i]
+                        },
+                        data: [{
+                            coord: centroids[i]
+                        }]
+                    }
+                })
+
+                series.push({
+                    name: 'effectScatter' + i,
+                    type: 'effectScatter',
+                    label: {
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    symbolSize: 20,
+                    animation: false,
+                    data: ptsInCluster[i].filter(ele => !(ele.standard)),
+                    markPoint: {
+                        symbolSize: 29,
+                        label: {
+                            normal: {
+                                show: false
+                            },
+                            emphasis: {
+                                show: true,
+                                position: 'top',
+                                formatter: function (params) {
+                                    return Math.round(params.data.coord[0] * 100) / 100 + '  ' + Math.round(params.data.coord[1] * 100) / 100 + ' '
+                                },
+                                textStyle: {
+                                    color: '#000'
+                                }
                             }
+                        },
+                        itemStyle: {
+                            normal: {
+                                opacity: 0.7
+                            },
+                            color: color2[i]
                         },
                         data: [{
                             coord: centroids[i]
@@ -120,8 +170,7 @@ export default {
                         type: 'cross'
                     }
                 },
-                series: series,
-                color: color
+                series: series               
             }
         }
     }

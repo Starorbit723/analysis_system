@@ -8,7 +8,8 @@ export default {
     data () {
         return {
             echarts:'',
-            nData:[]
+            baseData:[], //基础数据
+            userData:[] //用户数据
         }
     },
     mounted () {
@@ -18,13 +19,20 @@ export default {
             var self = this
             //监听到数据变化
             console.log('监听到数据变化', 'scatterPlotData', self.scatterPlotData, 'scatterPlotX', self.scatterPlotX, 'scatterPlotY', self.scatterPlotY, 'scatterPlotTitle', self.scatterPlotTitle)
-            self.scatterPlotData.forEach(v => {  
+            self.scatterPlotData.forEach(v => { 
                 let tempArr = []
-                tempArr.push(v[self.scatterPlotX])
-                tempArr.push(v[self.scatterPlotY])
-                self.nData.push(tempArr)
+                let tempArr2 = []
+                if (v.standard) {
+                    tempArr.push(v[self.scatterPlotX])
+                    tempArr.push(v[self.scatterPlotY])
+                    self.baseData.push(tempArr)
+                } else {
+                    tempArr2.push(v[self.scatterPlotX])
+                    tempArr2.push(v[self.scatterPlotY])
+                    self.userData.push(tempArr2)
+                }   
             })
-            console.log(self.nData)
+            console.log('baseData:', self.baseData, 'userData', self.userData)
             self.echartsInit()
         }
     },
@@ -52,7 +60,10 @@ export default {
                 },
                 series: [{
                     type: 'scatter',
-                    data: self.nData
+                    data: self.baseData
+                }, {
+                    type: 'scatter',
+                    data: self.userData
                 }],
                 toolbox: {
                     show: true,

@@ -24,8 +24,8 @@ import { setCookie, getCookie, deletCookie } from '../utils/cookie'
 export default {
   data () {
     return {
-      userName:'admin',
-      passWord:'1111'
+      userName:'',
+      passWord:''
     }
   },
   computed:{
