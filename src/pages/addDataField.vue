@@ -754,7 +754,7 @@
                   <el-row :span="24" style="margin:40px 0 30px;">
                     <el-button class="add_newLine" @click="addNewLine3">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line</el-button>
                   </el-row>
-                  <el-row :offset="6">
+                  <!-- <el-row :offset="6">
                     <el-upload
                       class="upload-demo el-width-st40"
                       action="https://jsonplaceholder.typicode.com/posts/"
@@ -763,7 +763,7 @@
                       <el-button size="small" type="primary">Upload Files</el-button>
                       <div slot="tip" class="el-upload__tip">not exceeding 1M</div>
                     </el-upload>
-                  </el-row>
+                  </el-row> -->
                 </el-collapse-item>
                 <!--8.PPG处理前后的注水剖面比较-->
                 <el-collapse-item title="Water Injection Profile Copsirision Before and After PPG Treatment" name="8">

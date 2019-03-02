@@ -754,16 +754,22 @@
                   <el-row :span="24" style="margin:40px 0 30px;">
                     <el-button class="add_newLine" @click="addNewLine3">+&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;New&nbsp;&nbsp;Line</el-button>
                   </el-row>
-                  <el-row :offset="6">
-                    <el-upload
-                      class="upload-demo el-width-st40"
-                      action="https://jsonplaceholder.typicode.com/posts/"
+                  <!-- <el-row :offset="6">
+                   <el-upload
+                      ref="upload"
+                      action="http://118.89.220.76:8888/action/upload"
+                      :before-upload="beforeUpload"
+                      :on-preview="handlePictureCardPreview"
+                      :on-remove="handleRemove"
                       :on-change="handleChange"
-                      :file-list="fileList3">
-                      <el-button size="small" type="primary">Upload Files</el-button>
-                      <div slot="tip" class="el-upload__tip">not exceeding 1M</div>
-                    </el-upload>
+                      :file-list="fileList"
+                      :auto-upload="false">
+                      <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+                      <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
+                      <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                    </el-upload>    
                   </el-row>
+                  <div><img id="img01" src=""></div> -->
                 </el-collapse-item>
                 <!--8.PPG处理前后的注水剖面比较-->
                 <el-collapse-item title="Water Injection Profile Comparision Before and After PPG Treatment" name="8">
@@ -1470,13 +1476,8 @@ export default {
       //添加数据Form规则
       addDataFormRules:{},
       //文件上传
-      fileList3: [{
-        name: 'food.jpeg',
-        url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
-      }, {
-        name: 'food2.jpeg',
-        url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
-      }]
+      fileList: [],
+      imgSrc:'111'
     }
   },
   created () {
@@ -1510,6 +1511,42 @@ export default {
     }
   },
   methods: {
+    //文件上传
+    // handlePictureCardPreview(file) {
+    //     console.log('fiiiiii', file)
+    //     document.getElementById('img01').src = file.url;
+    // },
+    // beforeUpload (file) {
+    //   console.log('beforeUpload', file)
+    //   const isJPG = file.type === 'image/jpeg'
+		// 	const isLt2M = file.size / 1024 / 1024 < 2
+		// 	if (!isJPG) {
+		// 		this.$message.error('上传头像图片只能是 JPG 格式!')
+		// 	}
+		// 	if (!isLt2M) {
+		// 		this.$message.error('上传头像图片大小不能超过 2MB!')
+		// 	}
+		// 	return isJPG && isLt2M
+    // },
+    // handleChange (file, fileList) {
+    //   console.log('file:', file, 'list:', fileList)
+    //   //创建临时的路径来展示图片
+    //   // var fr = new FileReader()//创建new FileReader()对象
+    //   // fr.onload = function() {
+    //   //     console.log('111111', this)
+		// 	// 		document.getElementById('img01').src = this.result;
+    //   // }
+    //   // fr.readAsDataURL(file.raw)
+    // },
+    // submitUpload() {
+    //   this.$refs.upload.submit()
+    // },
+    // handleRemove(file, fileList) {
+    //   console.log(file, fileList)
+    // },
+    // handlePreview(file) {
+    //     console.log(file)
+    // },
     //提交全部数据
     submitAll () {
       var self = this
@@ -1521,10 +1558,7 @@ export default {
         }
       })
     },
-    //文件上传
-    handleChange (file, fileList) {
-      this.fileList3 = fileList.slice(-3)
-    },
+    
     deleteThisRow (index) {
       this.addDataForm.ppg.injectionParameter.splice(index, 1)
     },
