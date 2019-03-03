@@ -41,7 +41,7 @@ export default {
 			var self = this
 			let min = self.histogramData[0].data
 			let max = self.histogramData[self.histogramData.length - 1].data
-			let chaStep = (max - min) / self.step
+			let chaStep = parseInt((max - min) / self.step)
 			var temp = min
 			for (let i = 0; i < self.step; i++) {
 				let str = temp + '~' + (temp + chaStep)
@@ -86,11 +86,12 @@ export default {
 				},
 				xAxis: {
 					type: 'category',
+					nameGap:5,
 					name: self.histogramX,
 					data: self.XArr,
 					axisLabel :{
 						interval:0,
-						rotate:40
+						rotate:20
 					}
 				},
 				yAxis: {
@@ -98,9 +99,9 @@ export default {
 				},
 				series: [{
 					type: 'bar',
-					data: self.YArr
-				}],
-        		toolbox: {
+						data: self.YArr
+					}],
+        	toolbox: {
 					show: true,
 					itemSize:20,
 					feature: {
@@ -130,6 +131,7 @@ export default {
 				},
 				xAxis: {
 					type: 'value',
+					nameGap:5,
 					name: self.histogramX
 				},
 				yAxis: {

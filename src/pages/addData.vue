@@ -19,8 +19,8 @@
        <el-row>
           <el-col :span="24">
               <el-radio-group style="width:100%; text-align:center;" v-model="dataType">
-                <el-radio style="width:25%;" label="PPG" border>PPG</el-radio>
-                <el-radio style="width:25%; margin-left:10%;" label="Polymer" border>Polymer</el-radio>
+                <el-radio style="width:35%;" label="PPG" border>PPG</el-radio>
+                <el-radio style="width:35%; margin-left:10%;" label="Polymer" border>Polymer</el-radio>
               </el-radio-group>
           </el-col>
        </el-row>

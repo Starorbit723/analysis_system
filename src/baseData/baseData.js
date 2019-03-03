@@ -175,19 +175,19 @@ export const CHARTTYPE = [
 export const CHARTXY = [
   {label: 'Depth', value: 'depth'},
   {label: 'Gravity', value: 'gravity'},
-  {label: 'Initial_Oil_Saturation', value: 'initialOilSaturation'},
+  {label: 'Initial Oil Saturation', value: 'initialOilSaturation'},
   {label: 'Permeability', value: 'permeability'},
   {label: 'Porosity', value: 'porosity'},
-  {label: 'Reservoir_Temperature_F', value: 'reservoirTemperature'},
-  {label: 'Oil_Viscosity_at_Reservoir_cp', value: 'oilViscosity'}
+  {label: 'Reservoir Temperature', value: 'reservoirTemperature'},
+  {label: 'Oil Viscosity at Reservoir', value: 'oilViscosity'}
 ]
 
 export const CLUSTERING = [
-  {label: 'netThickness', value: 'netThickness'},
-  {label: 'depth', value: 'depth'},
-  {label: 'permeability', value: 'permeability'},
-  {label: 'porosity', value: 'porosity'},
-  {label: 'initialOilSaturation', value: 'initialOilSaturation'},
-  {label: 'reservoirTemperature', value: 'reservoirTemperature'},
-  {label: 'oilViscosity', value: 'oilViscosity'}
+  {label: 'depth', value: 'Depth'},
+  {label: 'netThickness', value: 'Net Thickness'},
+  {label: 'permeability', value: 'Permeability'},
+  {label: 'porosity', value: 'Porosity'},
+  {label: 'initialOilSaturation', value: 'Initial Oil Saturation'},
+  {label: 'reservoirTemperature', value: 'Reservoir Temperature'},
+  {label: 'oilViscosity', value: 'Oil Viscosity'}
 ]

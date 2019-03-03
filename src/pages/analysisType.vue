@@ -98,7 +98,7 @@
               <el-col :span="6" class="el-align-right">Clustering</el-col>
               <el-col :span="16" :offset="2">
                 <el-checkbox-group v-model="analysisForm.clusteringList">
-                  <el-checkbox v-for="item in clustering" :label="item.label" :key="item.label"></el-checkbox>
+                  <el-checkbox v-for="item in clustering" :label="item.label" :key="item.label">{{item.value}}</el-checkbox>
                 </el-checkbox-group>
               </el-col>
             </el-row>
