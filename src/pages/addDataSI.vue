@@ -508,17 +508,17 @@
                         <el-input v-model="scope.row.ppgSize"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Temperature Resistance(⁰C)" width="130">
+                    <el-table-column label="Temperature Resistance(⁰C)" width="230">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.temperatureResistance"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Swelling Rate(hour)" width="130">
+                    <el-table-column label="Swelling Rate(hour)" width="190">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.swellingRate"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Thermal Stability(day)" width="130">
+                    <el-table-column label="Thermal Stability(day)" width="200">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.thermalStability"></el-input>
                       </template>
@@ -528,7 +528,7 @@
                         <el-input v-model="scope.row.strength"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Salinity Resistance(ppm)" width="130">
+                    <el-table-column label="Salinity Resistance(ppm)" width="200">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.salinityResistance"></el-input>
                       </template>
@@ -538,42 +538,42 @@
                         <el-input v-model="scope.row.swellingRatio"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Dried PPG Weight(ton)" width="130">
+                    <el-table-column label="Dried PPG Weight(ton)" width="190">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.driedPPGWeight"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="PPG Suspension Concentration(ppm)" width="130">
+                    <el-table-column label="PPG Suspension Concentration(ppm)" width="300">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.ppgSuspensionConcentration"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="PPG Injection Volume(m3)" width="130">
+                    <el-table-column label="PPG Injection Volume(m3)" width="230">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.ppgInjectionVolume"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="PPG Injection Rate(m3/day)" width="130">
+                    <el-table-column label="PPG Injection Rate(m3/day)" width="230">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.ppgInjectionRate"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Initial PPG Injection Pressure(MPa)" width="130">
+                    <el-table-column label="Initial PPG Injection Pressure(MPa)" width="270">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.initialPPGInjectionPressure"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Maximum Injection Pressure(MPa)" width="130">
+                    <el-table-column label="Maximum Injection Pressure(MPa)" width="270">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.maximumInjectionPressure"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Total Injection Weight(ton)" width="130">
+                    <el-table-column label="Total Injection Weight(ton)" width="240">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.totalInjectionWeight"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Total Injection Volume(m3)" width="130">
+                    <el-table-column label="Total Injection Volume(m3)" width="240">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.totalInjectionVolume"></el-input>
                       </template>
@@ -715,7 +715,7 @@
                           <el-input v-model="scope.row.beforePi90"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Injection Pressure (MPa)">
+                      <el-table-column label="Injection Pressure (MPa)" width="200">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.beforeInjectionPressure"></el-input>
                         </template>
@@ -727,7 +727,7 @@
                           <el-input v-model="scope.row.afterPi90"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Injection Pressure (MPa)">
+                      <el-table-column label="Injection Pressure (MPa)" width="200">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.afterInjectionPressure"></el-input>
                         </template>
@@ -739,7 +739,7 @@
                           <el-input v-model="scope.row.differencePi90"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Injection Pressure (MPa)">
+                      <el-table-column label="Injection Pressure (MPa)" width="200">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.differenceInjectionPressure"></el-input>
                         </template>
@@ -774,47 +774,47 @@
                 <!--8.PPG处理前后的注水剖面比较-->
                 <el-collapse-item title="Water Injection Profile Comparision Before and After PPG Treatment" name="8">
                   <el-table :data="addDataForm.ppg.waterInjectionProfile" style="width: 100%" stripe>
-                    <el-table-column label="Well Name">
+                    <el-table-column label="Well Name" width="120">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.wellName"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Target Zone">
+                    <el-table-column label="Target Zone" width="120">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.targetZone"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Before PPG Injection">
-                      <el-table-column label="Percentage of Intake Water(%)">
+                      <el-table-column label="Percentage of Intake Water(%)" width="240">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.beforePercentageIntakeWater"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Water Intake(m3/d)">
+                      <el-table-column label="Water Intake(m3/d)" width="170">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.beforeWaterIntake"></el-input>
                         </template>
                       </el-table-column>
                     </el-table-column>
                     <el-table-column label="After PPG Treatment">
-                      <el-table-column label="Percentage of Intake Water(%)">
+                      <el-table-column label="Percentage of Intake Water(%)" width="240">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.afterPercentageIntakeWater"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Water Intake(m3/d)">
+                      <el-table-column label="Water Intake(m3/d)" width="170">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.afterWaterIntake"></el-input>
                         </template>
                       </el-table-column>
                     </el-table-column>
                     <el-table-column label="Difference">
-                      <el-table-column label="Percentage of Intake Water(%)">
+                      <el-table-column label="Percentage of Intake Water(%)" width="240">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.differencePercentageIntakeWater"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Water Intake(m3/d)">
+                      <el-table-column label="Water Intake(m3/d)" width="170">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.differenceWaterIntake"></el-input>
                         </template>
@@ -833,62 +833,62 @@
                 <!--9.生产绩效-->
                 <el-collapse-item title="Production Performance" name="9">
                   <el-table :data="addDataForm.ppg.productionPerformance" style="width: 100%" stripe>
-                    <el-table-column label="Well Name">
+                    <el-table-column label="Well Name" width="120">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.wellName"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Number of Producers">
+                    <el-table-column label="Number of Producers" width="180">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.numberOfProducers"></el-input>
                       </template>
                     </el-table-column>
                     <el-table-column label="Before PPG Injection">
-                      <el-table-column label="Liquid(ton)">
+                      <el-table-column label="Liquid(ton)" width="120">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.beforeLiquid"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Oil(ton)">
+                      <el-table-column label="Oil(ton)" width="120">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.beforeOil"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Water Cut(%)">
+                      <el-table-column label="Water Cut(%)" width="120">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.beforeWaterCut"></el-input>
                         </template>
                       </el-table-column>
                     </el-table-column>
                     <el-table-column label="After PPG Treatment">
-                      <el-table-column label="Liquid(ton)">
+                      <el-table-column label="Liquid(ton)" width="120">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.afterLiquid"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Oil(ton)">
+                      <el-table-column label="Oil(ton)" width="120">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.afterOil"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Water Cut(%)">
+                      <el-table-column label="Water Cut(%)" width="120">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.afterWaterCut"></el-input>
                         </template>
                       </el-table-column>
                     </el-table-column>
                     <el-table-column label="Difference">
-                      <el-table-column label="Liquid(ton)">
+                      <el-table-column label="Liquid(ton)" width="120">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.differenceLiquid"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Oil(ton)">
+                      <el-table-column label="Oil(ton)" width="120">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.differenceOil"></el-input>
                         </template>
                       </el-table-column>
-                      <el-table-column label="Water Cut(%)">
+                      <el-table-column label="Water Cut(%)" width="120">
                         <template slot-scope="scope">
                           <el-input v-model="scope.row.differenceWaterCut"></el-input>
                         </template>
@@ -1096,52 +1096,52 @@
                         <el-input v-model="scope.row.polymerType"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Average Molecular Weight (10^4 dalton)" width="130">
+                    <el-table-column label="Average Molecular Weight (10^4 dalton)" width="320">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.averageMolecularWeight"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Hydrolysis Degree (%)" width="130">
+                    <el-table-column label="Hydrolysis Degree (%)" width="200">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.hydrolysisDegree"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Average Polymer Concentration (ppm)" width="130">
+                    <el-table-column label="Average Polymer Concentration (ppm)" width="320">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.averagePolymerConcentration"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Average Polymer VisCosity (6RPM,cp)" width="130">
+                    <el-table-column label="Average Polymer VisCosity (6RPM,cp)" width="320">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.averagePolymerViscosity"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Injected Water Salinity (ppm)" width="130">
+                    <el-table-column label="Injected Water Salinity (ppm)"  width="260">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.injectedWaterSalinity"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Start Injecting Pressure (Mpa)" width="130">
+                    <el-table-column label="Start Injecting Pressure (Mpa)"  width="280">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.startInjectingPressure"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="End Injecting Pressure (Mpa)" width="130">
+                    <el-table-column label="End Injecting Pressure (Mpa)" width="260">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.endInjectingPressure"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Injection Rate (PV/a)" width="130">
+                    <el-table-column label="Injection Rate (PV/a)" width="240">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.injectionRate"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Total Injection Volume (PV)" width="130">
+                    <el-table-column label="Total Injection Volume (PV)" width="260">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.totalInjectionVolume"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Number Of Injection Wells" width="130">
+                    <el-table-column label="Number Of Injection Wells" width="250">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.numberOfInjectionWells"></el-input>
                       </template>
@@ -1199,7 +1199,7 @@
                         <el-input v-model="scope.row.brineSalinity"></el-input>
                       </template>
                     </el-table-column>
-                    <el-table-column label="Polymer Concentration (ppm)">
+                    <el-table-column label="Polymer Concentration (ppm)" width="280">
                       <template slot-scope="scope">
                         <el-input v-model="scope.row.polymerConcentration"></el-input>
                       </template>

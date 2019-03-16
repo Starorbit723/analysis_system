@@ -42,14 +42,14 @@ export default {
             let initEcharts = self.$refs.scatterPlot
             self.echarts = self.$echarts.init(initEcharts)
             self.echarts.setOption({
-                title: {
-                    text: self.scatterPlotTitle,
-                    left: 'center',
-                    textStyle:{
-                        fontSize: '20',
-                        color: '#266099'
-                    }
-                },
+                // title: {
+                //     text: self.scatterPlotTitle,
+                //     left: 'center',
+                //     textStyle:{
+                //         fontSize: '20',
+                //         color: '#266099'
+                //     }
+                // },
                 xAxis: {
                     type: 'value',
                     name: self.scatterPlotX

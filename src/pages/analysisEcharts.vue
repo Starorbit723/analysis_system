@@ -2,14 +2,17 @@
     <div class="page_content">
         <Header></Header>
         <section class="main_body">
-        <div class="echart_content">
-            <!--Fundamental Analysis-->
-            <ScatterPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Scatter Plot')" :scatterPlotData="scatterPlotData" :scatterPlotX="analysisConfig.scatterPlotX"  :scatterPlotY="analysisConfig.scatterPlotY" :scatterPlotTitle="scatterPlotTitle"></ScatterPlot>
-            <BoxPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Box Plot')" :boxPlotData="boxPlotData" :boxPlotY="analysisConfig.boxPlotY" :boxPlotTitle="boxPlotTitle"></BoxPlot>
-            <Histogram v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Histogram')" :histogramData="histogramData" :histogramX="analysisConfig.histogramX" :histogramTitle="histogramTitle"></Histogram>
-            <!--Advanced Analysis-->
-            <Cluster v-if="analysisConfig.analysisType == 'Advanced Analysis'" :clusterData="clusterData" :clusterTitle="clusterTitle" :analysisConfig="analysisConfig"></Cluster>
-        </div>
+            <div class="back_btn">
+                <el-button type="primary" @click="backToMydata">Go Back</el-button>
+            </div>
+            <div class="echart_content">
+                <!--Fundamental Analysis-->
+                <ScatterPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Scatter Plot')" :scatterPlotData="scatterPlotData" :scatterPlotX="analysisConfig.scatterPlotX"  :scatterPlotY="analysisConfig.scatterPlotY" :scatterPlotTitle="scatterPlotTitle"></ScatterPlot>
+                <BoxPlot v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Box Plot')" :boxPlotData="boxPlotData" :boxPlotY="analysisConfig.boxPlotY" :boxPlotTitle="boxPlotTitle"></BoxPlot>
+                <Histogram v-if="(analysisConfig.analysisType == 'Fundamental Analysis') && (analysisConfig.chartType == 'Histogram')" :histogramData="histogramData" :histogramX="analysisConfig.histogramX" :histogramTitle="histogramTitle"></Histogram>
+                <!--Advanced Analysis-->
+                <Cluster v-if="analysisConfig.analysisType == 'Advanced Analysis'" :clusterData="clusterData" :clusterTitle="clusterTitle" :analysisConfig="analysisConfig"></Cluster>
+            </div>
         </section>
         <Footer :footerFixed="footerFixed"></Footer>
     </div>
@@ -93,12 +96,22 @@ export default {
                 }
             }
         })
-    }
+    },
+    methods:{
+        backToMydata () {
+            this.$router.push({name:'myData'})
+        }
+    },
+    
 }
 </script>
 
 <style>
 .echart_content{
   padding: 50px 0 0 0;
+}
+.back_btn{
+    width: 1200px;
+    margin: 120px auto 0;
 }
 </style>

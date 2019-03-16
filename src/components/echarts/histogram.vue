@@ -76,14 +76,14 @@ export default {
 			let initEcharts = self.$refs.histogram
 			self.echarts = self.$echarts.init(initEcharts)
 			self.echarts.setOption({
-					title: {
-						text: self.histogramTitle,
-						left:'center',
-						textStyle:{
-							fontSize: '20',
-							color: '#266099'    
-					}
-				},
+					// title: {
+					// 	text: self.histogramTitle,
+					// 	left:'center',
+					// 	textStyle:{
+					// 		fontSize: '20',
+					// 		color: '#266099'    
+					// }
+				//},
 				xAxis: {
 					type: 'category',
 					nameGap:5,
@@ -95,7 +95,8 @@ export default {
 					}
 				},
 				yAxis: {
-					type: 'value'
+					type: 'value',
+					name:'Frequency'
 				},
 				series: [{
 					type: 'bar',
@@ -121,21 +122,22 @@ export default {
 			let initEcharts = self.$refs.histogram2
 			self.echarts2 = self.$echarts.init(initEcharts)
 			self.echarts2.setOption({
-					title: {
-						text: self.histogramTitle,
-						left:'center',
-						textStyle:{
-							fontSize: '20',
-							color: '#266099'    
-					}
-				},
+				// 	title: {
+				// 		text: self.histogramTitle,
+				// 		left:'center',
+				// 		textStyle:{
+				// 			fontSize: '20',
+				// 			color: '#266099'    
+				// 	}
+				// },
 				xAxis: {
 					type: 'value',
 					nameGap:5,
 					name: self.histogramX
 				},
 				yAxis: {
-					type: 'value'
+					type: 'value',
+					name:'Cumulative Frequency'
 				},
 				series: [{
 					type: 'scatter',

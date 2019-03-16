@@ -25,10 +25,10 @@
           </el-col>
        </el-row>
        <el-row style="margin-top:40px;">
-          <el-col :span="5" :offset="6">
+          <el-col :span="7" :offset="4">
             <el-button type="primary" class="el-width-st100" @click="toAddDataPage">Confirm</el-button>
           </el-col>
-          <el-col :span="5" :offset="2">
+          <el-col :span="7" :offset="2">
             <el-button type="primary" class="el-width-st100" @click="cancelChoose">Cancel</el-button>
           </el-col>
        </el-row>

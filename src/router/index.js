@@ -9,6 +9,7 @@ Vue.use(Router)
 const index = r => require.ensure([], () => r(require('@pages/index')), 'index')
 const myData = r => require.ensure([], () => r(require('@pages/myData')), 'myData')
 const addData = r => require.ensure([], () => r(require('@pages/addData')), 'addData')
+const linkOther = r => require.ensure([], () => r(require('@pages/linkOther')), 'linkOther')
 const addDataSI = r => require.ensure([], () => r(require('@pages/addDataSI')), 'addDataSI')
 const addDataField = r => require.ensure([], () => r(require('@pages/addDataField')), 'addDataField')
 const analysisType = r => require.ensure([], () => r(require('@pages/analysisType')), 'analysisType')
@@ -34,6 +35,10 @@ const router = new Router({
       path: '/addData',
       name: 'addData',
       component: addData
+    }, {
+      path: '/linkOther',
+      name: 'linkOther',
+      component: linkOther
     }, {
       path: '/addDataSI',
       name: 'addDataSI',

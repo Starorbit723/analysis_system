@@ -51,11 +51,11 @@
           <el-table-column prop="unitType" label="Unit Type" width="100"></el-table-column>
           <el-table-column prop="gmtCreate" label="Creat Time" width="120"></el-table-column>
           <el-table-column prop="gmtModified" label="Modify Time" width="120"></el-table-column>
-          <el-table-column label="Operation" width="350">
+          <el-table-column label="Operation" width="280">
             <template slot-scope="scope">
-              <el-button type="primary" size="small" @click="analysisThisData(scope.row)">Analysis Data</el-button>
-              <el-button type="primary" size="small" @click="editThisData(scope.row)">Edit Data</el-button>
-              <el-button type="primary" size="small" @click="deleteThisData(scope.row)">Delete Data</el-button>
+              <el-button type="primary" size="small" @click="analysisThisData(scope.row)">Analyze</el-button>
+              <el-button type="primary" size="small" @click="editThisData(scope.row)">Edit</el-button>
+              <el-button type="primary" size="small" @click="deleteThisData(scope.row)">Delete</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -76,7 +76,7 @@
     <el-dialog :visible.sync="dialogVisible" width="35%" top="20vh" :close-on-click-modal="false" :close-on-press-escape="false" :show-close="false">
       <el-row>
         <el-col class="el-row-h30">Are you sure to delete this data ? The deleted data cannot be recovery.</el-col>
-        <el-col class="el-row-h30 f-mart10">Please write in sentence "<b style="color:#266099;">I want to delete this data</b>"</el-col>
+        <el-col class="el-row-h30 f-mart10">Please write in word "<b style="color:#266099;">CONFIRM</b>"</el-col>
         <el-input class="f-mart20" v-model.trim="writeInput"></el-input>
       </el-row>
       <span slot="footer" class="dialog-footer">
@@ -188,7 +188,7 @@ export default {
     },
     ensureDelete () {
       var self = this
-      if (self.writeInput === 'I want to delete this data') {
+      if (self.writeInput === 'CONFIRM') {
         axios.post(self.baseUrl + '/s/del', {
           username: getCookie('loginName'),
           id: self.deleteId

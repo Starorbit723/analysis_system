@@ -10,7 +10,7 @@ export default {
     data () {
         return {
             echarts:'',
-            nData: []
+            nData: [],
         }
     },
     watch: {
@@ -32,20 +32,21 @@ export default {
             console.log('data:', data)
             self.echarts = self.$echarts.init(self.$refs.boxPlot)
             self.echarts.setOption({
-                title: {
-                    text: self.boxPlotTitle,
-                    left:'center',
-                    textStyle:{
-                        fontSize: '20',
-                        color: '#266099'
-                }
-            },
+                // title: {
+                //     text: self.boxPlotTitle,
+                //     left:'center',
+                //     textStyle:{
+                //         fontSize: '20',
+                //         color: '#266099'
+                // }
+            //},
             xAxis: {
                 type: 'category',
                 data: data.axisData
             },
             yAxis: {
-                type: 'value'
+                type: 'value',
+                name: self.boxPlotY
             },
             series: [{
                 type: 'boxplot',

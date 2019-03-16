@@ -30,12 +30,16 @@ export default {
         path: '/index',
         isActive: false
       }, {
-        name: 'Add Data',
+        name: 'Data Collection',
         path: '/addData',
         isActive: false
       }, {
-        name: 'My Data',
+        name: 'Data Management',
         path: '/myData',
+        isActive: false
+      }, {
+        name: 'Data Visualization',
+        path: '/linkOther',
         isActive: false
       }, {
         name: 'About Us',
@@ -142,8 +146,8 @@ export default {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    width: 130px;
     height: 60px;
+    padding: 0 20px;
     font-size: 16px;
     text-align: center;
     cursor: pointer;
