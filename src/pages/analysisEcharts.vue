@@ -101,8 +101,7 @@ export default {
         backToMydata () {
             this.$router.push({name:'myData'})
         }
-    },
-    
+    }
 }
 </script>
 

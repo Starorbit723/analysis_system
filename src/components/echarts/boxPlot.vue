@@ -10,7 +10,7 @@ export default {
     data () {
         return {
             echarts:'',
-            nData: [],
+            nData: []
         }
     },
     watch: {
